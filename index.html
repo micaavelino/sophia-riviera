@@ -1,0 +1,1798 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Sophia Riviera · Estudo de Projeção Financeira</title>
+<style>
+/* ── VARIABLES ─────────────────────────────────────────────────────── */
+:root {
+  --navy:#16343E; --teal:#204E5C; --lteal:#6FB9B2;
+  --gold:#C8B083; --cream:#E3DED2; --white:#FFFFFF; --bg:#F5F3EF;
+  --sans:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,Arial,sans-serif;
+  --serif:Georgia,'Times New Roman',serif;
+  --pad:88px; --max:1320px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:var(--sans);background:var(--bg);color:var(--navy);line-height:1.65;font-size:16px}
+
+/* ── TYPOGRAPHY ────────────────────────────────────────────────────── */
+.eyebrow{font-size:10.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--lteal);display:block;margin-bottom:14px}
+.d-xl{font-family:var(--serif);font-size:clamp(38px,5vw,68px);font-weight:400;line-height:1.1;letter-spacing:-.02em;color:var(--white)}
+.d-l{font-family:var(--serif);font-size:clamp(28px,3.2vw,46px);font-weight:400;line-height:1.18;letter-spacing:-.015em}
+.d-m{font-family:var(--serif);font-size:clamp(19px,2vw,27px);font-weight:400;line-height:1.3}
+.lead{font-size:17px;font-weight:300;line-height:1.75;color:#4e6c78}
+.body-sm{font-size:14px;line-height:1.75;color:#4e6c78}
+.ui-label{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase}
+
+/* ── LAYOUT ────────────────────────────────────────────────────────── */
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+section{padding:108px 0}
+.sh{margin-bottom:72px}
+.sh .eyebrow{margin-bottom:14px}
+.sh .lead{margin-top:14px;max-width:660px}
+.gold-line{width:36px;height:1px;background:var(--gold);margin:20px 0}
+
+/* ── NAV ───────────────────────────────────────────────────────────── */
+#nav{position:fixed;top:0;left:0;right:0;z-index:100;height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 var(--pad);border-bottom:1px solid transparent;transition:.3s}
+#nav.on{background:rgba(22,52,62,.95);backdrop-filter:blur(14px);border-bottom-color:rgba(200,176,131,.15)}
+.nav-brand{color:var(--white);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.55);font-size:11px;letter-spacing:.09em;text-transform:uppercase;text-decoration:none;transition:.2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-tag{font-size:10px;color:rgba(255,255,255,.28);letter-spacing:.09em;border:1px solid rgba(255,255,255,.12);padding:4px 12px;border-radius:2px}
+
+/* ── HERO ──────────────────────────────────────────────────────────── */
+#hero{min-height:100vh;background:var(--navy);position:relative;display:flex;align-items:flex-end;padding-bottom:100px;overflow:hidden}
+#hero::before{content:'';position:absolute;inset:0;background:linear-gradient(158deg,rgba(22,52,62,0) 30%,rgba(32,78,92,.4) 100%);pointer-events:none}
+.hero-grain{position:absolute;inset:0;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");pointer-events:none}
+.hero-inner{position:relative;z-index:1;width:100%}
+.hero-eyebrow{font-size:10.5px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--lteal);display:block;margin-bottom:28px}
+.hero-h1{font-family:var(--serif);font-size:clamp(36px,5.2vw,70px);font-weight:400;line-height:1.1;letter-spacing:-.025em;color:var(--white);max-width:840px;margin-bottom:24px}
+.hero-sub{font-size:17px;font-weight:300;color:rgba(255,255,255,.55);max-width:580px;line-height:1.75;margin-bottom:44px}
+.hero-rule{width:36px;height:1px;background:var(--gold);margin-bottom:32px}
+.hero-meta{display:flex;gap:36px;padding:18px 0;border-top:1px solid rgba(255,255,255,.07);border-bottom:1px solid rgba(255,255,255,.07);margin-bottom:44px}
+.hm-item .hm-v{font-size:12px;font-weight:600;color:var(--gold);letter-spacing:.04em;margin-bottom:2px}
+.hm-item .hm-k{font-size:10px;color:rgba(255,255,255,.3);letter-spacing:.09em;text-transform:uppercase}
+.hero-btns{display:flex;align-items:center;gap:18px}
+.btn-gold{display:inline-block;background:var(--gold);color:var(--navy);padding:13px 34px;font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:opacity .2s}
+.btn-gold:hover{opacity:.87}
+.btn-ghost{display:inline-block;border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.65);padding:13px 34px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:.2s}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.hero-badge{position:absolute;top:82px;right:var(--pad);font-size:9.5px;color:rgba(255,255,255,.25);letter-spacing:.09em;text-transform:uppercase;border:1px solid rgba(255,255,255,.1);padding:5px 12px;border-radius:2px}
+
+/* ── S02 TESE ──────────────────────────────────────────────────────── */
+#tese{background:var(--bg)}
+.three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.pillar{background:var(--white);padding:40px 34px 34px;border-top:3px solid transparent}
+.pillar.c1{border-top-color:var(--teal)}
+.pillar.c2{border-top-color:var(--lteal)}
+.pillar.c3{border-top-color:var(--gold)}
+.pillar-tag{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--lteal);display:block;margin-bottom:14px}
+.pillar-n{font-family:var(--serif);font-size:58px;font-weight:400;color:var(--gold);line-height:1;margin-bottom:3px}
+.pillar-u{font-size:12px;color:#9ab0b9;margin-bottom:26px;display:block}
+.pillar-list{list-style:none;border-top:1px solid var(--bg);padding-top:18px}
+.pillar-list li{font-size:13.5px;color:#4e6c78;padding:7px 0;border-bottom:1px solid #f0ede8;display:grid;grid-template-columns:8px 1fr;gap:10px;line-height:1.5;align-items:start}
+.pillar-list li::before{content:'';width:1px;height:1em;background:var(--gold);display:block;margin-top:.2em;justify-self:center}
+.tese-close{text-align:center;font-size:13.5px;color:#8a9ea5;font-style:italic;margin-top:32px;padding:0 40px}
+
+/* ── S03 DESTINO ───────────────────────────────────────────────────── */
+#destino{background:var(--navy);padding:108px 0 100px}
+#destino .d-l{color:var(--white)}
+#destino .lead{color:rgba(255,255,255,.55)}
+.stat4{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.05);margin:52px 0}
+.stat3{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.05);margin:52px 0}
+.sbox{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);padding:30px 26px}
+.sbox-n{font-family:var(--serif);font-size:40px;font-weight:400;color:var(--gold);line-height:1;margin-bottom:9px}
+.sbox-l{font-size:12.5px;color:rgba(255,255,255,.5);line-height:1.5}
+.dest-body{font-size:15px;font-weight:300;color:rgba(255,255,255,.6);max-width:720px;line-height:1.8;margin-bottom:24px}
+.dest-note{font-size:12px;color:rgba(255,255,255,.3);font-style:italic;padding-top:18px;border-top:1px solid rgba(255,255,255,.07);max-width:700px}
+.dest-layout{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:start;margin:44px 0 0}
+.dest-nodes svg{width:100%;height:auto;display:block}
+.dest-loc-list{display:flex;flex-direction:column;gap:20px;padding-top:6px}
+.dl-item{display:grid;grid-template-columns:2px 1fr;gap:16px;align-items:start}
+.dl-bar{background:var(--gold);border-radius:1px;min-height:28px}
+.dl-strong{display:block;font-size:13.5px;font-weight:700;color:var(--white);margin-bottom:3px}
+.dl-body{font-size:13px;color:rgba(255,255,255,.5);line-height:1.6}
+/* mobile fallback diagram */
+.dest-nodes-mobile{display:none;margin-top:8px}
+.dnm-center{background:rgba(200,176,131,.12);border:1px solid rgba(200,176,131,.3);border-radius:4px;padding:14px 18px;text-align:center;margin-bottom:14px}
+.dnm-center-name{font-family:var(--serif);font-size:15px;font-weight:400;color:var(--gold)}
+.dnm-center-sub{font-size:10.5px;color:rgba(255,255,255,.35);margin-top:2px}
+.dnm-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.dnm-item{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:3px;padding:10px 12px}
+.dnm-name{font-size:11.5px;font-weight:600;color:rgba(255,255,255,.75);display:block;margin-bottom:3px}
+.dnm-dist{font-size:10px;color:var(--gold);opacity:.7}
+
+/* ── S04 ARREY ─────────────────────────────────────────────────────── */
+#arrey{background:var(--teal);padding:108px 0}
+#arrey .d-l{color:var(--white)}
+.arrey-layout{display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:start;margin-top:8px}
+.arrey-intro .lead{color:rgba(255,255,255,.6)}
+.arrey-intro p.body-sm{color:rgba(255,255,255,.55);margin-top:16px}
+.arrey-note{margin-top:28px;font-size:12px;color:rgba(255,255,255,.32);font-style:italic;border-top:1px solid rgba(255,255,255,.08);padding-top:18px}
+.cred-list{display:flex;flex-direction:column}
+.cred-item{display:grid;grid-template-columns:2px 1fr;gap:18px;padding:19px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.cred-bar{background:var(--gold);border-radius:1px}
+.cred-n{font-size:19px;font-weight:700;color:var(--gold);line-height:1.1;margin-bottom:2px}
+.cred-d{font-size:12.5px;color:rgba(255,255,255,.5)}
+
+/* ── S05 MÉTODO ────────────────────────────────────────────────────── */
+#metodologia{background:var(--white);padding:108px 0}
+.method-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--cream)}
+.mcard{background:var(--white);padding:38px 34px;position:relative}
+.mcard-num{font-family:var(--serif);font-size:60px;font-weight:400;color:rgba(22,52,62,.05);position:absolute;top:24px;right:28px;line-height:1;user-select:none}
+.mcard-title{font-size:14.5px;font-weight:700;color:var(--navy);margin-bottom:12px;padding-right:56px}
+.mcard-text{font-size:13.5px;color:#4e6c78;line-height:1.8}
+.method-close{background:rgba(200,176,131,.1);border-left:3px solid var(--gold);padding:26px 34px;margin-top:1px;font-family:var(--serif);font-size:15px;font-style:italic;color:var(--teal);line-height:1.65}
+
+/* ── S06 CENÁRIOS ──────────────────────────────────────────────────── */
+#cenarios{background:var(--bg)}
+.sc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:44px}
+.sc-card{background:var(--white);padding:30px;border:1px solid var(--cream);border-top:2px solid transparent;position:relative}
+.sc-card.base{border-top-color:var(--gold)}
+.sc-card.opt {border-top-color:var(--lteal)}
+.sc-card.cons{border-top-color:var(--cream)}
+.sc-tag{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:4px 10px;border-radius:2px;margin-bottom:18px}
+.sc-tag.t-base{background:var(--navy);color:var(--cream)}
+.sc-tag.t-opt {background:var(--lteal);color:var(--navy)}
+.sc-tag.t-cons{background:var(--cream);color:var(--navy)}
+.sc-occ{font-size:12px;color:#9ab0b9;margin-bottom:22px}
+.sc-kv{margin-bottom:12px}
+.sc-kl{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:#aab8be;margin-bottom:2px}
+.sc-kv{font-family:var(--serif);font-size:21px;color:var(--navy);font-weight:400}
+.sc-kv.roi{color:var(--teal);font-size:28px}
+.sc-foot{font-size:10.5px;color:#c0cacf;font-style:italic;margin-top:14px;padding-top:12px;border-top:1px solid var(--bg);line-height:1.5}
+.be-box{background:var(--navy);display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center;padding:36px 48px;margin-bottom:48px}
+.be-num{font-family:var(--serif);font-size:62px;font-weight:400;color:var(--gold);line-height:1;white-space:nowrap}
+.be-tag{font-size:10px;font-weight:700;letter-spacing:.17em;text-transform:uppercase;color:var(--lteal);margin-bottom:10px;display:block}
+.be-body{font-size:15px;color:rgba(255,255,255,.6);font-family:var(--serif);line-height:1.6}
+/* Chart container */
+.chart-box{background:var(--white);border:1px solid var(--cream);padding:24px}
+.chart-hdr{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px;gap:16px;flex-wrap:wrap}
+.chart-title-text{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--navy)}
+.chart-legend{display:flex;gap:18px}
+.leg-item{display:flex;align-items:center;gap:6px;font-size:11px;color:#8a9ea5}
+.leg-dot{width:10px;height:10px;border-radius:1px;flex-shrink:0}
+canvas{display:block}
+.chart-note{font-size:11px;color:#aab5bc;font-style:italic;margin-top:12px;padding-top:12px;border-top:1px solid var(--cream)}
+
+/* ── S07 SIMULADOR ─────────────────────────────────────────────────── */
+#simulador{background:var(--navy);padding:108px 0}
+#simulador .eyebrow{color:var(--lteal)}
+#simulador .d-l{color:var(--white)}
+#simulador .lead{color:rgba(255,255,255,.5)}
+.sim-layout{display:grid;grid-template-columns:420px 1fr;gap:36px;align-items:start;margin-top:8px}
+/* Controls */
+.sim-col{display:flex;flex-direction:column;gap:10px}
+.ib{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.08);border-top:2px solid rgba(255,255,255,.1)}
+.ib-head{padding:17px 22px 0}
+.ib-tag{font-size:9.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--lteal);display:block;margin-bottom:2px}
+.ib-title{font-size:13.5px;color:rgba(255,255,255,.8);font-weight:300}
+.ib-body{padding:14px 22px 20px;display:flex;flex-direction:column;gap:13px}
+.fl{font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.35);display:block;margin-bottom:5px}
+select.fi,input.fi{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.11);color:var(--white);font-family:var(--sans);font-size:13.5px;padding:9px 12px;appearance:none;cursor:pointer;border-radius:0;transition:border-color .2s}
+select.fi:focus,input.fi:focus{outline:none;border-color:var(--gold)}
+select.fi option{background:var(--navy)}
+.fn{font-size:10.5px;color:rgba(255,255,255,.26);font-style:italic;margin-top:4px;line-height:1.5}
+/* Segmented control */
+.seg{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid rgba(255,255,255,.11);overflow:hidden}
+.seg-btn{background:none;border:none;border-right:1px solid rgba(255,255,255,.11);color:rgba(255,255,255,.4);font-family:var(--sans);font-size:11.5px;font-weight:500;letter-spacing:.04em;padding:10px 6px;cursor:pointer;transition:all .2s;text-align:center;line-height:1.3}
+.seg-btn:last-child{border-right:none}
+.seg-btn small{display:block;font-size:9.5px;opacity:.6;margin-top:1px}
+.seg-btn.on{background:var(--teal);color:var(--white);font-weight:700}
+.sc-ctx{margin-top:10px;background:rgba(255,255,255,.025);border-left:2px solid var(--lteal);padding:9px 13px;display:flex;flex-direction:column;gap:3px}
+.sc-ctx span{font-size:10.5px;color:rgba(255,255,255,.36);line-height:1.4}
+/* Sliders */
+.slider-row{margin-bottom:2px}
+.sl-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px}
+.sl-val{font-size:13.5px;font-weight:600;color:var(--gold);background:rgba(200,176,131,.1);padding:2px 9px;border-radius:2px}
+.sl-sub{font-size:11px;color:rgba(255,255,255,.3)}
+input[type=range]{-webkit-appearance:none;width:100%;height:3px;background:rgba(255,255,255,.1);border-radius:2px;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:15px;height:15px;background:var(--gold);border-radius:50%;cursor:pointer;transition:transform .15s}
+input[type=range]::-webkit-slider-thumb:active{transform:scale(1.25)}
+/* Display (locked) */
+.disp-field{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.06);padding:9px 13px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.disp-field .dl{font-size:12px;color:rgba(255,255,255,.33)}
+.disp-field .dv{font-size:12.5px;color:rgba(255,255,255,.5);font-weight:500}
+.lk{font-size:10px;color:rgba(255,255,255,.18)}
+/* Radio */
+.rg{display:flex;flex-direction:column;gap:5px}
+.ro{display:flex;align-items:flex-start;gap:11px;padding:11px 13px;border:1px solid rgba(255,255,255,.07);cursor:pointer;transition:border-color .2s}
+.ro:hover{border-color:rgba(255,255,255,.18)}
+.ro.on{border-color:var(--lteal);background:rgba(111,185,178,.04)}
+.ro input{display:none}
+.ri{width:15px;height:15px;border:1px solid rgba(255,255,255,.22);border-radius:50%;flex-shrink:0;margin-top:2px;position:relative;transition:border-color .2s}
+.ro.on .ri{border-color:var(--lteal)}
+.ro.on .ri::after{content:'';position:absolute;inset:3px;background:var(--lteal);border-radius:50%}
+.rt strong{display:block;font-size:13px;color:rgba(255,255,255,.72);font-weight:500}
+.rt small{font-size:11px;color:rgba(255,255,255,.32)}
+/* Warn */
+.warn{display:none;background:rgba(200,150,50,.1);border:1px solid rgba(200,150,50,.3);color:rgba(255,210,100,.8);padding:10px 14px;font-size:11.5px;margin-bottom:10px;line-height:1.5;border-radius:0}
+.warn.show{display:block}
+
+/* ── OUTPUTS ───────────────────────────────────────────────────────── */
+.out-col{display:flex;flex-direction:column;gap:14px}
+.out-hero{background:linear-gradient(140deg,rgba(32,78,92,.85),rgba(22,52,62,.95));border:1px solid rgba(200,176,131,.22);padding:32px 34px;text-align:center}
+.oh-label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.38);display:block;margin-bottom:14px}
+.oh-val{font-family:var(--serif);font-size:50px;font-weight:400;color:var(--gold);line-height:1;margin-bottom:7px}
+.oh-sub{font-size:14.5px;color:rgba(255,255,255,.42);margin-bottom:14px}
+.oh-badge{display:inline-block;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--lteal);border:1px solid rgba(111,185,178,.28);padding:4px 12px;border-radius:2px}
+.kpi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px}
+.kpi{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);padding:19px 20px;position:relative}
+.kpi-l{font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.32);display:block;margin-bottom:7px}
+.kpi-v{font-family:var(--serif);font-size:27px;font-weight:400;color:var(--gold);line-height:1;margin-bottom:3px}
+.kpi-s{font-size:10.5px;color:rgba(255,255,255,.28)}
+.kpi-h{font-size:10px;color:var(--lteal);margin-top:3px}
+.tt-btn{position:absolute;top:13px;right:13px;width:15px;height:15px;border:1px solid rgba(255,255,255,.13);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:8.5px;color:rgba(255,255,255,.22);cursor:default}
+/* Waterfall */
+.wf-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);padding:18px 20px}
+.wf-label{font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.32);display:block;margin-bottom:12px}
+.cost-tog{background:none;border:none;font-family:var(--sans);font-size:11px;color:var(--lteal);cursor:pointer;padding:5px 0;letter-spacing:.05em;transition:opacity .2s}
+.cost-tog:hover{opacity:.75}
+.ctab{width:100%;border-collapse:collapse;display:none;margin-top:6px}
+.ctab.open{display:table}
+.ctab td{padding:5px 0;font-size:11.5px;border-bottom:1px solid rgba(255,255,255,.04);color:rgba(255,255,255,.5)}
+.ctab td:nth-child(2){text-align:right;color:var(--white)}
+.ctab td:nth-child(3){text-align:right;font-size:10.5px;color:rgba(255,255,255,.28);padding-left:10px}
+.ctab tr.tot td{color:var(--gold);font-weight:600;border-bottom:none;border-top:1px solid rgba(200,176,131,.18)}
+/* 10y chart */
+.c10-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);padding:18px 20px}
+.c10-label{font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.32);display:block;margin-bottom:8px}
+.c10-leg{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:10px}
+.c10-leg span{display:flex;align-items:center;gap:5px;font-size:10px;color:rgba(255,255,255,.32)}
+.c10-leg i{display:inline-block;width:18px;height:2px;border-radius:1px}
+.sim-note{font-size:11px;color:rgba(255,255,255,.22);font-style:italic;padding-top:12px;border-top:1px solid rgba(255,255,255,.06);line-height:1.6}
+
+/* ── TIMELINE ──────────────────────────────────────────────────────── */
+#timeline{background:var(--navy);padding:0 0 80px;border-top:1px solid rgba(255,255,255,.07)}
+.tl-head{padding:40px 0 28px}
+.tl-head h3{font-size:11px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,.42);margin-bottom:4px}
+.tl-head p{font-size:12px;color:rgba(255,255,255,.25)}
+.tl-track{height:68px;display:flex;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.07)}
+.tl-seg{height:100%;display:flex;flex-direction:column;justify-content:center;padding:0 14px;overflow:hidden;transition:width .4s ease}
+.ts-ent{background:rgba(200,176,131,.22);border-right:1px solid rgba(200,176,131,.25)}
+.ts-pre{background:rgba(32,78,92,.55);border-right:1px solid rgba(255,255,255,.08)}
+.ts-pos{background:rgba(111,185,178,.1)}
+.ts-l{font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:2px}
+.ts-v{font-size:13px;font-weight:600;color:rgba(255,255,255,.78)}
+.tl-mark{position:absolute;top:0;bottom:0;width:1px;background:var(--gold)}
+.tl-mark-l{position:absolute;bottom:-20px;transform:translateX(-50%);font-size:9px;color:var(--gold);letter-spacing:.06em;white-space:nowrap}
+.tl-info{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.04);margin-top:38px}
+.ti-cell{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.05);padding:19px 20px}
+.ti-l{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:5px}
+.ti-v{font-family:var(--serif);font-size:21px;color:var(--gold);line-height:1;margin-bottom:2px}
+.ti-s{font-size:10.5px;color:rgba(255,255,255,.27)}
+
+/* ── S07 TIPOLOGIAS ────────────────────────────────────────────────── */
+#tipologias{background:var(--white);padding:108px 0}
+.tc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--bg);margin-bottom:8px}
+.tc-card{background:var(--white);padding:26px 22px;border-top:2px solid var(--cream)}
+.tc-card.hi{border-top-color:var(--navy)}
+.tc-card.md{border-top-color:var(--lteal)}
+.tc-name{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.tc-meta{font-size:11px;color:#9ab0b9;margin-bottom:16px;line-height:1.5}
+.tc-roi-l{font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:#aab8be;margin-bottom:4px;display:block}
+.tc-roi{font-family:var(--serif);font-size:26px;color:var(--teal);line-height:1;margin-bottom:4px}
+.tc-pay{font-size:11.5px;color:#8a9ea5}
+details.tt-details{margin-top:20px}
+details.tt-details>summary{list-style:none;display:inline-flex;align-items:center;gap:8px;cursor:pointer;font-size:12px;font-weight:700;letter-spacing:.06em;color:var(--teal);border:1px solid var(--cream);padding:10px 24px;transition:.2s;user-select:none;background:none}
+details.tt-details>summary::-webkit-details-marker{display:none}
+details.tt-details>summary:hover{background:var(--bg);border-color:var(--lteal)}
+details.tt-details .typo-wrap{margin-top:16px}
+.typo-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table.tt{width:100%;border-collapse:collapse;font-size:13.5px}
+.tt thead th{background:var(--teal);color:var(--cream);padding:13px 15px;text-align:left;font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;border-right:1px solid rgba(255,255,255,.07)}
+.tt tbody td{padding:13px 15px;border-bottom:1px solid var(--bg);white-space:nowrap;border-right:1px solid rgba(22,52,62,.035)}
+.tt tbody tr:nth-child(even) td{background:#faf9f7}
+.tt tbody tr:hover td{background:rgba(200,176,131,.06)}
+.tt td:first-child{font-weight:600}
+.rh{display:inline-block;padding:4px 8px;font-size:12px;font-weight:700;letter-spacing:.02em;border-radius:2px}
+.rh-hi{background:var(--navy);color:var(--gold)}
+.rh-md{background:rgba(32,78,92,.1);color:var(--teal)}
+.rh-lo{color:var(--navy);font-weight:600}
+.tt-foot{font-size:12px;color:#8a9ea5;margin-top:16px;padding-top:14px;border-top:1px solid var(--cream);line-height:1.7}
+
+/* ── S09 PRUDÊNCIA ─────────────────────────────────────────────────── */
+#prudencia{background:var(--bg);padding:108px 0}
+.pru-panels{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:8px}
+.pp{padding:48px}
+.pp.left{background:var(--teal)}
+.pp.right{background:var(--cream)}
+.pp.left h3{font-family:var(--serif);font-size:21px;font-weight:400;color:var(--white);margin-bottom:26px}
+.pp.right h3{font-family:var(--serif);font-size:21px;font-weight:400;color:var(--navy);margin-bottom:26px}
+.pp-list{list-style:none;display:flex;flex-direction:column}
+.pp-item{display:grid;grid-template-columns:20px 1fr;gap:11px;font-size:13.5px;line-height:1.65;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.pp.right .pp-item{border-bottom-color:rgba(22,52,62,.08)}
+.pp.left .pp-item{color:rgba(255,255,255,.73)}
+.pp.right .pp-item{color:var(--navy)}
+.pp-icon{font-size:13px;margin-top:2px}
+/* ── PRUDENTIAL CLOSING ─────────────────────────────────────────────── */
+.pru-closing{display:grid;grid-template-columns:1fr 1px 1fr;background:var(--navy);margin-top:0}
+.prc-side{padding:36px 44px}
+.prc-divider{background:rgba(255,255,255,.06)}
+.prc-label{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;display:block;margin-bottom:18px}
+.prc-yes{color:var(--lteal)}
+.prc-no{color:rgba(200,176,131,.48)}
+.prc-list{list-style:none;display:flex;flex-direction:column;gap:11px}
+.prc-list li{font-size:13px;line-height:1.62;padding-left:15px;position:relative;color:rgba(255,255,255,.52)}
+.prc-list li::before{content:'';position:absolute;left:0;top:8px;width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.18)}
+.prc-yes-list li::before{background:var(--lteal);opacity:.8}
+.prc-no-list li{color:rgba(255,255,255,.38)}
+.prc-no-list li::before{background:rgba(200,176,131,.3)}
+
+/* ── S10 RISCOS ────────────────────────────────────────────────────── */
+#riscos{background:var(--white);padding:108px 0}
+.rk-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--cream)}
+.rk-card{background:var(--white);padding:30px 32px}
+.rk-title{font-size:14.5px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.rk-desc{font-size:13.5px;color:#4e6c78;line-height:1.7;margin-bottom:12px}
+.rk-impact{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;background:var(--cream);color:var(--navy);border-radius:2px;margin-bottom:10px}
+.rk-mit{font-size:12.5px;color:var(--teal);display:flex;gap:5px;align-items:flex-start;padding-top:9px;border-top:1px solid var(--bg);line-height:1.55}
+.rk-mit::before{content:'↳';flex-shrink:0}
+.rk-close{background:var(--bg);padding:22px 30px;font-size:13.5px;color:#4e6c78;font-style:italic;font-family:var(--serif);border-left:3px solid var(--gold);margin-top:1px;line-height:1.65}
+
+/* ── S11 COMPARAÇÃO ────────────────────────────────────────────────── */
+#comparacao{background:var(--teal);padding:108px 0}
+.comp-disc{background:rgba(255,255,255,.05);border:1px solid rgba(200,176,131,.22);padding:18px 22px;font-size:13px;color:rgba(255,255,255,.52);line-height:1.75;margin-bottom:32px}
+table.ctbl{width:100%;border-collapse:collapse;font-size:13.5px}
+.ctbl thead th{padding:11px 15px;text-align:left;font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.32);border-bottom:1px solid rgba(255,255,255,.09)}
+.ctbl tbody td{padding:13px 15px;color:rgba(255,255,255,.62);border-bottom:1px solid rgba(255,255,255,.05)}
+.ctbl tr.sr td{background:rgba(200,176,131,.08);color:var(--gold);font-weight:500}
+.comp-notes{margin-top:14px}
+.comp-notes p{font-size:11px;color:rgba(255,255,255,.28);font-style:italic;margin-bottom:3px}
+.comp-attn{border-left:2px solid var(--gold);padding:13px 18px;background:rgba(200,176,131,.05);font-size:12.5px;color:rgba(255,255,255,.45);margin-top:22px;line-height:1.65}
+
+/* ── S12 LOCALIZAÇÃO ───────────────────────────────────────────────── */
+#localizacao{background:var(--bg);padding:108px 0}
+.loc-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:64px;align-items:start;margin-top:8px}
+.loc-map{background:#cde0ea;height:360px;position:relative;overflow:hidden}
+.loc-info{display:flex;flex-direction:column;gap:22px;padding-top:4px}
+.li-item{display:grid;grid-template-columns:2px 1fr;gap:18px;align-items:start}
+.li-bar{background:var(--gold);height:100%;min-height:32px;border-radius:1px}
+.li-strong{display:block;font-size:14px;font-weight:700;color:var(--navy);margin-bottom:3px}
+.li-body{font-size:13px;color:#4e6c78;line-height:1.6}
+
+/* ── S13 JURÍDICO ──────────────────────────────────────────────────── */
+#juridico{background:var(--navy);padding:80px 0 64px}
+.jur-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-bottom:56px}
+.jb h3{font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--lteal);font-weight:700;display:block;margin-bottom:17px}
+.jb p{font-size:12.5px;color:rgba(255,255,255,.38);line-height:1.95}
+.ft-rule{height:1px;background:linear-gradient(90deg,rgba(200,176,131,.35),transparent);margin-bottom:30px}
+.ft-row{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:14px}
+.ft-brand{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.32)}
+.ft-brand strong{display:block;font-size:12px;color:rgba(255,255,255,.55);font-weight:600;margin-bottom:5px}
+.ft-credits{font-size:11px;color:rgba(255,255,255,.24);text-align:right;line-height:1.7}
+
+/* ── COMPARATIVE STRIP ─────────────────────────────────────────────── */
+.comp-strip{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);padding:16px 20px}
+.cs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:10px}
+.cs-card{padding:13px 14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-top:2px solid transparent}
+.cs-card.cs-base{border-top-color:var(--gold)}
+.cs-card.cs-opt {border-top-color:var(--lteal)}
+.cs-card.cs-cons{border-top-color:rgba(255,255,255,.18)}
+.cs-tag{font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.32);margin-bottom:5px}
+.cs-roi{font-family:var(--serif);font-size:22px;color:var(--gold);line-height:1;margin-bottom:3px}
+.cs-ret{font-size:11px;color:rgba(255,255,255,.55);margin-bottom:2px}
+.cs-pay{font-size:10.5px;color:rgba(255,255,255,.3);margin-bottom:1px}
+.cs-tir{font-size:10.5px;color:var(--lteal)}
+/* Input validation */
+.fi.input-err{border-color:rgba(220,100,60,.55)!important}
+.val-msg{font-size:10.5px;color:rgba(220,130,80,.8);margin-top:3px;display:none;font-style:normal}
+.val-msg.show{display:block}
+/* KPI active highlight (cenário selecionado no strip) */
+.cs-card.active-cen{background:rgba(255,255,255,.055)}
+
+/* ── SIMULATOR MOBILE ──────────────────────────────────────────────── */
+@media(max-width:900px){
+  .sim-layout{grid-template-columns:1fr}
+  .out-col{margin-top:4px}
+}
+@media(max-width:540px){
+  .kpi-grid{grid-template-columns:1fr 1fr}
+  .cs-grid{grid-template-columns:1fr}
+  .seg-btn{font-size:10.5px;padding:8px 4px}
+  .oh-val{font-size:38px}
+  .tl-info{grid-template-columns:1fr 1fr}
+  .tl-track{height:56px}
+  .ts-v{font-size:11px}
+}
+@media(max-width:400px){
+  .kpi-grid{grid-template-columns:1fr}
+  .tl-info{grid-template-columns:1fr}
+}
+
+/* ── SIM COMPARISON BLOCK ─────────────────────────────────────────── */
+.sim-comp-details{margin-top:2px}
+.sim-comp-summ{list-style:none;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);padding:12px 18px;cursor:pointer;font-size:11.5px;color:rgba(255,255,255,.42);letter-spacing:.04em;transition:color .2s}
+.sim-comp-summ::-webkit-details-marker{display:none}
+.sim-comp-summ:hover{color:rgba(255,255,255,.65)}
+.sim-comp-body{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.07);border-top:none;padding:16px 18px}
+.sim-comp-table{width:100%;border-collapse:collapse;font-size:11.5px}
+.sim-comp-table th{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.28);padding:0 0 8px;text-align:left;font-weight:700}
+.sim-comp-table th:not(:first-child){text-align:right}
+.sim-comp-table td{padding:7px 0;border-bottom:1px solid rgba(255,255,255,.04);color:rgba(255,255,255,.5);vertical-align:top}
+.sim-comp-table td:not(:first-child){text-align:right;color:rgba(255,255,255,.35)}
+.sim-comp-table tr.hi-row td{color:var(--gold)}
+.sim-comp-table tr.hi-row td:not(:first-child){color:rgba(200,176,131,.7)}
+.sim-comp-note{font-size:9.5px;color:rgba(255,255,255,.2);font-style:italic;margin-top:10px;line-height:1.5}
+
+/* ── MONPCT ────────────────────────────────────────────────────────── */
+.balloon-details{margin-top:14px}
+.balloon-summ{list-style:none;display:inline-flex;align-items:center;gap:8px;font-size:11.5px;color:rgba(255,255,255,.4);cursor:pointer;padding:6px 0;letter-spacing:.04em}
+.balloon-summ::-webkit-details-marker{display:none}
+.balloon-body{padding:12px 0 4px;border-top:1px solid rgba(255,255,255,.07);margin-top:8px}
+
+/* ── RESPONSIVE ────────────────────────────────────────────────────── */
+@media(max-width:1080px){
+  :root{--pad:44px}
+  .sim-layout{grid-template-columns:1fr}
+  .arrey-layout{grid-template-columns:1fr;gap:40px}
+  .dest-layout{grid-template-columns:1fr}
+  .tc-grid{grid-template-columns:repeat(2,1fr)}
+  .loc-grid{grid-template-columns:1fr}
+  .jur-grid{grid-template-columns:1fr;gap:36px}
+}
+@media(max-width:768px){
+  :root{--pad:22px}
+  section{padding:72px 0}
+  .three-col,.sc-grid,.rk-grid,.pru-panels{grid-template-columns:1fr}
+  .stat4,.stat3,.method-grid{grid-template-columns:1fr 1fr}
+  .tc-grid{grid-template-columns:1fr 1fr}
+  .kpi-grid{grid-template-columns:1fr 1fr}
+  .tl-info{grid-template-columns:1fr 1fr}
+  .be-box{padding:24px 22px;grid-template-columns:1fr;gap:16px}
+  .nav-links,.nav-tag{display:none}
+  .hero-badge{display:none}
+  #hero{padding-bottom:72px}
+  .pru-closing{grid-template-columns:1fr}
+  .prc-divider{height:1px;width:auto;margin:0 44px}
+  .cs-grid{grid-template-columns:1fr}
+  .hero-meta{flex-wrap:wrap;gap:18px 28px}
+}
+@media(max-width:540px){
+  .dest-nodes svg{display:none}
+  .dest-nodes-mobile{display:block}
+  .stat4,.stat3{grid-template-columns:1fr}
+  .method-grid{grid-template-columns:1fr}
+  .tc-grid{grid-template-columns:1fr}
+}
+@media(max-width:400px){
+  :root{--pad:16px}
+  .three-col{grid-template-columns:1fr}
+  .tc-grid{grid-template-columns:1fr}
+  .kpi-grid{grid-template-columns:1fr}
+  .stat4,.stat3{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-brand">Sophia Riviera</div>
+  <ul class="nav-links">
+    <li><a href="#tese">Tese</a></li>
+    <li><a href="#destino">Destino</a></li>
+    <li><a href="#cenarios">Cenários</a></li>
+    <li><a href="#tipologias">Tipologias</a></li>
+    <li><a href="#simulador">Simulador</a></li>
+  </ul>
+  <span class="nav-tag">Estudo Indicativo · Confidencial</span>
+</nav>
+
+<!-- S01 HERO -->
+<section id="hero">
+  <div class="hero-grain"></div>
+  <div class="hero-inner wrap">
+    <span class="hero-eyebrow">Sophia Riviera · Condomínio Resort · Luís Correia – PI</span>
+    <h1 class="hero-h1">Um ativo que une permanência,<br>patrimônio e potencial econômico.</h1>
+    <p class="hero-sub">Home Resort na Praia das Tartarugas, em um destino com vetores concretos de valorização e amadurecimento. Uma leitura indicativa do racional econômico do ativo.</p>
+    <div class="hero-rule"></div>
+    <div class="hero-meta">
+      <div class="hm-item"><div class="hm-v">126</div><div class="hm-k">unidades</div></div>
+      <div class="hm-item"><div class="hm-v">Junho de 2028</div><div class="hm-k">cronograma de entrega</div></div>
+      <div class="hm-item"><div class="hm-v">Home Resort</div><div class="hm-k">tipologia</div></div>
+    </div>
+    <div class="hero-btns">
+      <a href="#tese" class="btn-gold">Iniciar a análise ↓</a>
+      <a href="#simulador" class="btn-ghost">Ver simulação personalizada →</a>
+    </div>
+  </div>
+</section>
+
+<!-- S02 TESE -->
+<section id="tese">
+  <div class="wrap">
+    <div class="sh">
+      <span class="eyebrow">Por que este ativo merece análise</span>
+      <h2 class="d-l" style="color:var(--navy)">Três razões para uma avaliação fundamentada</h2>
+      <p class="lead">O Sophia Riviera é um Home Resort estruturado para funcionar como ativo híbrido: espaço de uso próprio, proteção patrimonial em ativo físico e plataforma de monetização via locação de temporada. O racional a seguir é uma estrutura de análise.</p>
+    </div>
+    <div class="three-col">
+      <div class="pillar c1">
+        <span class="pillar-tag">O Produto</span>
+        <div class="pillar-n">126</div>
+        <span class="pillar-u">unidades</span>
+        <ul class="pillar-list">
+          <li>Estrutura completa de resort, não condomínio residencial comum</li>
+          <li>Piscina, spa, kite, restaurante e áreas de convivência integradas</li>
+          <li>Operação profissional com gestão de locações</li>
+          <li>Privacidade de condomínio fechado com infraestrutura de resort</li>
+          <li>8 tipologias, do Studio ao Duplex Premium frente mar</li>
+        </ul>
+      </div>
+      <div class="pillar c2">
+        <span class="pillar-tag">O Destino</span>
+        <div class="pillar-n">+25%</div>
+        <span class="pillar-u">turistas/ano</span>
+        <ul class="pillar-list">
+          <li>Luís Correia em fase pré-consenso de precificação</li>
+          <li>Trajetória semelhante à de Trancoso e Jericoacoara no passado</li>
+          <li>90% de ocupação registrada no Réveillon 2026</li>
+          <li>R$ 61,7M em infraestrutura turística em execução</li>
+          <li>Menor litoral do Brasil, maior preservação relativa</li>
+        </ul>
+      </div>
+      <div class="pillar c3">
+        <span class="pillar-tag">O Executor</span>
+        <div class="pillar-n">35</div>
+        <span class="pillar-u">anos de história</span>
+        <ul class="pillar-list">
+          <li>Maior rede hoteleira do estado do Piauí</li>
+          <li>Operações no Brasil e na Espanha</li>
+          <li>Indústrias de castanha-de-caju no Piauí e Guiné-Bissau</li>
+          <li>Mais de 2.500 unidades de hospedagem entregues</li>
+        </ul>
+      </div>
+    </div>
+    <p class="tese-close">Estes três elementos são a estrutura racional da análise. Os números que seguem são consequência dessas premissas.</p>
+  </div>
+</section>
+
+<!-- S03 DESTINO -->
+<section id="destino">
+  <div class="wrap">
+    <div class="sh">
+      <span class="eyebrow">O Destino · Luís Correia, Piauí</span>
+      <h2 class="d-l">Um destino em fase de amadurecimento, com vetores concretos de evolução</h2>
+      <div class="gold-line" style="background:var(--gold)"></div>
+      <p class="lead" style="color:rgba(255,255,255,.55)">Em diferentes mercados litorâneos, os movimentos de valorização costumam ser precedidos por uma combinação de demanda crescente, melhora de infraestrutura e maior visibilidade. Esse processo já foi observado em destinos como Trancoso e Jericoacoara. Luís Correia já reúne parte desses sinais.</p>
+    </div>
+    <div class="stat3">
+      <div class="sbox"><div class="sbox-n">+25%</div><div class="sbox-l">crescimento de fluxo turístico</div></div>
+      <div class="sbox"><div class="sbox-n">90%</div><div class="sbox-l">ocupação registrada no Réveillon 2025/2026</div></div>
+      <div class="sbox"><div class="sbox-n">R$61,7M</div><div class="sbox-l">em investimentos públicos para infraestrutura</div></div>
+    </div>
+    <div class="dest-layout">
+      <div class="dest-nodes">
+        <svg viewBox="0 0 560 320" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">
+          <!-- far connections: dashed -->
+          <line x1="265" y1="160" x2="390" y2="160" stroke="rgba(255,255,255,.12)" stroke-width="1" stroke-dasharray="4 3"/>
+          <line x1="265" y1="160" x2="145" y2="160" stroke="rgba(255,255,255,.12)" stroke-width="1" stroke-dasharray="4 3"/>
+          <!-- near connections: solid -->
+          <line x1="265" y1="160" x2="320" y2="65" stroke="rgba(255,255,255,.18)" stroke-width="1"/>
+          <line x1="265" y1="160" x2="210" y2="65" stroke="rgba(255,255,255,.18)" stroke-width="1"/>
+          <line x1="265" y1="160" x2="210" y2="255" stroke="rgba(255,255,255,.18)" stroke-width="1"/>
+          <line x1="265" y1="160" x2="320" y2="255" stroke="rgba(255,255,255,.18)" stroke-width="1"/>
+          <!-- center glow rings -->
+          <circle cx="265" cy="160" r="34" fill="#C8B083" opacity=".04"/>
+          <circle cx="265" cy="160" r="20" fill="#C8B083" opacity=".07"/>
+          <circle cx="265" cy="160" r="10" fill="#C8B083" opacity=".92"/>
+          <!-- far nodes -->
+          <circle cx="390" cy="160" r="5" fill="#6FB9B2" opacity=".55"/>
+          <circle cx="145" cy="160" r="5" fill="#6FB9B2" opacity=".55"/>
+          <!-- near nodes -->
+          <circle cx="320" cy="65" r="5" fill="#6FB9B2" opacity=".8"/>
+          <circle cx="210" cy="65" r="5" fill="#6FB9B2" opacity=".8"/>
+          <circle cx="210" cy="255" r="5" fill="#6FB9B2" opacity=".8"/>
+          <circle cx="320" cy="255" r="5" fill="#6FB9B2" opacity=".8"/>
+          <!-- center labels -->
+          <text x="265" y="182" text-anchor="middle" font-size="12" font-weight="700" fill="white" font-family="Georgia,serif">Luís Correia</text>
+          <text x="265" y="196" text-anchor="middle" font-size="9.5" fill="rgba(255,255,255,.4)" font-family="sans-serif">Praia das Tartarugas</text>
+          <!-- Lençóis Maranhenses (far, right) -->
+          <text x="403" y="156" text-anchor="start" font-size="11" fill="rgba(255,255,255,.6)" font-family="sans-serif">Lençóis Maranhenses</text>
+          <text x="403" y="169" text-anchor="start" font-size="9.5" fill="rgba(200,176,131,.55)" font-family="sans-serif">~250 km</text>
+          <!-- Teresina (far, left) -->
+          <text x="132" y="156" text-anchor="end" font-size="11" fill="rgba(255,255,255,.6)" font-family="sans-serif">Teresina</text>
+          <text x="132" y="169" text-anchor="end" font-size="9.5" fill="rgba(200,176,131,.55)" font-family="sans-serif">~340 km</text>
+          <!-- Lençóis Piauienses (upper right) -->
+          <text x="330" y="58" text-anchor="start" font-size="11" fill="rgba(255,255,255,.7)" font-family="sans-serif">Lençóis Piauienses</text>
+          <text x="330" y="71" text-anchor="start" font-size="9.5" fill="rgba(200,176,131,.65)" font-family="sans-serif">~70 km</text>
+          <!-- Parnaíba (upper left) -->
+          <text x="200" y="58" text-anchor="end" font-size="11" fill="rgba(255,255,255,.7)" font-family="sans-serif">Parnaíba</text>
+          <text x="200" y="71" text-anchor="end" font-size="9.5" fill="rgba(200,176,131,.65)" font-family="sans-serif">~17 km</text>
+          <!-- Delta do Parnaíba (lower left) -->
+          <text x="200" y="272" text-anchor="end" font-size="11" fill="rgba(255,255,255,.7)" font-family="sans-serif">Delta do Parnaíba</text>
+          <text x="200" y="285" text-anchor="end" font-size="9.5" fill="rgba(200,176,131,.65)" font-family="sans-serif">~25 km</text>
+          <!-- Barra Grande (lower right) -->
+          <text x="330" y="272" text-anchor="start" font-size="11" fill="rgba(255,255,255,.7)" font-family="sans-serif">Barra Grande</text>
+          <text x="330" y="285" text-anchor="start" font-size="9.5" fill="rgba(200,176,131,.65)" font-family="sans-serif">~55 km</text>
+        </svg>
+        <div class="dest-nodes-mobile">
+          <div class="dnm-center"><span class="dnm-center-name">Luís Correia</span><div class="dnm-center-sub">Praia das Tartarugas</div></div>
+          <div class="dnm-grid">
+            <div class="dnm-item"><span class="dnm-name">Parnaíba</span><span class="dnm-dist">~17 km</span></div>
+            <div class="dnm-item"><span class="dnm-name">Delta do Parnaíba</span><span class="dnm-dist">~25 km</span></div>
+            <div class="dnm-item"><span class="dnm-name">Barra Grande</span><span class="dnm-dist">~55 km</span></div>
+            <div class="dnm-item"><span class="dnm-name">Lençóis Piauienses</span><span class="dnm-dist">~70 km</span></div>
+            <div class="dnm-item"><span class="dnm-name">Lençóis Maranhenses</span><span class="dnm-dist">~250 km</span></div>
+            <div class="dnm-item"><span class="dnm-name">Teresina</span><span class="dnm-dist">~340 km</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="dest-loc-list">
+        <div class="dl-item"><div class="dl-bar"></div><div><span class="dl-strong">Luís Correia, Piauí</span><span class="dl-body">Polo de atração turística do litoral piauiense. Destino em fase de amadurecimento com infraestrutura em expansão.</span></div></div>
+        <div class="dl-item"><div class="dl-bar"></div><div><span class="dl-strong">~17 km de Parnaíba</span><span class="dl-body">Acesso rápido ao polo regional e ao aeroporto de Parnaíba (PHB).</span></div></div>
+        <div class="dl-item"><div class="dl-bar"></div><div><span class="dl-strong">~340 km de Teresina</span><span class="dl-body">Aproximadamente 4 horas por terra via BR-343. Capital do estado como mercado emissor relevante.</span></div></div>
+        <div class="dl-item"><div class="dl-bar"></div><div><span class="dl-strong">Praia das Tartarugas</span><span class="dl-body">Ventos favoráveis ao kitesurf, preservação ambiental relativa e crescimento turístico em aceleração.</span></div></div>
+        <div class="dl-item"><div class="dl-bar"></div><div><span class="dl-strong">Menor litoral do Brasil</span><span class="dl-body">~66 km de extensão. Maior preservação relativa comparada a destinos massificados do Nordeste.</span></div></div>
+      </div>
+    </div>
+    <p class="dest-note">O desenvolvimento do destino compõe o racional desta leitura e ajuda a contextualizar o potencial do ativo, sem constituir previsão de desempenho específico.</p>
+  </div>
+</section>
+
+<!-- S04 GRUPO ARREY -->
+<section id="arrey">
+  <div class="wrap">
+    <div class="arrey-layout">
+      <div class="arrey-intro">
+        <span class="eyebrow">O Executor · Grupo Arrey</span>
+        <h2 class="d-l">35 anos de histórico e capacidade de execução</h2>
+        <div class="gold-line"></div>
+        <p class="lead" style="color:rgba(255,255,255,.6)">Em investimentos imobiliários, a capacidade de execução do grupo responsável é parte essencial da análise. No Sophia Riviera, o histórico do Grupo Arrey ajuda a sustentar a leitura de solidez, entrega e padrão do produto.</p>
+        <p class="body-sm" style="color:rgba(255,255,255,.5);margin-top:16px">Com 35 anos de trajetória empresarial, presença multissetorial e operação internacional, o grupo reúne elementos relevantes para avaliar credibilidade de execução, visão de longo prazo e consistência na condução do empreendimento.</p>
+        <p class="arrey-note">O Grupo Arrey responde pelo desenvolvimento, construção, entrega e padrão do empreendimento. A dinâmica operacional de locação, quando aplicável, integra uma estrutura própria da operação, chancelada pelo padrão do Grupo Arrey.</p>
+      </div>
+      <div class="cred-list">
+        <div class="cred-item"><div class="cred-bar"></div><div><div class="cred-n">Maior rede</div><div class="cred-d">hoteleira do estado do Piauí</div></div></div>
+        <div class="cred-item"><div class="cred-bar"></div><div><div class="cred-n">Multissetorial</div><div class="cred-d">hotelaria, incorporação, indústria e serviços</div></div></div>
+        <div class="cred-item"><div class="cred-bar"></div><div><div class="cred-n">Brasil, Espanha e África</div><div class="cred-d">operações internacionais em andamento</div></div></div>
+        <div class="cred-item"><div class="cred-bar"></div><div><div class="cred-n">Piauí e Guiné-Bissau</div><div class="cred-d">indústrias no Brasil e na África</div></div></div>
+        <div class="cred-item"><div class="cred-bar"></div><div><div class="cred-n">+2.500 UHs</div><div class="cred-d">unidades de hospedagem entregues</div></div></div>
+        <div class="cred-item"><div class="cred-bar"></div><div><div class="cred-n">Histórico real</div><div class="cred-d">capacidade de execução sustentada por operação comprovada</div></div></div>
+        <div class="cred-item" style="border-bottom:none"><div class="cred-bar"></div><div><div class="cred-n">Visão de longo prazo</div><div class="cred-d">investimento previsto na região com horizonte de continuidade</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S05 METODOLOGIA -->
+<section id="metodologia">
+  <div class="wrap">
+    <div class="sh">
+      <span class="eyebrow">Metodologia · Como os indicadores foram construídos</span>
+      <h2 class="d-l" style="color:var(--navy)">O método por trás dos indicadores</h2>
+      <p class="lead">Antes dos indicadores, importa entender as premissas que estruturam esta leitura. É essa base que permite interpretar os números com mais critério, contexto e coerência.</p>
+    </div>
+    <div class="method-grid">
+      <div class="mcard">
+        <span class="mcard-num">01</span>
+        <div class="mcard-title">Modelo de Ocupação</div>
+        <p class="mcard-text">A projeção considera dois períodos sazonais: 4 meses de alta temporada (80% de ocupação, 96 diárias vendidas) e 8 meses de temporada regular (46% de ocupação, 110 diárias vendidas). Ocupação ponderada base: 56%, equivalente a 206 diárias por ano.</p>
+      </div>
+      <div class="mcard">
+        <span class="mcard-num">02</span>
+        <div class="mcard-title">Estrutura de Custos</div>
+        <p class="mcard-text">Gestão e plataformas: 25% da receita bruta. Manutenção: 1,5% do valor da cota ao ano. Condomínio: proporcional à fração ideal de cada unidade (base: R$ 12/m²/mês, fonte: Estudo Loft, ago/2024). Taxa de Ocupação SPU: R$ 6,58/m²/ano (Decreto-Lei 2.398/1987).</p>
+      </div>
+      <div class="mcard">
+        <span class="mcard-num">03</span>
+        <div class="mcard-title">Escopo da Projeção</div>
+        <p class="mcard-text">A projeção considera horizonte anual de operação em regime STR, com todos os custos operacionais recorrentes já descontados. Reformas extraordinárias, eventos atípicos e variação de mercado não estão incluídos.</p>
+      </div>
+      <div class="mcard">
+        <span class="mcard-num">04</span>
+        <div class="mcard-title">Limites e Hipóteses</div>
+        <p class="mcard-text">A valorização patrimonial de 9% a.a. é uma estimativa indicativa de tendência, não uma projeção garantida. A diária média é estimativa derivada das receitas projetadas por tipologia. ★ Fonte: análise interna com base nas receitas aprovadas por empreendimento.</p>
+      </div>
+    </div>
+    <div class="method-close">Com essas premissas explícitas, os indicadores deixam de ser números soltos e passam a compor uma leitura estruturada do ativo.</div>
+  </div>
+</section>
+
+<!-- S06 CENÁRIOS -->
+<section id="cenarios">
+  <div class="wrap">
+    <div class="sh">
+      <span class="eyebrow">Cenários · Sensibilidade e Amplitude</span>
+      <h2 class="d-l" style="color:var(--navy)">Como o mesmo ativo responde a cenários operacionais diferentes</h2>
+      <p class="lead">Os três cenários variam exclusivamente na taxa de ocupação. A estrutura de diárias, custos e premissas é a mesma em todos. Os indicadores a seguir tomam como referência o Studio (R$&nbsp;315.000), tipologia de menor entrada.</p>
+    </div>
+    <div class="sc-grid">
+      <!-- BASE -->
+      <div class="sc-card base">
+        <span class="sc-tag t-base">Cenário Base</span>
+        <p class="sc-occ">56% de ocupação ponderada</p>
+        <div class="sc-kv"><div class="sc-kl">Receita bruta estimada / ano</div><div style="font-family:var(--serif);font-size:21px;color:var(--navy)">R$ 104.500</div></div>
+        <div class="sc-kv"><div class="sc-kl">Retorno líquido estimado / ano</div><div style="font-family:var(--serif);font-size:21px;color:var(--navy)">R$ 64.893</div></div>
+        <div class="sc-kv"><div class="sc-kl">ROI indicativo</div><div style="font-family:var(--serif);font-size:28px;color:var(--teal)">20,6% a.a.</div></div>
+        <div class="sc-kv"><div class="sc-kl">Payback estimado</div><div style="font-family:var(--serif);font-size:21px;color:var(--navy)">4,9 anos</div></div>
+        <p class="sc-foot">Cenário ilustrativo · premissas explicitadas na metodologia</p>
+      </div>
+      <!-- OTIMISTA -->
+      <div class="sc-card opt">
+        <span class="sc-tag t-opt">Cenário Otimista</span>
+        <p class="sc-occ">68% de ocupação ponderada</p>
+        <div class="sc-kv"><div class="sc-kl">Receita bruta estimada / ano</div><div style="font-family:var(--serif);font-size:21px;color:var(--navy)">R$ 126.900</div></div>
+        <div class="sc-kv"><div class="sc-kl">Retorno líquido estimado / ano</div><div style="font-family:var(--serif);font-size:21px;color:var(--navy)">R$ 81.694</div></div>
+        <div class="sc-kv"><div class="sc-kl">ROI indicativo</div><div style="font-family:var(--serif);font-size:28px;color:var(--teal)">25,9% a.a.</div></div>
+        <div class="sc-kv"><div class="sc-kl">Payback estimado</div><div style="font-family:var(--serif);font-size:21px;color:var(--navy)">3,9 anos</div></div>
+        <p class="sc-foot">★ Hipótese: escala linear de ocupação; ADR mantido constante como premissa conservadora</p>
+      </div>
+      <!-- CONSERVADOR -->
+      <div class="sc-card cons">
+        <span class="sc-tag t-cons">Cenário Conservador</span>
+        <p class="sc-occ">43% de ocupação ponderada</p>
+        <div class="sc-kv"><div class="sc-kl">Receita bruta estimada / ano</div><div style="font-family:var(--serif);font-size:21px;color:var(--navy)">R$ 80.200</div></div>
+        <div class="sc-kv"><div class="sc-kl">Retorno líquido estimado / ano</div><div style="font-family:var(--serif);font-size:21px;color:var(--navy)">R$ 46.669</div></div>
+        <div class="sc-kv"><div class="sc-kl">ROI indicativo</div><div style="font-family:var(--serif);font-size:28px;color:var(--teal)">14,8% a.a.</div></div>
+        <div class="sc-kv"><div class="sc-kl">Payback estimado</div><div style="font-family:var(--serif);font-size:21px;color:var(--navy)">6,8 anos</div></div>
+        <p class="sc-foot">★ Hipótese: escala linear de ocupação; ADR mantido constante como premissa conservadora</p>
+      </div>
+    </div>
+    <p style="font-size:12.5px;color:#8a9ea5;margin-bottom:36px;font-style:italic">Referência: Studio (R$&nbsp;315.000). Variação reflete exclusivamente a taxa de ocupação; diária média mantida constante como premissa conservadora.</p>
+    <!-- BREAKEVEN -->
+    <div class="be-box">
+      <div class="be-num">12,6%</div>
+      <div>
+        <span class="be-tag">Ponto de equilíbrio</span>
+        <p class="be-body">Apenas 12,6% de ocupação já é suficiente para cobrir os custos operacionais fixos anuais do Studio. Os três cenários operam com folga acima desse patamar.</p>
+      </div>
+    </div>
+    <!-- CHART S06 -->
+    <div class="chart-box">
+      <div class="chart-hdr">
+        <span class="chart-title-text">Receita bruta estimada por tipologia · 3 cenários</span>
+        <div class="chart-legend">
+          <div class="leg-item"><div class="leg-dot" style="background:var(--lteal)"></div>Conservador</div>
+          <div class="leg-item"><div class="leg-dot" style="background:var(--teal)"></div>Base</div>
+          <div class="leg-item"><div class="leg-dot" style="background:var(--gold)"></div>Otimista</div>
+        </div>
+      </div>
+      <div class="chart-canvas-wrap" style="height:300px"><canvas id="chartS06"></canvas></div>
+      <p class="chart-note">Receita bruta estimada por tipologia nos três cenários de ocupação. O retorno líquido é calculado após gestão (25%), manutenção, condomínio e taxa SPU. Use o simulador na sequência para leitura individual.</p>
+    </div>
+  </div>
+</section>
+
+<!-- S07 TIPOLOGIAS -->
+<section id="tipologias">
+  <div class="wrap">
+    <div class="sh">
+      <span class="eyebrow" style="color:var(--lteal)">Tipologias · Visão Comparativa</span>
+      <h2 class="d-l" style="color:var(--navy)">Como as tipologias se distribuem em valor, escala e retorno</h2>
+      <p class="lead">A comparação a seguir organiza as oito tipologias do Sophia Riviera no cenário-base, permitindo visualizar valor de entrada, dimensão, receita estimada, retorno líquido e payback. O objetivo é oferecer uma leitura comparativa. A simulação individual, com condição de pagamento e premissas personalizadas, vem na sequência.</p>
+    </div>
+    <div class="tc-grid">
+      <div class="tc-card md">
+        <div class="tc-name">Studio</div>
+        <div class="tc-meta">25,05 m² · R$&nbsp;315.000</div>
+        <span class="tc-roi-l">ROI Base</span>
+        <div class="tc-roi">20,6%</div>
+        <div class="tc-pay">Payback 4,9 anos</div>
+      </div>
+      <div class="tc-card md">
+        <div class="tc-name">Studio Hub 1</div>
+        <div class="tc-meta">34,20 m² · R$&nbsp;323.300</div>
+        <span class="tc-roi-l">ROI Base</span>
+        <div class="tc-roi">20,2%</div>
+        <div class="tc-pay">Payback 4,9 anos</div>
+      </div>
+      <div class="tc-card md">
+        <div class="tc-name">Studio Hub 2</div>
+        <div class="tc-meta">35,70 m² · R$&nbsp;336.300</div>
+        <span class="tc-roi-l">ROI Base</span>
+        <div class="tc-roi">20,3%</div>
+        <div class="tc-pay">Payback 4,9 anos</div>
+      </div>
+      <div class="tc-card md">
+        <div class="tc-name">Studio Garden</div>
+        <div class="tc-meta">37,55 m² · R$&nbsp;357.000</div>
+        <span class="tc-roi-l">ROI Base</span>
+        <div class="tc-roi">20,1%</div>
+        <div class="tc-pay">Payback 5,0 anos</div>
+      </div>
+      <div class="tc-card">
+        <div class="tc-name">Garden</div>
+        <div class="tc-meta">68,00 m² · R$&nbsp;575.000</div>
+        <span class="tc-roi-l">ROI Base</span>
+        <div class="tc-roi">18,6%</div>
+        <div class="tc-pay">Payback 5,4 anos</div>
+      </div>
+      <div class="tc-card hi">
+        <div class="tc-name">Duplex</div>
+        <div class="tc-meta">90,40 m² · R$&nbsp;880.000</div>
+        <span class="tc-roi-l">ROI Base</span>
+        <div class="tc-roi">23,9%</div>
+        <div class="tc-pay">Payback 4,2 anos</div>
+      </div>
+      <div class="tc-card">
+        <div class="tc-name">Garden Premium</div>
+        <div class="tc-meta">105,50 m² · R$&nbsp;1.233.000</div>
+        <span class="tc-roi-l">ROI Base</span>
+        <div class="tc-roi">17,4%</div>
+        <div class="tc-pay">Payback 5,7 anos</div>
+      </div>
+      <div class="tc-card">
+        <div class="tc-name">Duplex Premium</div>
+        <div class="tc-meta">115,50 m² · R$&nbsp;1.327.000</div>
+        <span class="tc-roi-l">ROI Base</span>
+        <div class="tc-roi">19,2%</div>
+        <div class="tc-pay">Payback 5,2 anos</div>
+      </div>
+    </div>
+    <details class="tt-details">
+      <summary>Ver tabela comparativa completa ▾</summary>
+      <div class="typo-wrap">
+        <table class="tt">
+          <thead><tr><th>Tipologia</th><th>Bloco</th><th>Área m²</th><th>Cota SCP</th><th>Receita Base/ano</th><th>Retorno Líq./ano</th><th>ROI Base</th><th>Payback</th></tr></thead>
+          <tbody>
+            <tr><td>Studio</td><td>B / C</td><td>25,05</td><td>R$ 315.000</td><td>R$ 104.500</td><td>R$ 64.893</td><td><span class="rh rh-md">20,6%</span></td><td>4,9 anos</td></tr>
+            <tr><td>Studio Hub 1</td><td>Hub</td><td>34,20</td><td>R$ 323.300</td><td>R$ 109.600</td><td>R$ 65.367</td><td><span class="rh rh-md">20,2%</span></td><td>4,9 anos</td></tr>
+            <tr><td>Studio Hub 2</td><td>Hub</td><td>35,70</td><td>R$ 336.300</td><td>R$ 114.200</td><td>R$ 68.125</td><td><span class="rh rh-md">20,3%</span></td><td>4,9 anos</td></tr>
+            <tr><td>Studio Garden</td><td>B / C</td><td>37,55</td><td>R$ 357.000</td><td>R$ 120.200</td><td>R$ 71.659</td><td><span class="rh rh-md">20,1%</span></td><td>5,0 anos</td></tr>
+            <tr><td>Garden</td><td>B / C</td><td>68,00</td><td>R$ 575.000</td><td>R$ 185.736</td><td>R$ 106.906</td><td><span class="rh rh-lo">18,6%</span></td><td>5,4 anos</td></tr>
+            <tr><td><strong>Duplex</strong></td><td>B / C</td><td>90,40</td><td>R$ 880.000</td><td>R$ 340.000</td><td>R$ 210.201</td><td><span class="rh rh-hi">23,9%</span></td><td>4,2 anos</td></tr>
+            <tr><td>Garden Premium</td><td>A (frente mar)</td><td>105,50</td><td>R$ 1.233.000</td><td>R$ 360.000</td><td>R$ 214.598</td><td><span class="rh rh-lo">17,4%</span></td><td>5,7 anos</td></tr>
+            <tr><td>Duplex Premium</td><td>A (frente mar)</td><td>115,50</td><td>R$ 1.327.000</td><td>R$ 420.000</td><td>R$ 254.738</td><td><span class="rh rh-lo">19,2%</span></td><td>5,2 anos</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tt-foot">ROI e Payback com gestão profissional (25%) já descontada. Retorno líquido após todos os custos operacionais recorrentes. Valorização patrimonial não incluída nesta tabela.<br>★ ITBI não incide sobre a aquisição (terreno SPU, regime de ocupação). Laudêmio (~2,5% do valor do terreno) incide apenas em caso de revenda.</p>
+    </details>
+  </div>
+</section>
+
+<!-- S08 SIMULADOR -->
+<section id="simulador">
+  <div class="wrap">
+    <div class="sh">
+      <span class="eyebrow">Simulação Personalizada</span>
+      <h2 class="d-l">Simule o resultado para a sua tipologia, pagamento e perfil de uso</h2>
+      <p class="lead" style="color:rgba(255,255,255,.5)">Configure a tipologia, o fluxo de pagamento e o perfil de uso. Os resultados se ajustam automaticamente a cada combinação.</p>
+    </div>
+    <div id="warnEl" class="warn">⚠ Entrada + parcelas pré-entrega somam menos de 50% do total. Ajuste os controles acima.</div>
+    <div id="warnPos" class="warn">⚠ O saldo pós-entrega ultrapassa 50% do valor da cota. Aumente a entrada ou as parcelas pré-entrega.</div>
+    <div class="sim-layout">
+      <!-- CONTROLES -->
+      <div class="sim-col">
+        <!-- A: UNIDADE -->
+        <div class="ib">
+          <div class="ib-head"><span class="ib-tag">A · A Unidade</span><div class="ib-title">Defina a tipologia e o valor da cota</div></div>
+          <div class="ib-body">
+            <div>
+              <label class="fl">Tipologia</label>
+              <select class="fi" id="inTipo">
+                <option value="studio">Studio</option>
+                <option value="hub1">Studio Hub 1</option>
+                <option value="hub2">Studio Hub 2</option>
+                <option value="sgarden">Studio Garden</option>
+                <option value="garden">Garden</option>
+                <option value="duplex">Duplex</option>
+                <option value="gpremium">Garden Premium</option>
+                <option value="dpremium">Duplex Premium</option>
+              </select>
+              <p class="fn" id="tipoInfo">Bloco B/C · 25,05 m² · Cota padrão: R$ 315.000</p>
+            </div>
+            <div>
+              <label class="fl">Valor da Cota SCP (R$)</label>
+              <input type="text" class="fi" id="inValor" value="315.000">
+              <p class="fn">Valor pré-preenchido conforme tabela. Editável conforme negociação.</p>
+            </div>
+          </div>
+        </div>
+        <!-- B: CENÁRIO -->
+        <div class="ib">
+          <div class="ib-head"><span class="ib-tag">B · O Cenário</span><div class="ib-title">Selecione o cenário de projeção</div></div>
+          <div class="ib-body">
+            <div class="seg" id="segCenario">
+              <button class="seg-btn on" data-c="base">Base<small>56% occ.</small></button>
+              <button class="seg-btn" data-c="otimista">Otimista<small>68% occ.</small></button>
+              <button class="seg-btn" data-c="conservador">Conservador<small>43% occ.</small></button>
+            </div>
+            <div class="sc-ctx">
+              <span id="ctxOcc">Ocupação ponderada: 56%</span>
+              <span id="ctxAdr">Diária média estimada: R$ 504 ★</span>
+              <span id="ctxValPat">Valorização patrimonial: 9% a.a. (padrão)</span>
+            </div>
+            <div class="slider-row" style="margin-top:10px">
+              <label class="fl">Valorização patrimonial anual (personalizável)</label>
+              <div class="sl-top"><span style="font-size:12px;color:rgba(255,255,255,.38)">0% – 10%</span><span class="sl-val" id="svValPat">9%</span></div>
+              <input type="range" id="slValPat" min="0" max="10" value="9" step="1">
+              <span class="sl-sub">Afeta TIR e projeção patrimonial · não altera ROI nem payback</span>
+            </div>
+          </div>
+        </div>
+        <!-- C: PAGAMENTO -->
+        <div class="ib">
+          <div class="ib-head"><span class="ib-tag">C · O Pagamento</span><div class="ib-title">Configure o fluxo de pagamento</div></div>
+          <div class="ib-body">
+            <div class="slider-row">
+              <label class="fl">Entrada inicial</label>
+              <div class="sl-top"><span style="font-size:12px;color:rgba(255,255,255,.38)">0% – 100%</span><span class="sl-val" id="svEnt">10%</span></div>
+              <input type="range" id="slEnt" min="0" max="100" value="10" step="1">
+              <span class="sl-sub" id="ssEnt">R$ 31.500</span>
+            </div>
+            <div class="slider-row">
+              <label class="fl">Parcelas até a entrega (além da entrada)</label>
+              <div class="sl-top"><span style="font-size:12px;color:rgba(255,255,255,.38)">0% – 100%</span><span class="sl-val" id="svPre">50%</span></div>
+              <input type="range" id="slPre" min="0" max="100" value="50" step="1">
+              <span class="sl-sub" id="ssPre">R$ 157.500</span>
+            </div>
+            <div>
+              <label class="fl">Saldo pós-entrega (calculado)</label>
+              <div class="disp-field"><span class="dl" id="posLabel">40% pós-entrega</span><span class="dv" id="posVal">R$ 126.000</span><span class="lk">🔒</span></div>
+              <p class="fn">Pós-entrega máx. 50% do total. Parcelas independentes da operação de locação.</p>
+            </div>
+            <div class="slider-row">
+              <label class="fl">Prazo pós-entrega (parcelas mensais)</label>
+              <div class="sl-top"><span style="font-size:12px;color:rgba(255,255,255,.38)">1 – 40 parcelas</span><span class="sl-val" id="svPrazo">36x</span></div>
+              <input type="range" id="slPrazo" min="1" max="40" value="36" step="1">
+              <span class="sl-sub" id="ssPrazo">R$ 3.500/mês</span>
+            </div>
+          </div>
+        </div>
+        <!-- D: PERFIL -->
+        <div class="ib">
+          <div class="ib-head"><span class="ib-tag">D · O Perfil de Uso</span><div class="ib-title">Como pretende usar a unidade</div></div>
+          <div class="ib-body">
+            <div class="rg" id="rgPerfil">
+              <label class="ro on"><input type="radio" name="perf" value="0" checked><div class="ri"></div><div class="rt"><strong>Uso e monetização</strong><small>Uso próprio e locação STR combinados</small></div></label>
+              <label class="ro"><input type="radio" name="perf" value="1"><div class="ri"></div><div class="rt"><strong>Uso prioritário</strong><small>Uso próprio frequente; sem locação regular</small></div></label>
+              <label class="ro"><input type="radio" name="perf" value="2"><div class="ri"></div><div class="rt"><strong>Monetização exclusiva</strong><small>Operação STR integral, sem uso próprio</small></div></label>
+            </div>
+            <div id="monPctRow" style="margin-top:14px">
+              <div class="slider-row">
+                <label class="fl">Fração disponível para locação STR</label>
+                <div class="sl-top"><span style="font-size:12px;color:rgba(255,255,255,.38)">50% – 95%</span><span class="sl-val" id="svMon">75%</span></div>
+                <input type="range" id="slMon" min="50" max="95" value="75" step="5">
+                <span class="sl-sub" id="ssMon">25% reservado para uso próprio</span>
+              </div>
+            </div>
+            <div id="perfilNote" style="display:none;margin-top:10px;font-size:11px;color:rgba(255,255,255,.38);border-left:2px solid var(--lteal);padding:8px 12px;line-height:1.6">Neste perfil a unidade não é operada como locação regular. Os resultados abaixo refletem o custo anual de carregamento do ativo (manutenção, condomínio, taxa SPU) e a projeção de valorização patrimonial.</div>
+          </div>
+        </div>
+      </div>
+      <!-- OUTPUTS -->
+      <div class="out-col">
+        <div class="out-hero">
+          <span class="oh-label" id="outRetLabel">Retorno Líquido Estimado</span>
+          <div class="oh-val" id="outRet">R$ 64.893</div>
+          <div class="oh-sub" id="outMen">R$ 5.408 / mês (média)</div>
+          <span class="oh-badge" id="outBadge">Cenário Base</span>
+        </div>
+        <div id="simBepRow" style="display:flex;align-items:baseline;gap:6px;padding:4px 0 6px;font-size:11px;color:rgba(255,255,255,.35);flex-wrap:wrap;line-height:1.5">
+          <span>Ponto de equilíbrio:</span>
+          <strong id="simBep" style="color:var(--lteal);font-weight:600;font-size:12.5px">12,6% de ocupação</strong>
+          <span id="simBepNote">cobre os custos fixos anuais (Studio · cenário base)</span>
+        </div>
+        <div class="kpi-grid">
+          <div class="kpi" style="border-top:2px solid rgba(111,185,178,.25)"><span class="kpi-l" id="kpiROILabel">ROI Operacional</span><div class="kpi-v" id="outROI">20,6%</div><div class="kpi-s" id="kpiROISub">retorno líquido sobre a cota</div><div class="tt-btn" title="ROI = Retorno Líquido Anual / Valor da Cota SCP x 100. Métrica operacional pura; não inclui valorização patrimonial.">?</div></div>
+          <div class="kpi" style="border-top:2px solid rgba(111,185,178,.25)"><span class="kpi-l" id="kpiPayLabel">Payback Operacional</span><div class="kpi-v" id="outPay">4,9 anos</div><div class="kpi-s" id="kpiPaySub">via renda acumulada</div><div class="tt-btn" title="Payback = Valor da Cota / Retorno Líquido Anual. Métrica operacional pura; não inclui valorização patrimonial.">?</div></div>
+          <div class="kpi" style="border-top:2px solid rgba(200,176,131,.25)"><span class="kpi-l" id="kpiTIRLabel">TIR (10 anos)</span><div class="kpi-v" id="outTIR">—</div><div class="kpi-s" id="kpiTIRSub">renda + valorização patrimonial</div><div class="kpi-h" id="kpiTIRH">★ inclui valorização a 9% a.a.</div><div class="tt-btn" title="TIR por Newton-Raphson sobre fluxo de 10 anos: pagamentos, renda líquida e valor patrimonial residual. Sensível à taxa de valorização configurada acima.">?</div></div>
+          <div class="kpi" style="border-top:2px solid rgba(200,176,131,.25)"><span class="kpi-l">Valor em 10 Anos</span><div class="kpi-v" id="outPat">R$ 746k</div><div class="kpi-s" id="outPatSub">projeção a 9% a.a.</div><div class="kpi-h">★ ajuste pela taxa definida acima</div><div class="tt-btn" title="Cota x (1 + taxa)^10. Responde à valorização configurada. Hipótese indicativa de tendência.">?</div></div>
+        </div>
+        <!-- WATERFALL -->
+        <div class="wf-card">
+          <span class="wf-label" id="wfLabel">Destino de cada R$ 1,00 de receita bruta</span>
+          <div class="waterfall-canvas-wrap" style="height:58px"><canvas id="chartWF"></canvas></div>
+          <button class="cost-tog" id="ctogBtn" onclick="toggleCost()">Ver composição completa ▾</button>
+          <table class="ctab" id="ctabEl">
+            <tr><td id="ctRow1">(+) Receita Bruta</td><td id="ct1">R$ 104.500</td><td>100,0%</td></tr>
+            <tr><td id="ctRow2">(−) Gestão (25%)</td><td id="ct2">R$ 26.125</td><td id="ct2p">25,0%</td></tr>
+            <tr><td id="ctRow3">(−) Manutenção (1,5%)</td><td id="ct3">R$ 4.725</td><td id="ct3p">4,5%</td></tr>
+            <tr><td id="ctRow4">(−) Condomínio</td><td id="ct4">R$ 8.592</td><td id="ct4p">8,2%</td></tr>
+            <tr><td id="ctRow5">(−) Taxa SPU</td><td id="ct5">R$ 165</td><td id="ct5p">0,2%</td></tr>
+            <tr class="tot"><td id="ctRow6">(=) Retorno Líquido</td><td id="ct6">R$ 64.893</td><td id="ct6p">62,1%</td></tr>
+          </table>
+        </div>
+        <!-- 10Y CHART -->
+        <div class="c10-card">
+          <span class="c10-label" id="c10Label">Projeção patrimonial · 10 anos</span>
+          <div class="c10-leg">
+            <span><i style="background:var(--gold)"></i>Patrimônio projetado</span>
+            <span id="c10LegRnd"><i style="background:var(--lteal)"></i>Renda acumulada</span>
+            <span><i style="background:rgba(255,255,255,.25);border-top:2px dashed rgba(255,255,255,.3)"></i>Capital investido</span>
+          </div>
+          <div class="c10-wrap" style="height:180px"><canvas id="chart10y"></canvas></div>
+          <p id="c10Note" style="font-size:10.5px;color:rgba(255,255,255,.25);font-style:italic;margin-top:10px;line-height:1.55">★ Projeção a 9% a.a. Ajuste a taxa de valorização no cenário para personalizar. Não constitui projeção garantida.</p>
+        </div>
+        <!-- COMPARATIVE STRIP -->
+        <div class="comp-strip" id="compStrip">
+          <span class="wf-label">Comparativo de cenários · tipologia e valor selecionados</span>
+          <div class="cs-grid">
+            <div class="cs-card cs-base" id="csCardBase">
+              <div class="cs-tag">Base · 56%</div>
+              <div class="cs-roi" id="csBaseROI">20,6%</div>
+              <div class="cs-ret" id="csBaseRet">R$ 64.893/ano</div>
+              <div class="cs-pay" id="csBasePay">Payback 4,9 anos</div>
+              <div class="cs-tir" id="csBaseTIR">TIR —</div>
+            </div>
+            <div class="cs-card cs-opt" id="csCardOpt">
+              <div class="cs-tag">Otimista · 68%</div>
+              <div class="cs-roi" id="csOptROI">25,3%</div>
+              <div class="cs-ret" id="csOptRet">R$ 80.417/ano</div>
+              <div class="cs-pay" id="csOptPay">Payback 3,9 anos</div>
+              <div class="cs-tir" id="csOptTIR">TIR —</div>
+            </div>
+            <div class="cs-card cs-cons" id="csCardCons">
+              <div class="cs-tag">Conservador · 43%</div>
+              <div class="cs-roi" id="csConsROI">14,8%</div>
+              <div class="cs-ret" id="csConsRet">R$ 46.691/ano</div>
+              <div class="cs-pay" id="csConsPay">Payback 6,8 anos</div>
+              <div class="cs-tir" id="csConsTIR">TIR —</div>
+            </div>
+          </div>
+          <p style="font-size:10px;color:rgba(255,255,255,.2);margin-top:8px;font-style:italic">Todos os cenários recalculados com a tipologia, cota e perfil de uso selecionados acima. Cenário ativo destacado.</p>
+        </div>
+
+        <details class="sim-comp-details">
+          <summary class="sim-comp-summ">
+            <span>Como o Sophia se posiciona frente a outras alternativas</span>
+            <span style="font-size:10px;opacity:.5;margin-left:8px">▼ ver comparação</span>
+          </summary>
+          <div class="sim-comp-body">
+            <table class="sim-comp-table">
+              <thead>
+                <tr>
+                  <th>Ativo</th>
+                  <th>Retorno est.</th>
+                  <th>Liquidez</th>
+                  <th>Uso próprio</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="hi-row">
+                  <td id="simCompSophiaName">Sophia Riviera (cenário base, Studio)</td>
+                  <td id="simCompSophiaROI">~20,6% a.a.</td>
+                  <td>Baixa</td>
+                  <td id="simCompSophiaUso">Sim</td>
+                </tr>
+                <tr>
+                  <td>CDB 120% CDI</td>
+                  <td>~12% a.a.</td>
+                  <td>Alta</td>
+                  <td>Não</td>
+                </tr>
+                <tr>
+                  <td>FII (média IFIX)</td>
+                  <td>~9% a.a.</td>
+                  <td>Média</td>
+                  <td>Não</td>
+                </tr>
+                <tr>
+                  <td>Imóvel urbano (valoriz.)</td>
+                  <td>~7% a.a.</td>
+                  <td>Baixa</td>
+                  <td>Opcional</td>
+                </tr>
+                <tr>
+                  <td>Poupança</td>
+                  <td>~7% a.a.</td>
+                  <td>Alta</td>
+                  <td>Não</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="sim-comp-note" id="simCompNote">Retorno Sophia Riviera: ROI operacional indicativo no Cenário Base para o Studio. Líquido após gestão, manutenção, condomínio e SPU. Valorização patrimonial não incluída neste indicador. Taxas de referência: Abril/2026, estimativas de mercado sujeitas a variação. Não constitui recomendação de alocação.</p>
+          </div>
+        </details>
+
+        <p class="sim-note">Os resultados desta simulação são estimativas baseadas em premissas indicativas. Ocupação, diária média e valorização patrimonial podem variar. Não constitui compromisso de rentabilidade.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<div id="timeline">
+  <div class="wrap">
+    <div class="tl-head">
+      <h3>Linha do tempo do seu investimento</h3>
+      <p>Entrega prevista: 1º semestre de 2028 (~24 meses a partir de Abril/2026)</p>
+    </div>
+    <div class="tl-track">
+      <div class="tl-seg ts-ent" id="tlEnt" style="width:10%"><div class="ts-l">Entrada</div><div class="ts-v" id="tlEntV">R$ 31.500</div></div>
+      <div class="tl-seg ts-pre" id="tlPre" style="width:50%"><div class="ts-l">Parcelas pré-entrega</div><div class="ts-v" id="tlPreV">R$ 157.500</div></div>
+      <div class="tl-seg ts-pos" id="tlPos" style="flex:1"><div class="ts-l">Pós-entrega</div><div class="ts-v" id="tlPosV">R$ 126.000</div></div>
+      <div class="tl-mark" id="tlMark" style="left:60%"><span class="tl-mark-l">Entrega 1S/2028</span></div>
+    </div>
+    <div class="tl-info">
+      <div class="ti-cell"><div class="ti-l">Parcela pré-entrega</div><div class="ti-v" id="tlPPre">R$ 6.563/mês</div><div class="ti-s">por ~24 meses</div></div>
+      <div class="ti-cell"><div class="ti-l">Parcela pós-entrega</div><div class="ti-v" id="tlPPos">R$ 2.625/mês</div><div class="ti-s" id="tlPSub">por 48 meses</div></div>
+      <div class="ti-cell"><div class="ti-l" id="tlRendaLabel">Renda líquida estimada</div><div class="ti-v" id="tlRenda">R$ 5.408/mês</div><div class="ti-s" id="tlRendaSub">a partir da entrega (média)</div></div>
+      <div class="ti-cell"><div class="ti-l" id="tlPaybackLabel">Payback estimado</div><div class="ti-v" id="tlPayback">4,9 anos</div><div class="ti-s" id="tlPaybackSub">renda acumulada ≥ capital total</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- S09 PRUDÊNCIA -->
+<section id="prudencia">
+  <div class="wrap">
+    <div class="sh">
+      <span class="eyebrow">Leitura dos Resultados · Contexto e Limites</span>
+      <h2 class="d-l" style="color:var(--navy)">Leitura prudente dos resultados apresentados</h2>
+      <p class="lead">Os resultados apresentados devem ser lidos à luz das premissas, critérios e limites explicitados ao longo deste material. Esta etapa existe para contextualizar o que a simulação ajuda a enxergar e o que ela, por definição, não assegura.</p>
+    </div>
+    <div class="pru-panels">
+      <div class="pp left">
+        <h3>O que sustenta esta simulação</h3>
+        <ul class="pp-list">
+          <li class="pp-item"><span class="pp-icon">✓</span><span>Custos reais e auditáveis: condomínio por fração ideal verificada, SPU por decreto-lei, manutenção a 1,5% do valor da cota</span></li>
+          <li class="pp-item"><span class="pp-icon">✓</span><span>Ocupação prudente: o cenário base usa 56%, abaixo da ocupação registrada na alta temporada do destino</span></li>
+          <li class="pp-item"><span class="pp-icon">✓</span><span>Gestão profissional já descontada: o retorno apresentado já desconta 25% de administração de locações</span></li>
+          <li class="pp-item" style="border-bottom:none"><span class="pp-icon">✓</span><span>Breakeven baixo: apenas 12,6% de ocupação cobre os custos operacionais fixos anuais</span></li>
+        </ul>
+      </div>
+      <div class="pp right">
+        <h3>Limites desta simulação</h3>
+        <ul class="pp-list">
+          <li class="pp-item"><span class="pp-icon">⚠</span><span>Variações de mercado: ADR e ocupação dependem da demanda real, que pode ser diferente do estimado em qualquer sentido</span></li>
+          <li class="pp-item"><span class="pp-icon">⚠</span><span>Valorização patrimonial: a projeção de 9% a.a. é estimativa de tendência, não projeção garantida</span></li>
+          <li class="pp-item"><span class="pp-icon">⚠</span><span>Custos extraordinários: reformas atípicas, manutenção corretiva pesada ou eventos não previstos</span></li>
+          <li class="pp-item" style="border-bottom:none"><span class="pp-icon">⚠</span><span>Sazonalidade da renda: a receita mensal de STR é irregular. O valor anual apresentado é uma média</span></li>
+        </ul>
+      </div>
+    </div>
+    <!-- Prudential closing -->
+    <div class="pru-closing">
+      <div class="prc-side">
+        <span class="prc-label prc-yes">Esta simulação mostra</span>
+        <ul class="prc-list prc-yes-list">
+          <li>Leitura indicativa do retorno operacional líquido por tipologia e cenário</li>
+          <li>Sensibilidade da renda entre ocupações de 43%, 56% e 68% ao ano</li>
+          <li>Estrutura de custos verificável e auditável: gestão, manutenção, condomínio e SPU</li>
+          <li>Projeção patrimonial estimada com hipótese de valorização declarada (9% a.a.)</li>
+        </ul>
+      </div>
+      <div class="prc-divider"></div>
+      <div class="prc-side">
+        <span class="prc-label prc-no">Não constitui</span>
+        <ul class="prc-list prc-no-list">
+          <li>Promessa, oferta ou projeção garantida de rentabilidade de qualquer natureza</li>
+          <li>Afirmação de que a renda operacional cobrirá as parcelas de pagamento do ativo</li>
+          <li>Confirmação de valorização patrimonial futura de 9% a.a. como resultado verificado</li>
+          <li>Recomendação de investimento nem substituto a assessoria financeira especializada</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S10 SENSIBILIDADES -->
+<section id="riscos">
+  <div class="wrap">
+    <div class="sh">
+      <span class="eyebrow">Sensibilidades · O que mais influencia a leitura</span>
+      <h2 class="d-l" style="color:var(--navy)">Quais fatores podem alterar esta leitura</h2>
+      <p class="lead">Os resultados apresentados dependem de variáveis operacionais, patrimoniais e de mercado. Explicitar essas variáveis ajuda a interpretar a simulação com mais critério.</p>
+    </div>
+    <div class="rk-grid">
+      <div class="rk-card"><div class="rk-title">Taxa de ocupação efetiva</div><p class="rk-desc">A taxa de ocupação efetiva é a principal variável operacional da projeção. Uma queda de 10 pontos percentuais reduz a receita bruta em aproximadamente 18%.</p><span class="rk-impact">Relevante</span><div class="rk-mit">Destino em crescimento verificável; breakeven de 12,6% oferece margem antes do impacto operacional.</div></div>
+      <div class="rk-card"><div class="rk-title">Diária média praticada</div><p class="rk-desc">A diária média praticada afeta diretamente a receita bruta sem alteração nos custos fixos, comprimindo a margem operacional.</p><span class="rk-impact">Relevante</span><div class="rk-mit">ADR calculado de forma conservadora a partir das receitas aprovadas por empreendimento, não de projeções otimistas.</div></div>
+      <div class="rk-card"><div class="rk-title">Prazo e especificação de entrega</div><p class="rk-desc">Um atraso na entrega adia o início da geração de renda. Desvio de especificação pode afetar o posicionamento e a diária praticada.</p><span class="rk-impact">Moderado</span><div class="rk-mit">Grupo Arrey: 35 anos de histórico de entrega, maior rede hoteleira do Piauí.</div></div>
+      <div class="rk-card"><div class="rk-title">Trajetória patrimonial do ativo</div><p class="rk-desc">A hipótese de valorização de 9% a.a. afeta a TIR e o valor residual estimado ao final do horizonte de 10 anos.</p><span class="rk-impact">Moderado</span><div class="rk-mit">Valorização é hipótese complementar. O retorno operacional via renda não depende dela.</div></div>
+      <div class="rk-card"><div class="rk-title">Eficiência da gestão operacional</div><p class="rk-desc">A receita bruta depende da eficiência da operação das locações na plataforma STR, incluindo precificação dinâmica e taxa de conversão.</p><span class="rk-impact">Relevante</span><div class="rk-mit">Operação gerida por estrutura especializada em STR de alto padrão, chancelada pelo Grupo Arrey.</div></div>
+      <div class="rk-card"><div class="rk-title">Liquidez do ativo</div><p class="rk-desc">Cotas SCP não têm liquidez equivalente à de ativos financeiros. A saída do investimento depende de revenda ou transferência contratual.</p><span class="rk-impact">Moderado</span><div class="rk-mit">Cotas SCP de empreendimentos com histórico comprovado de execução tendem a gerar demanda secundária ao longo do tempo.</div></div>
+    </div>
+    <div class="rk-close">A variabilidade é inerente a qualquer ativo imobiliário. As premissas desta simulação foram construídas com critério explícito, o que permite interpretar os resultados com mais precisão, mas não os isenta de incerteza.</div>
+  </div>
+</section>
+
+<!-- S11 COMPARAÇÃO -->
+<section id="comparacao">
+  <div class="wrap">
+    <div class="sh">
+      <span class="eyebrow">Perspectiva Comparativa · Leitura de Contexto</span>
+      <h2 class="d-l">Como o Sophia se posiciona frente a outras alternativas</h2>
+      <p class="lead" style="color:rgba(255,255,255,.55)">A comparação a seguir ajuda a situar o Sophia Riviera em relação a outras alternativas, considerando retorno operacional indicativo, liquidez, proteção patrimonial e possibilidade de uso próprio.</p>
+    </div>
+    <div class="comp-disc">As taxas de referência para outros ativos são estimativas baseadas em condições de mercado vigentes em Abril/2026. Cada ativo tem perfil distinto de risco, liquidez e tributação. Esta comparação é de natureza contextual e não constitui recomendação de alocação.</div>
+    <div style="overflow-x:auto">
+      <table class="ctbl">
+        <thead><tr><th>Ativo</th><th>Retorno Estimado</th><th>Liquidez</th><th>Proteção Inflacionária</th><th>Uso Próprio</th></tr></thead>
+        <tbody>
+          <tr class="sr"><td>Sophia Riviera (cenário base) ★</td><td>~20,6% a.a.</td><td>Baixa</td><td>Alta (ativo físico)</td><td>Sim</td></tr>
+          <tr><td>CDB 120% CDI ★★</td><td>~12% a.a.</td><td>Alta</td><td>Parcial</td><td>Não</td></tr>
+          <tr><td>FII (média IFIX) ★★</td><td>~9% a.a.</td><td>Média</td><td>Parcial</td><td>Não</td></tr>
+          <tr><td>Imóvel urbano (valoriz.) ★★</td><td>~7% a.a.</td><td>Baixa</td><td>Alta</td><td>Opcional</td></tr>
+          <tr><td>Poupança ★★</td><td>~7% a.a.</td><td>Alta</td><td>Baixa</td><td>Não</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="comp-notes">
+      <p>★ ROI operacional indicativo no Cenário Base para o Studio (R$&nbsp;315.000). Retorno líquido anual após gestão profissional, manutenção, condomínio e taxa SPU. Valorização patrimonial não incluída neste indicador.</p>
+      <p>★★ Estimativas de mercado, referência: Abril/2026. Taxas sujeitas a variação conforme conjuntura.</p>
+    </div>
+    <div class="comp-attn">Tributação, risco de crédito, diversificação e perfil do investidor não estão ponderados nesta comparação. Recomenda-se análise individualizada com assessor de investimentos.</div>
+  </div>
+</section>
+
+<!-- S13 JURÍDICO -->
+<section id="juridico">
+  <div class="wrap">
+    <div class="jur-grid">
+      <div class="jb">
+        <h3>Estrutura Jurídica do Empreendimento</h3>
+        <p>O adquirente receberá contratualmente direito ao uso de unidade exclusiva, com acesso às áreas comuns e possibilidade de exploração econômica. O modelo de contrato é Sociedade em Conta de Participação (SCP), não se tratando de venda de unidade autônoma ou promessa de fração ideal, mas sim de direito contratual de uso de sua unidade vinculada. Imóvel caracterizado como Terreno de Marinha, sob domínio da União Federal – Registro Imobiliário Patrimonial na SPU sob regime de ocupação – RIP nº 1113.0100282-97. O empreendimento obedecerá aos padrões construtivos e urbanísticos previstos no contrato e no memorial descritivo oficial, que é parte integrante do contrato, não se vinculando ao material ilustrativo de publicidade.</p>
+      </div>
+      <div class="jb">
+        <h3>Observações Metodológicas</h3>
+        <p>As informações e simulações apresentadas têm caráter exclusivamente ilustrativo e indicativo. Não constituem promessa de rentabilidade, garantia de retorno ou oferta de rendimento. Os resultados dependem de premissas de mercado, operação, ocupação, diária média, estrutura de custos e valorização patrimonial, variáveis sujeitas a condições externas ao controle do empreendimento. A análise individual deve ser conduzida com base no perfil do investidor e na unidade específica de interesse.</p>
+      </div>
+    </div>
+    <div class="ft-rule"></div>
+    <div class="ft-row">
+      <div class="ft-brand"><strong>SOPHIA RIVIERA · Estudo de Projeção Financeira · Abril 2026</strong>Material de uso confidencial e indicativo</div>
+      <div class="ft-credits">Estruturação do estudo e da ferramenta: Micaella Avelino · Engenheira de Produção · PMP®</div>
+    </div>
+  </div>
+</section>
+
+<script>
+// ── §1 CONSTANTS ──────────────────────────────────────────────────────────────
+const TIPOS = {
+  studio:   {bloco:'B/C',            area:25.05,  cota:315000,  fi:0.003140, adr:504,  rec:{c:80200,  b:104500, o:126900}, info:'Bloco B/C · 25,05 m² · Layout versátil'},
+  hub1:     {bloco:'Hub',            area:34.20,  cota:323300,  fi:0.004289, adr:531,  rec:{c:84100,  b:109600, o:133100}, info:'Bloco Hub · 34,20 m² · Coworking integrado'},
+  hub2:     {bloco:'Hub',            area:35.70,  cota:336300,  fi:0.004476, adr:553,  rec:{c:87700,  b:114200, o:138700}, info:'Bloco Hub · 35,70 m² · Layout diferenciado'},
+  sgarden:  {bloco:'B/C',            area:37.55,  cota:357000,  fi:0.004708, adr:582,  rec:{c:92300,  b:120200, o:146100}, info:'Bloco B/C · 37,55 m² · Garden privativo'},
+  garden:   {bloco:'B/C',            area:68.00,  cota:575000,  fi:0.008525, adr:900,  rec:{c:142600, b:185736, o:225600}, info:'Bloco B/C · 68,00 m² · Garden amplo'},
+  duplex:   {bloco:'B/C',            area:90.40,  cota:880000,  fi:0.011333, adr:1648, rec:{c:261000, b:340000, o:413100}, info:'Bloco B/C · 90,40 m² · Jacuzzi rooftop'},
+  gpremium: {bloco:'A (frente mar)', area:105.50, cota:1233000, fi:0.013228, adr:1745, rec:{c:276400, b:360000, o:437100}, info:'Bloco A · 105,50 m² · Vista mar frontline'},
+  dpremium: {bloco:'A (frente mar)', area:115.50, cota:1327000, fi:0.014481, adr:2035, rec:{c:322900, b:420000, o:510000}, info:'Bloco A · 115,50 m² · Jacuzzi + vista mar'}
+};
+
+const CENS = {
+  base:        {occ:56, label:'Cenário Base'},
+  otimista:    {occ:68, label:'Cenário Otimista'},
+  conservador: {occ:43, label:'Cenário Conservador'}
+};
+
+// Mapping from scenario key to rec field key
+const CEN_REC  = {base:'b', otimista:'o', conservador:'c'};
+const TIPO_NAMES = {studio:'Studio', hub1:'Studio Hub 1', hub2:'Studio Hub 2', sgarden:'Studio Garden', garden:'Garden', duplex:'Duplex', gpremium:'Garden Premium', dpremium:'Duplex Premium'};
+const CEN_LABELS = {base:'cenário base', otimista:'cenário otimista', conservador:'cenário conservador'};
+
+// ── §2 STATE ──────────────────────────────────────────────────────────────────
+let S = {
+  tipoKey:'studio', cota:315000, cen:'base',
+  ent:10, pre:50, prazo:36,
+  perfil:0, monPct:0.75,
+  valPat:0.09
+};
+
+// ── §3 UTILS ──────────────────────────────────────────────────────────────────
+const Rnd  = n => Math.round(n);
+const fmtR = n => 'R$ ' + Rnd(n).toLocaleString('pt-BR');
+const fmtK = n => n >= 1000 ? 'R$ ' + (n / 1000).toFixed(0) + 'k' : fmtR(n);
+const fmtP = n => n.toFixed(1).replace('.', ',') + '%';
+const fmtA = n => n.toFixed(1).replace('.', ',') + ' anos';
+const fmtTIR = r => (r !== null && isFinite(r)) ? fmtP(r * 100) : '—';
+const el = id => document.getElementById(id);
+
+// ── §4 FINANCIAL ENGINE ───────────────────────────────────────────────────────
+
+/**
+ * Core scenario calculation.
+ * rec uses explicit DATA_MODEL values (c/b/o), not linear fator scaling,
+ * for exact alignment with DATA_MODEL.json.
+ * gestao scales with receita; manut scales with cotaVal (user-editable).
+ */
+/**
+ * Core scenario calculation — profile-aware.
+ * monPct: fraction of calendar available for STR (0=uso prioritário, 0.75=uso+mon, 1=mon exclusiva).
+ * rec100: full-monetisation gross revenue for the scenario (DATA_MODEL values).
+ * recBruta: rec100 × monPct — revenue actually earned.
+ * gestao: 25% of recBruta only (variable cost, only on revenue).
+ * manut/cond/spu: fixed costs, always apply.
+ * For perfil 1 (uso prioritário): recBruta=0, gestao=0, ret = −fixos (carrying cost).
+ */
+function calcCenario(tipoKey, cotaVal, cenKey, entPct, prePct, prazoMeses, monPct) {
+  const t        = TIPOS[tipoKey];
+  const rec100   = t.rec[CEN_REC[cenKey]];          // full-monetisation revenue
+  const recBruta = rec100 * monPct;                  // adjusted by monetisable fraction
+  const gestao   = recBruta * 0.25;
+  const manut    = cotaVal * 0.015;
+  const cond     = t.fi * 2736000;
+  const spu      = t.area * 6.578;
+  const fixos    = manut + cond + spu;
+  const custos   = gestao + fixos;
+  const ret      = recBruta - custos;                // negative when monPct=0
+  const roi      = ret / cotaVal * 100;
+  const pay      = ret > 0 ? cotaVal / ret : Infinity;
+  const pat      = cotaVal * Math.pow(1 + S.valPat, 10);
+  const entR     = cotaVal * entPct / 100;
+  const preR     = cotaVal * prePct / 100;
+  const posR     = cotaVal * (100 - entPct - prePct) / 100;
+  const tir      = calcTIR(entR, preR, posR, prazoMeses, ret, pat);
+  return {rec100, recBruta, gestao, manut, cond, spu, fixos, custos, ret, roi, pay, pat, entR, preR, posR, tir};
+}
+
+/**
+ * Build 10-year annual cashflow for TIR.
+ * t=0 : −entrada (day-zero outflow)
+ * t=1,2 : −preR/2 each (construction phase, ~2 years)
+ * t=3..10 : +retLiq − posAnual (while amortising post-delivery)
+ *           +retLiq only after amortisation ends
+ * t=10 : add terminal patrimonial value
+ */
+function buildCashflow(entR, preR, posR, prazoMeses, retLiq, valPat) {
+  const cf = new Array(11).fill(0);
+  cf[0] = -entR;
+  cf[1] = -(preR / 2);
+  cf[2] = -(preR / 2);
+  const prazoAnos = Math.max(1, Math.ceil(prazoMeses / 12));
+  const posAnual  = posR / prazoAnos;
+  for (let t = 3; t <= 10; t++) {
+    cf[t] = retLiq - ((t - 2) <= prazoAnos ? posAnual : 0);
+  }
+  cf[10] += valPat;
+  return cf;
+}
+
+/** One Newton-Raphson pass from initial guess r0. */
+function _nr(cf, r0, maxIter, tol) {
+  let r = r0;
+  for (let i = 0; i < maxIter; i++) {
+    let npv = 0, dnpv = 0;
+    for (let t = 0; t < cf.length; t++) {
+      const d = Math.pow(1 + r, t);
+      npv  += cf[t] / d;
+      dnpv -= t * cf[t] / (d * (1 + r));
+    }
+    if (Math.abs(dnpv) < 1e-14) break;
+    const rn = r - npv / dnpv;
+    if (Math.abs(rn - r) < tol) return rn;
+    r = isFinite(rn) ? rn : r0;
+  }
+  return r;
+}
+
+/**
+ * Multi-guess Newton-Raphson TIR over 10-year horizon.
+ * Returns the rate closest to 15% among all converged solutions,
+ * or null if no valid root found.
+ */
+function calcTIR(entR, preR, posR, prazoMeses, retLiq, valPat) {
+  const cf = buildCashflow(entR, preR, posR, prazoMeses, retLiq, valPat);
+  // Need mixed sign cashflows
+  const pos = cf.reduce((s, v) => s + (v > 0 ? v : 0), 0);
+  const neg = cf.reduce((s, v) => s + (v < 0 ? v : 0), 0);
+  if (pos === 0 || neg === 0) return null;
+  const totalOut = Math.abs(neg);
+  const guesses  = [0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.35, -0.03];
+  let best = null;
+  for (const g of guesses) {
+    try {
+      const r = _nr(cf, g, 100, 1e-8);
+      if (!isFinite(r) || r < -0.5 || r > 10) continue;
+      // Verify convergence: NPV must be near zero
+      let npv = 0;
+      for (let t = 0; t < cf.length; t++) npv += cf[t] / Math.pow(1 + r, t);
+      if (Math.abs(npv) > totalOut * 0.001) continue;
+      if (best === null || Math.abs(r - 0.15) < Math.abs(best - 0.15)) best = r;
+    } catch (e) { /* skip */ }
+  }
+  return best;
+}
+
+// ── §5 VALIDATE ───────────────────────────────────────────────────────────────
+function validateState() {
+  const sum = S.ent + S.pre;
+  const pos = 100 - sum;
+  const warnMin = sum < 50;
+  const warnPos = pos > 50;
+  el('warnEl').classList.toggle('show', warnMin);
+  el('warnPos').classList.toggle('show', warnPos && !warnMin);
+  return !warnMin && !warnPos;
+}
+
+// ── §6 RENDER ─────────────────────────────────────────────────────────────────
+function render() {
+  const t = TIPOS[S.tipoKey];
+  const c = CENS[S.cen];
+  validateState();
+
+  // Resolve effective monPct from profile
+  const monPct = S.perfil === 1 ? 0 : S.perfil === 2 ? 1.0 : S.monPct;
+  const v = calcCenario(S.tipoKey, S.cota, S.cen, S.ent, S.pre, S.prazo, monPct);
+
+  const isUso = S.perfil === 1;
+
+  // Block A: tipologia info
+  const t2 = TIPOS[S.tipoKey];
+  el('tipoInfo').textContent = t2.bloco + ' · ' + t2.area.toFixed(2) + ' m² · Cota padrão: R$ ' + t2.cota.toLocaleString('pt-BR');
+
+  // Block B: context (hidden for uso prioritário)
+  el('ctxOcc').textContent   = 'Ocupação de referência: ' + c.occ + '%' + (isUso ? ' (sem impacto direto neste perfil)' : '');
+  el('ctxAdr').textContent   = 'Diária média estimada: R$ ' + t.adr.toLocaleString('pt-BR') + ' ★';
+  el('ctxOcc').style.opacity = isUso ? '0.4' : '1';
+  el('ctxAdr').style.opacity = isUso ? '0.4' : '1';
+
+  // Block C: payment
+  const posP = 100 - S.ent - S.pre;
+  el('svEnt').textContent    = S.ent + '%';
+  el('ssEnt').textContent    = fmtR(v.entR);
+  el('svPre').textContent    = S.pre + '%';
+  el('ssPre').textContent    = fmtR(v.preR);
+  el('posLabel').textContent = posP + '% pós-entrega';
+  el('posVal').textContent   = fmtR(v.posR);
+  el('svPrazo').textContent  = S.prazo + 'x';
+  el('ssPrazo').textContent  = v.posR > 0 ? fmtR(v.posR / S.prazo) + '/mês' : 'R$ 0/mês';
+
+  // Break-even occupancy
+  if (monPct > 0) {
+    const beOcc = v.fixos * c.occ / (v.rec100 * monPct * 0.75);
+    el('simBep').textContent = fmtP(Math.min(beOcc, 100)) + ' de ocupação';
+    el('simBepNote').textContent = 'cobre os custos fixos anuais · ' + TIPO_NAMES[S.tipoKey] + ' · ' + c.label;
+  } else {
+    el('simBep').textContent = '—';
+    el('simBepNote').textContent = 'sem locação neste perfil · sem ponto de equilíbrio operacional';
+  }
+
+  // Comparison row — dynamic per tipologia, cenário and perfil
+  const sophiaLabel = 'Sophia Riviera (' + CEN_LABELS[S.cen] + ', ' + TIPO_NAMES[S.tipoKey] + ')';
+  el('simCompSophiaName').textContent = sophiaLabel;
+  el('simCompSophiaROI').textContent  = isUso ? '— (uso prioritário)' : '~' + fmtP(v.roi);
+  el('simCompSophiaUso').textContent  = isUso ? 'Prioritário' : 'Sim';
+  el('simCompNote').textContent       = 'Retorno Sophia Riviera: ROI operacional indicativo no ' + c.label + ' para ' + TIPO_NAMES[S.tipoKey] + '. Líquido após gestão, manutenção, condomínio e SPU. Valorização patrimonial não incluída neste indicador. Taxas de referência: Abril/2026, estimativas de mercado sujeitas a variação. Não constitui recomendação de alocação.';
+
+  // Block B: valPat display
+  const vpPct = Math.round(S.valPat * 100);
+  el('svValPat').textContent  = vpPct + '%';
+  el('ctxValPat').textContent = 'Valorização patrimonial: ' + vpPct + '% a.a.' + (vpPct === 9 ? ' (padrão)' : ' (personalizado)');
+  el('outPatSub').textContent = 'projeção a ' + vpPct + '% a.a.';
+  el('kpiTIRH').textContent   = '★ inclui valorização a ' + vpPct + '% a.a.';
+  el('c10Note').textContent   = '★ Projeção a ' + vpPct + '% a.a. Ajuste a taxa de valorização no cenário para personalizar. Não constitui projeção garantida.';
+
+  // Block D: monPct slider visibility
+  el('monPctRow').style.display = S.perfil === 0 ? 'block' : 'none';
+  el('svMon').textContent = Math.round(S.monPct * 100) + '%';
+  el('ssMon').textContent = Math.round((1 - S.monPct) * 100) + '% reservado para uso próprio';
+  el('perfilNote').style.display = isUso ? 'block' : 'none';
+
+  // Output hero — adapt by profile
+  if (isUso) {
+    el('outRetLabel').textContent = 'Custo de Carregamento Anual';
+    el('outRet').textContent      = fmtR(Math.abs(v.ret)) + '/ano';
+    el('outMen').textContent      = fmtR(Math.abs(v.ret) / 12) + ' / mês (estimado)';
+    el('outBadge').textContent    = 'Uso prioritário · leitura patrimonial';
+  } else {
+    el('outRetLabel').textContent = 'Retorno Líquido Estimado';
+    el('outRet').textContent      = fmtR(v.ret) + '/ano';
+    el('outMen').textContent      = fmtR(v.ret / 12) + ' / mês (média)';
+    el('outBadge').textContent    = c.label + (S.perfil === 0 ? ' · ' + Math.round(S.monPct * 100) + '% monetizado' : '');
+  }
+
+  // KPIs — adapt labels and opacity for uso prioritário
+  const roiKpi = el('outROI').closest('.kpi');
+  const payKpi = el('outPay').closest('.kpi');
+  if (roiKpi) roiKpi.style.opacity = isUso ? '0.3' : '1';
+  if (payKpi) payKpi.style.opacity = isUso ? '0.3' : '1';
+  el('outROI').textContent   = isUso ? '—' : fmtP(v.roi);
+  el('outPay').textContent   = isUso ? '—' : (isFinite(v.pay) ? fmtA(v.pay) : '—');
+  el('outTIR').textContent   = fmtTIR(v.tir);
+  el('outPat').textContent   = fmtK(v.pat);
+  el('kpiROILabel').textContent = isUso ? 'ROI Operacional' : 'ROI Estimado';
+  el('kpiROISub').textContent   = isUso ? 'sem locação neste perfil' : 'sobre o valor da cota';
+  el('kpiPayLabel').textContent = isUso ? 'Payback' : 'Payback Estimado';
+  el('kpiPaySub').textContent   = isUso ? 'sem renda neste perfil' : 'via renda acumulada';
+  el('kpiTIRLabel').textContent = isUso ? 'TIR Patrimonial (10 anos)' : 'TIR Estimada (10 anos)';
+  el('kpiTIRSub').textContent   = isUso ? 'ganho de capital projetado' : 'renda + valorização patrimonial';
+
+  // Cost table — adapt labels and values for uso prioritário
+  if (isUso) {
+    el('wfLabel').textContent  = 'Custo anual de carregamento do ativo';
+    el('ctRow1').textContent   = 'Receita operacional';
+    el('ctRow2').textContent   = '(−) Gestão (25%)';
+    el('ctRow3').textContent   = '(+) Manutenção (1,5% s/ cota)';
+    el('ctRow4').textContent   = '(+) Condomínio';
+    el('ctRow5').textContent   = '(+) Taxa SPU';
+    el('ctRow6').textContent   = '(=) Custo total anual';
+    el('ct1').textContent  = '—';
+    el('ct2').textContent  = '—';    el('ct2p').textContent = '—';
+    el('ct3').textContent  = fmtR(v.manut);  el('ct3p').textContent = '1,5% s/ cota';
+    el('ct4').textContent  = fmtR(v.cond);   el('ct4p').textContent = 'fr. ideal';
+    el('ct5').textContent  = fmtR(v.spu);    el('ct5p').textContent = 'por m²';
+    el('ct6').textContent  = fmtR(v.fixos);  el('ct6p').textContent = 'total/ano';
+  } else {
+    el('wfLabel').textContent  = 'Destino de cada R$ 1,00 de receita bruta';
+    el('ctRow1').textContent   = '(+) Receita Bruta';
+    el('ctRow2').textContent   = '(−) Gestão (25%)';
+    el('ctRow3').textContent   = '(−) Manutenção (1,5%)';
+    el('ctRow4').textContent   = '(−) Condomínio';
+    el('ctRow5').textContent   = '(−) Taxa SPU';
+    el('ctRow6').textContent   = '(=) Retorno Líquido';
+    el('ct1').textContent  = fmtR(v.recBruta);
+    el('ct2').textContent  = fmtR(v.gestao);  el('ct2p').textContent = fmtP(v.gestao / v.recBruta * 100);
+    el('ct3').textContent  = fmtR(v.manut);   el('ct3p').textContent = fmtP(v.manut  / v.recBruta * 100);
+    el('ct4').textContent  = fmtR(v.cond);    el('ct4p').textContent = fmtP(v.cond   / v.recBruta * 100);
+    el('ct5').textContent  = fmtR(v.spu);     el('ct5p').textContent = fmtP(v.spu    / v.recBruta * 100);
+    el('ct6').textContent  = fmtR(v.ret);     el('ct6p').textContent = fmtP(v.ret    / v.recBruta * 100);
+  }
+
+  // Timeline
+  const entW = Math.max(S.ent, 0), preW = Math.max(S.pre, 0);
+  el('tlEnt').style.width    = entW + '%';
+  el('tlPre').style.width    = preW + '%';
+  el('tlMark').style.left    = (entW + preW) + '%';
+  el('tlEntV').textContent   = fmtR(v.entR);
+  el('tlPreV').textContent   = fmtR(v.preR);
+  el('tlPosV').textContent   = fmtR(v.posR);
+  el('tlPPre').textContent   = v.preR > 0 ? fmtR(v.preR / 24) + '/mês' : '—';
+  el('tlPPos').textContent   = v.posR > 0 ? fmtR(v.posR / S.prazo) + '/mês' : '—';
+  el('tlPSub').textContent   = 'por ' + S.prazo + ' parcelas';
+  if (isUso) {
+    el('tlRendaLabel').textContent   = 'Custo mensal estimado';
+    el('tlRendaSub').textContent     = 'manutenção + cond. + SPU';
+    el('tlRenda').textContent        = fmtR(v.fixos / 12) + '/mês';
+    el('tlPaybackLabel').textContent = 'Payback';
+    el('tlPaybackSub').textContent   = 'não aplicável neste perfil';
+    el('tlPayback').textContent      = '—';
+  } else {
+    el('tlRendaLabel').textContent   = 'Renda líquida estimada';
+    el('tlRendaSub').textContent     = 'a partir da entrega (média)';
+    el('tlRenda').textContent        = fmtR(v.ret / 12) + '/mês';
+    el('tlPaybackLabel').textContent = 'Payback estimado';
+    el('tlPaybackSub').textContent   = 'renda acumulada ≥ capital total';
+    el('tlPayback').textContent      = isFinite(v.pay) ? fmtA(v.pay) : '—';
+  }
+
+  renderStrip();
+  drawWF(v, isUso);
+  draw10y(v, isUso);
+}
+
+/**
+ * Comparative strip — recalculates all 3 scenarios for selected tipologia/cota.
+ * Payment structure (ent/pre/prazo) kept the same across scenarios.
+ */
+function renderStrip() {
+  const MAP = {
+    base:        {roi:'csBaseROI', ret:'csBaseRet', pay:'csBasePay', tir:'csBaseTIR', card:'csCardBase'},
+    otimista:    {roi:'csOptROI',  ret:'csOptRet',  pay:'csOptPay',  tir:'csOptTIR',  card:'csCardOpt'},
+    conservador: {roi:'csConsROI', ret:'csConsRet', pay:'csConsPay', tir:'csConsTIR', card:'csCardCons'}
+  };
+  const monPct = S.perfil === 1 ? 0 : S.perfil === 2 ? 1.0 : S.monPct;
+  const isUso  = S.perfil === 1;
+  ['base','otimista','conservador'].forEach(ck => {
+    const vv  = calcCenario(S.tipoKey, S.cota, ck, S.ent, S.pre, S.prazo, monPct);
+    const ids = MAP[ck];
+    if (isUso) {
+      el(ids.roi).textContent  = '—';
+      el(ids.ret).textContent  = fmtR(vv.fixos) + '/ano (custo)';
+      el(ids.pay).textContent  = 'Payback —';
+    } else {
+      el(ids.roi).textContent  = fmtP(vv.roi);
+      el(ids.ret).textContent  = fmtR(vv.ret) + '/ano';
+      el(ids.pay).textContent  = isFinite(vv.pay) ? 'Payback ' + fmtA(vv.pay) : 'Payback —';
+    }
+    el(ids.tir).textContent  = 'TIR ' + fmtTIR(vv.tir);
+    const card = el(ids.card);
+    if (card) card.classList.toggle('active-cen', ck === S.cen);
+  });
+}
+
+// ── §7 CHARTS ─────────────────────────────────────────────────────────────────
+function drawS06() {
+  const cvs = el('chartS06');
+  if (!cvs) return;
+  const W = cvs.parentElement.clientWidth, H = 300;
+  cvs.width = W; cvs.height = H;
+  const ctx = cvs.getContext('2d');
+  const labels = ['Studio','Hub 1','Hub 2','St.Gard.','Garden','Duplex','G.Prem.','D.Prem.'];
+  // rows: conservador, base, otimista — matches legend order in S06
+  const cs = [
+    [80200,  84100,  87700,  92300,  142600, 261000, 276400, 322900],
+    [104500, 109600, 114200, 120200, 185736, 340000, 360000, 420000],
+    [126900, 133100, 138700, 146100, 225600, 413100, 437100, 510000]
+  ];
+  const colors = ['#6FB9B2','#204E5C','#C8B083'];
+  const pad = {l:56, r:16, t:16, b:42};
+  const n = 8, maxV = 545000;
+  const iW = W - pad.l - pad.r, iH = H - pad.t - pad.b;
+  const gW = iW / n, bW = gW * 0.22;
+  ctx.strokeStyle = 'rgba(22,52,62,.07)'; ctx.lineWidth = 1;
+  for (let i = 0; i <= 5; i++) {
+    const y = pad.t + iH * (1 - i / 5);
+    ctx.beginPath(); ctx.moveTo(pad.l, y); ctx.lineTo(W - pad.r, y); ctx.stroke();
+    ctx.fillStyle = '#9ab0b9'; ctx.font = '10px sans-serif'; ctx.textAlign = 'right';
+    ctx.fillText('R$' + (maxV * i / 5 / 1000).toFixed(0) + 'k', pad.l - 4, y + 3.5);
+  }
+  for (let i = 0; i < n; i++) {
+    const gx = pad.l + i * gW;
+    cs.forEach((d, j) => {
+      const x  = gx + (gW - 3 * bW) / 2 + j * bW;
+      const bh = d[i] / maxV * iH;
+      ctx.fillStyle = colors[j];
+      ctx.fillRect(x, pad.t + iH - bh, bW - 1, bh);
+    });
+    ctx.fillStyle = '#4e6c78'; ctx.font = '10px sans-serif'; ctx.textAlign = 'center';
+    ctx.fillText(labels[i], gx + gW / 2, H - pad.b + 13);
+  }
+}
+
+function drawWF(v, isUso) {
+  const cvs = el('chartWF');
+  if (!cvs) return;
+  const W = cvs.parentElement.clientWidth, H = 58;
+  cvs.width = W; cvs.height = H;
+  const ctx = cvs.getContext('2d');
+  ctx.clearRect(0, 0, W, H);
+  if (isUso) {
+    // Show fixed cost bars only
+    const segs = [
+      {v: v.manut, c: '#C8B083', l: 'Manut.'},
+      {v: v.cond,  c: '#6FB9B2', l: 'Cond.'},
+      {v: v.spu,   c: '#204E5C', l: 'SPU'}
+    ];
+    let x = 0;
+    segs.forEach(s => {
+      const pw = s.v / v.fixos * W;
+      ctx.fillStyle = s.c; ctx.fillRect(x, 6, pw - 1, 36);
+      if (pw > 40) {
+        ctx.fillStyle = '#fff'; ctx.font = '10px sans-serif'; ctx.textAlign = 'center';
+        ctx.fillText(s.l, x + pw / 2, 26);
+        ctx.fillText((s.v / v.fixos * 100).toFixed(0) + '%', x + pw / 2, 38);
+      }
+      x += pw;
+    });
+  } else {
+    const segs = [
+      {v: v.ret,           c: '#204E5C', l: 'Retorno'},
+      {v: v.gestao,        c: '#C8B083', l: 'Gestão'},
+      {v: v.cond,          c: '#6FB9B2', l: 'Cond.'},
+      {v: v.manut + v.spu, c: '#E3DED2', l: 'Manut.'}
+    ];
+    let x = 0;
+    segs.forEach(s => {
+      const pw = s.v / v.recBruta * W;
+      ctx.fillStyle = s.c; ctx.fillRect(x, 6, pw - 1, 36);
+      if (pw > 44) {
+        ctx.fillStyle = s.c === '#E3DED2' ? '#333' : '#fff';
+        ctx.font = '10px sans-serif'; ctx.textAlign = 'center';
+        ctx.fillText(s.l, x + pw / 2, 26);
+        ctx.fillText((s.v / v.recBruta * 100).toFixed(0) + '%', x + pw / 2, 38);
+      }
+      x += pw;
+    });
+  }
+}
+
+function draw10y(v, isUso) {
+  const cvs = el('chart10y');
+  if (!cvs) return;
+  const W = cvs.parentElement.clientWidth, H = 180;
+  cvs.width = W; cvs.height = H;
+  const ctx = cvs.getContext('2d');
+  const pad = {l:52, r:12, t:10, b:26};
+  const iW = W - pad.l - pad.r, iH = H - pad.t - pad.b;
+  const prazoA = Math.max(1, Math.ceil(S.prazo / 12));
+  const preA   = v.preR / 2;
+  const posA   = v.posR > 0 ? v.posR / prazoA : 0;
+  const pts_cap = [], pts_pat = [], pts_rnd = [];
+  for (let t = 0; t <= 10; t++) {
+    pts_cap.push(v.entR + Math.min(t, 2) * preA + (t > 2 ? Math.min(t - 2, prazoA) * posA : 0));
+    pts_pat.push(S.cota * Math.pow(1 + S.valPat, Math.max(0, t - 2)));
+    if (isUso) {
+      // Cumulative carrying cost (negative shown as absolute)
+      pts_rnd.push(t > 2 ? v.fixos * (t - 2) : 0);
+    } else {
+      pts_rnd.push(t > 2 ? v.ret * (t - 2) : 0);
+    }
+  }
+  const maxV = Math.max(...pts_pat, ...pts_rnd) * 1.06;
+  ctx.strokeStyle = 'rgba(255,255,255,.07)'; ctx.lineWidth = 1;
+  for (let i = 0; i <= 4; i++) {
+    const y = pad.t + iH * (1 - i / 4);
+    ctx.beginPath(); ctx.moveTo(pad.l, y); ctx.lineTo(W - pad.r, y); ctx.stroke();
+    ctx.fillStyle = 'rgba(255,255,255,.28)'; ctx.font = '9px sans-serif'; ctx.textAlign = 'right';
+    ctx.fillText('R$' + (maxV * i / 4 / 1000).toFixed(0) + 'k', pad.l - 3, y + 3);
+  }
+  ctx.fillStyle = 'rgba(255,255,255,.28)'; ctx.font = '9px sans-serif'; ctx.textAlign = 'center';
+  [0,2,4,6,8,10].forEach(t => ctx.fillText('Ano ' + t, pad.l + t / 10 * iW, H - 4));
+  function line(pts, color, dash, fill, fillColor) {
+    ctx.strokeStyle = color; ctx.lineWidth = 1.8;
+    ctx.setLineDash(dash ? [4, 4] : []);
+    ctx.beginPath();
+    pts.forEach((pv, i) => {
+      const x = pad.l + i / 10 * iW, y = pad.t + iH * (1 - pv / maxV);
+      i ? ctx.lineTo(x, y) : ctx.moveTo(x, y);
+    });
+    ctx.stroke();
+    if (fill) {
+      ctx.lineTo(pad.l + iW, pad.t + iH); ctx.lineTo(pad.l, pad.t + iH);
+      ctx.closePath(); ctx.fillStyle = fillColor || 'rgba(111,185,178,.12)'; ctx.fill();
+    }
+    ctx.setLineDash([]);
+  }
+  const rndColor = isUso ? '#C8B083' : '#6FB9B2';
+  const rndFill  = isUso ? 'rgba(200,176,131,.08)' : 'rgba(111,185,178,.12)';
+  line(pts_rnd, rndColor, false, true, rndFill);
+  line(pts_cap, 'rgba(255,255,255,.22)', true, false);
+  line(pts_pat, '#C8B083', false, false);
+  // Update legend label for rnd series
+  const legRnd = el('c10LegRnd');
+  if (legRnd) legRnd.lastChild.textContent = isUso ? 'Custo acumulado' : 'Renda acumulada';
+}
+
+// ── §8 UI UTILS ───────────────────────────────────────────────────────────────
+function toggleCost() {
+  const t = el('ctabEl'), b = el('ctogBtn');
+  t.classList.toggle('open');
+  b.textContent = t.classList.contains('open') ? 'Ocultar composição ▴' : 'Ver composição completa ▾';
+}
+
+// ── §9 EVENTS ─────────────────────────────────────────────────────────────────
+el('inTipo').addEventListener('change', function() {
+  S.tipoKey = this.value;
+  S.cota    = TIPOS[this.value].cota;
+  el('inValor').value = S.cota.toLocaleString('pt-BR');
+  render();
+});
+
+el('inValor').addEventListener('input', function() {
+  const v = parseInt(this.value.replace(/\D/g, ''));
+  if (!isNaN(v) && v >= 50000) { S.cota = v; render(); }
+});
+
+el('inValor').addEventListener('blur', function() {
+  el('inValor').value = S.cota.toLocaleString('pt-BR');
+});
+
+document.querySelectorAll('#segCenario .seg-btn').forEach(b => {
+  b.addEventListener('click', function() {
+    document.querySelectorAll('#segCenario .seg-btn').forEach(x => x.classList.remove('on'));
+    this.classList.add('on');
+    S.cen = this.dataset.c;
+    render();
+  });
+});
+
+el('slEnt').addEventListener('input', function() {
+  S.ent = +this.value;
+  // Cap: ent + pre <= 100; pós >= 0
+  if (S.ent + S.pre > 100) { S.pre = 100 - S.ent; el('slPre').value = S.pre; }
+  render();
+});
+
+el('slPre').addEventListener('input', function() {
+  S.pre = +this.value;
+  if (S.ent + S.pre > 100) { S.ent = 100 - S.pre; el('slEnt').value = S.ent; }
+  render();
+});
+
+el('slPrazo').addEventListener('input', function() { S.prazo = +this.value; render(); });
+
+el('slMon').addEventListener('input', function() {
+  S.monPct = +this.value / 100;
+  render();
+});
+
+document.querySelectorAll('#rgPerfil .ro').forEach((o, i) => {
+  o.addEventListener('click', function() {
+    document.querySelectorAll('#rgPerfil .ro').forEach(x => x.classList.remove('on'));
+    this.classList.add('on');
+    S.perfil = i;
+    render();
+  });
+});
+
+el('slValPat').addEventListener('input', function() {
+  S.valPat = +this.value / 100;
+  render();
+});
+
+window.addEventListener('scroll', () => el('nav').classList.toggle('on', scrollY > 50));
+
+// ── §10 INIT ──────────────────────────────────────────────────────────────────
+drawS06();
+render();
+let _rt;
+window.addEventListener('resize', () => { clearTimeout(_rt); _rt = setTimeout(() => { drawS06(); render(); }, 160); });
+</script>
+</body>
+</html>
