@@ -466,8 +466,58 @@ table.ctbl{width:100%;border-collapse:collapse;font-size:13.5px}
   .stat4,.stat3{grid-template-columns:1fr}
 }
 </style>
+<style id="gate-css">
+#gate{position:fixed;inset:0;background:#16343E;z-index:99999;display:flex;align-items:center;justify-content:center}
+#gate-box{text-align:center;max-width:320px;width:90%;padding:0 20px}
+#gate-logo{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#C8B083;font-weight:700;margin-bottom:6px}
+#gate-sub{font-size:11.5px;color:rgba(255,255,255,.32);letter-spacing:.07em;margin-bottom:32px;line-height:1.5}
+#gate-rule{width:28px;height:1px;background:#C8B083;margin:0 auto 32px;opacity:.45}
+#gate-input{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:2px;padding:13px 16px;color:#fff;font-size:13px;letter-spacing:.06em;outline:none;box-sizing:border-box;text-align:center;transition:border-color .2s}
+#gate-input:focus{border-color:rgba(200,176,131,.5)}
+#gate-input::placeholder{color:rgba(255,255,255,.22);letter-spacing:.04em}
+#gate-btn{margin-top:12px;width:100%;background:#C8B083;color:#16343E;border:none;padding:13px;font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;cursor:pointer;border-radius:2px;transition:opacity .2s}
+#gate-btn:hover{opacity:.85}
+#gate-err{margin-top:11px;font-size:11px;color:rgba(200,176,131,.65);letter-spacing:.05em;min-height:15px}
+#gate-foot{margin-top:38px;font-size:9.5px;color:rgba(255,255,255,.13);letter-spacing:.06em}
+</style>
 </head>
 <body>
+<div id="gate">
+  <div id="gate-box">
+    <div id="gate-logo">Sophia Riviera</div>
+    <div id="gate-sub">Estudo de Projeção Financeira · Acesso Restrito</div>
+    <div id="gate-rule"></div>
+    <input type="password" id="gate-input" placeholder="senha de acesso" autocomplete="current-password">
+    <button id="gate-btn" onclick="gateCheck()">Acessar</button>
+    <div id="gate-err"></div>
+    <div id="gate-foot">Material de uso confidencial e indicativo</div>
+  </div>
+</div>
+<script>
+(function(){
+  if(sessionStorage.getItem('sr_auth')==='1'){
+    var g=document.getElementById('gate');
+    if(g)g.style.display='none';
+  }
+})();
+function gateCheck(){
+  var v=document.getElementById('gate-input').value;
+  if(v==='sophiariviera28'){
+    sessionStorage.setItem('sr_auth','1');
+    document.getElementById('gate').style.display='none';
+  } else {
+    document.getElementById('gate-err').textContent='Senha incorreta. Tente novamente.';
+    document.getElementById('gate-input').value='';
+    document.getElementById('gate-input').focus();
+  }
+}
+document.addEventListener('keydown',function(e){
+  if(e.key==='Enter'){
+    var g=document.getElementById('gate');
+    if(g&&g.style.display!=='none')gateCheck();
+  }
+});
+</script>
 
 <!-- NAV -->
 <nav id="nav">
