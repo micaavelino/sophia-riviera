@@ -1004,15 +1004,15 @@ document.addEventListener('keydown',function(e){
               <button class="seg-btn" data-c="conservador">Conservador<small>38,7% occ.</small></button>
             </div>
             <div class="sc-ctx">
-              <span id="ctxOcc">Ocupação ponderada: 56%</span>
-              <span id="ctxAdr">Diária média estimada: R$ 504 ★</span>
-              <span id="ctxValPat">Valorização patrimonial: 9% a.a. (padrão)</span>
+              <span id="ctxOcc">Ocupação de referência: 50,4%</span>
+              <span id="ctxAdr">Diária média estimada: R$ 454 ★</span>
+              <span id="ctxValPat">Valorização patrimonial: 9% a.a. (premissa indicativa)</span>
             </div>
             <div class="slider-row" style="margin-top:10px">
               <label class="fl">Valorização patrimonial anual (personalizável)</label>
               <div class="sl-top"><span style="font-size:12px;color:rgba(255,255,255,.38)">0% – 10%</span><span class="sl-val" id="svValPat">9%</span></div>
               <input type="range" id="slValPat" min="0" max="10" value="9" step="1">
-              <span class="sl-sub">Afeta TIR e projeção patrimonial · não altera ROI nem payback</span>
+              <span class="sl-sub">Premissa indicativa, editável para cálculo personalizado · afeta TIR e projeção patrimonial, não altera ROI nem payback</span>
             </div>
           </div>
         </div>
@@ -1076,7 +1076,7 @@ document.addEventListener('keydown',function(e){
         </div>
         <div id="simBepRow" style="display:flex;align-items:baseline;gap:6px;padding:4px 0 6px;font-size:11px;color:rgba(255,255,255,.35);flex-wrap:wrap;line-height:1.5">
           <span>Ponto de equilíbrio:</span>
-          <strong id="simBep" style="color:var(--lteal);font-weight:600;font-size:12.5px">12,6% de ocupação</strong>
+          <strong id="simBep" style="color:var(--lteal);font-weight:600;font-size:12.5px">15,9% de ocupação</strong>
           <span id="simBepNote">cobre os custos fixos anuais (Studio · cenário base)</span>
         </div>
         <div class="kpi-grid">
@@ -1108,7 +1108,7 @@ document.addEventListener('keydown',function(e){
             <span><i style="background:rgba(255,255,255,.25);border-top:2px dashed rgba(255,255,255,.3)"></i>Capital investido</span>
           </div>
           <div class="c10-wrap" style="height:180px"><canvas id="chart10y"></canvas></div>
-          <p id="c10Note" style="font-size:10.5px;color:rgba(255,255,255,.25);font-style:italic;margin-top:10px;line-height:1.55">★ Projeção a 9% a.a. Ajuste a taxa de valorização no cenário para personalizar. Não constitui projeção garantida.</p>
+          <p id="c10Note" style="font-size:10.5px;color:rgba(255,255,255,.25);font-style:italic;margin-top:10px;line-height:1.55">★ Premissa patrimonial indicativa de 9% a.a. — combina valorização já observada no produto (+14,5% em 14 meses), tese Wellness Real Estate e amadurecimento do destino. Editável no simulador. Não constitui projeção garantida.</p>
         </div>
         <!-- COMPARATIVE STRIP -->
         <div class="comp-strip" id="compStrip">
@@ -1551,10 +1551,14 @@ function render() {
   // Block B: valPat display
   const vpPct = Math.round(S.valPat * 100);
   el('svValPat').textContent  = vpPct + '%';
-  el('ctxValPat').textContent = 'Valorização patrimonial: ' + vpPct + '% a.a.' + (vpPct === 9 ? ' (padrão)' : ' (personalizado)');
-  el('outPatSub').textContent = 'projeção a ' + vpPct + '% a.a.';
-  el('kpiTIRH').textContent   = '★ inclui valorização a ' + vpPct + '% a.a.';
-  el('c10Note').textContent   = '★ Projeção a ' + vpPct + '% a.a. Ajuste a taxa de valorização no cenário para personalizar. Não constitui projeção garantida.';
+  el('ctxValPat').textContent = vpPct === 9
+    ? 'Valorização patrimonial: 9% a.a. · premissa indicativa — combina valorização observada no Sophia, tese Wellness Real Estate e amadurecimento do destino'
+    : 'Valorização patrimonial: ' + vpPct + '% a.a. (personalizado) · premissa indicativa, não garantida';
+  el('outPatSub').textContent = 'projeção a ' + vpPct + '% a.a. (premissa indicativa)';
+  el('kpiTIRH').textContent   = '★ inclui premissa patrimonial de ' + vpPct + '% a.a. · editável acima · não garante retorno';
+  el('c10Note').textContent   = vpPct === 9
+    ? '★ Premissa patrimonial indicativa de 9% a.a. — combina valorização já observada no produto (+14,5% em 14 meses), tese Wellness Real Estate e amadurecimento do destino. Editável no simulador. Não constitui projeção garantida.'
+    : '★ Projeção a ' + vpPct + '% a.a. (personalizado). Premissa indicativa, não garantida. Para referência de mercado, use 9% a.a.';
 
   // Block D: monPct slider visibility
   el('monPctRow').style.display = S.perfil === 0 ? 'block' : 'none';
