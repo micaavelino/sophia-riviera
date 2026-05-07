@@ -127,6 +127,22 @@ section{padding:108px 0}
 .mcard-text{font-size:13.5px;color:#4e6c78;line-height:1.8}
 .method-close{background:rgba(200,176,131,.1);border-left:3px solid var(--gold);padding:26px 34px;margin-top:1px;font-family:var(--serif);font-size:15px;font-style:italic;color:var(--teal);line-height:1.65}
 
+/* ── S05b WELLNESS VALUATION ───────────────────────────────────────── */
+#wellness{background:var(--bg);padding:80px 0 72px}
+.wv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--cream);margin:48px 0 0}
+.wv-card{background:var(--white);padding:34px 30px 30px;position:relative;overflow:hidden}
+.wv-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+.wv-card.wv-observed::before{background:var(--gold)}
+.wv-card.wv-market::before{background:var(--lteal)}
+.wv-card.wv-assumption::before{background:var(--navy)}
+.wv-label{font-size:9.5px;font-weight:700;letter-spacing:.17em;text-transform:uppercase;color:var(--lteal);margin-bottom:14px;display:block}
+.wv-headline{font-family:var(--serif);font-size:22px;font-weight:400;color:var(--navy);line-height:1.2;margin-bottom:14px}
+.wv-body{font-size:13.5px;color:#4e6c78;line-height:1.8}
+.wv-stat{font-family:var(--serif);font-size:32px;font-weight:400;color:var(--teal);line-height:1;margin:18px 0 6px;display:block}
+.wv-stat-sub{font-size:11px;color:rgba(22,52,62,.45);line-height:1.55}
+.wv-source{font-size:11px;color:rgba(22,52,62,.35);margin-top:36px;border-top:1px solid var(--cream);padding-top:18px;line-height:1.7}
+@media(max-width:900px){.wv-grid{grid-template-columns:1fr}}
+
 /* ── S06 CENÁRIOS ──────────────────────────────────────────────────── */
 #cenarios{background:var(--bg)}
 .sc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:44px}
@@ -740,6 +756,50 @@ document.addEventListener('keydown',function(e){
       </div>
     </div>
     <div class="method-close">Com essas premissas explícitas, os indicadores deixam de ser números soltos e passam a compor uma leitura estruturada do ativo.</div>
+  </div>
+</section>
+
+<!-- S05b WELLNESS VALUATION -->
+<section id="wellness">
+  <div class="wrap">
+    <div class="sh">
+      <span class="eyebrow">Tese Patrimonial · Por que a valorização entra na análise</span>
+      <h2 class="d-l" style="color:var(--navy)">Uma premissa construída, não prometida</h2>
+      <p class="lead">A valorização patrimonial de 9% a.a. usada na projeção de longo prazo não parte de uma promessa. Ela combina três referências independentes: valorização já observada no próprio Sophia Riviera, contexto de expansão do Wellness Real Estate e amadurecimento do destino como polo de lazer litorâneo. É uma premissa indicativa e deliberadamente conservadora, sempre editável no simulador.</p>
+    </div>
+
+    <div class="wv-grid">
+
+      <!-- Card 1: Sophia observed appreciation -->
+      <div class="wv-card wv-observed">
+        <span class="wv-label">Referência interna observada</span>
+        <div class="wv-headline">O que o Sophia já registrou</div>
+        <p class="wv-body">O Studio saiu de R$&nbsp;275.000 em janeiro de 2025 para R$&nbsp;315.000 em março de 2026. Isso representa uma valorização de 14,5% em 14 meses — antes da entrega das chaves e antes do início da operação como ativo de renda.</p>
+        <span class="wv-stat">+14,5%</span>
+        <span class="wv-stat-sub">em 14 meses · jan/2025 a mar/2026 · Studio<br>valorização da cota observada no período de obras</span>
+      </div>
+
+      <!-- Card 2: Wellness Real Estate market context -->
+      <div class="wv-card wv-market">
+        <span class="wv-label">Contexto de mercado</span>
+        <div class="wv-headline">Wellness Real Estate em expansão</div>
+        <p class="wv-body">O Wellness Real Estate é o segmento imobiliário de maior crescimento no Brasil, com expansão estimada entre 15% e 20% ao ano — cerca de 3 vezes mais rápido do que o imobiliário residencial convencional. Produtos que combinam natureza, saúde e experiência de moradia e hospedagem têm apresentado percepção de valor consistentemente superior ao mercado geral.</p>
+        <span class="wv-stat">3×</span>
+        <span class="wv-stat-sub">o ritmo de crescimento do residencial convencional<br><em style="font-style:normal">Fonte: Tribuna do Sertão / Terra Notícias, 2026</em></span>
+      </div>
+
+      <!-- Card 3: Why 9% is prudent -->
+      <div class="wv-card wv-assumption">
+        <span class="wv-label">Premissa da ferramenta</span>
+        <div class="wv-headline">9% a.a. como hipótese de longo prazo</div>
+        <p class="wv-body">Para o horizonte de 10 anos, a ferramenta utiliza 9% a.a. como taxa indicativa de valorização. Esse número é mais prudente do que a alta já observada em obra e compatível com referências de valorização imobiliária de destinos em maturação. O retorno operacional via renda é calculado de forma completamente independente — e não depende desta hipótese.</p>
+        <span class="wv-stat">9% a.a.</span>
+        <span class="wv-stat-sub">premissa indicativa · mais conservadora do que o observado<br>editável diretamente no simulador · não é projeção garantida</span>
+      </div>
+
+    </div>
+
+    <p class="wv-source">Referências utilizadas: valorização interna observada (dados do empreendimento, jan/2025–mar/2026); crescimento do Wellness Real Estate no Brasil (Tribuna do Sertão / Terra Notícias, 2026); valorização imobiliária residencial (FipeZap / DataZap, referência de mercado). Esta seção descreve o racional da premissa, não constitui projeção de rentabilidade futura nem recomendação de investimento.</p>
   </div>
 </section>
 
