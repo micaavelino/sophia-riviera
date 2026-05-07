@@ -730,13 +730,13 @@ document.addEventListener('keydown',function(e){
       </div>
       <div class="mcard">
         <span class="mcard-num">03</span>
-        <div class="mcard-title">Escopo da Projeção</div>
-        <p class="mcard-text">A projeção considera horizonte anual de operação em regime STR, com todos os custos operacionais recorrentes já descontados. Reformas extraordinárias, eventos atípicos e variação de mercado não estão incluídos.</p>
+        <div class="mcard-title">Como a projeção funciona</div>
+        <p class="mcard-text">A projeção considera um ano completo de operação em locação de curta temporada — chamada de STR (short-term rental): a unidade é operada como hospedagem por períodos curtos, como fins de semana, feriados e temporadas. Todos os custos recorrentes já estão descontados. Reformas extraordinárias e eventos atípicos não estão incluídos.</p>
       </div>
       <div class="mcard">
         <span class="mcard-num">04</span>
-        <div class="mcard-title">Limites e Hipóteses</div>
-        <p class="mcard-text">A valorização patrimonial de 9% a.a. é uma estimativa indicativa de tendência, não uma projeção garantida. A diária média é estimativa derivada das receitas projetadas por tipologia. ★ Fonte: análise interna com base nas receitas aprovadas por empreendimento.</p>
+        <div class="mcard-title">Hipóteses que orientam os cálculos</div>
+        <p class="mcard-text">A valorização de 9% a.a. usada nos cálculos de longo prazo é uma premissa indicativa, não garantida. Ela parte de uma referência observada no próprio produto: o Studio saiu de R$ 275 mil em jan/2025 para R$ 315 mil em mar/2026, alta de 14,5% em 14 meses. Para o horizonte de 10 anos, a ferramenta usa uma premissa mais prudente, sem tratar esse comportamento como garantia de repetição. As diárias foram recalibradas para uma leitura mais conservadora. ★ Fonte: análise interna com base nas receitas aprovadas por empreendimento.</p>
       </div>
     </div>
     <div class="method-close">Com essas premissas explícitas, os indicadores deixam de ser números soltos e passam a compor uma leitura estruturada do ativo.</div>
@@ -749,7 +749,7 @@ document.addEventListener('keydown',function(e){
     <div class="sh">
       <span class="eyebrow">Cenários · Sensibilidade e Amplitude</span>
       <h2 class="d-l" style="color:var(--navy)">Como o mesmo ativo responde a cenários operacionais diferentes</h2>
-      <p class="lead">Os três cenários variam exclusivamente na taxa de ocupação. A estrutura de diárias, custos e premissas é a mesma em todos. Os indicadores a seguir tomam como referência o Studio (R$&nbsp;315.000), tipologia de menor entrada.</p>
+      <p class="lead">Os três cenários mostram como o mesmo ativo pode se comportar dependendo do nível de ocupação. Tudo o mais — diárias, custos, premissas — é igual entre eles. As diárias usadas na modelagem foram recalibradas para uma leitura mais prudente. A referência usada é o Studio (R$&nbsp;315.000), a tipologia de menor entrada.</p>
     </div>
     <div class="sc-grid">
       <!-- BASE -->
@@ -770,7 +770,7 @@ document.addEventListener('keydown',function(e){
         <div class="sc-kv"><div class="sc-kl">Retorno líquido estimado / ano</div><div style="font-family:var(--serif);font-size:21px;color:var(--navy)">R$ 63.611</div></div>
         <div class="sc-kv"><div class="sc-kl">ROI indicativo</div><div style="font-family:var(--serif);font-size:28px;color:var(--teal)">20,2% a.a.</div></div>
         <div class="sc-kv"><div class="sc-kl">Payback estimado</div><div style="font-family:var(--serif);font-size:21px;color:var(--navy)">5,0 anos</div></div>
-        <p class="sc-foot">★ Hipótese: escala linear de ocupação; ADR mantido constante como premissa conservadora</p>
+        <p class="sc-foot">Os três cenários usam as mesmas premissas de diária. A diferença entre eles está apenas na taxa de ocupação.</p>
       </div>
       <!-- CONSERVADOR -->
       <div class="sc-card cons">
@@ -780,10 +780,10 @@ document.addEventListener('keydown',function(e){
         <div class="sc-kv"><div class="sc-kl">Retorno líquido estimado / ano</div><div style="font-family:var(--serif);font-size:21px;color:var(--navy)">R$ 35.241</div></div>
         <div class="sc-kv"><div class="sc-kl">ROI indicativo</div><div style="font-family:var(--serif);font-size:28px;color:var(--teal)">11,2% a.a.</div></div>
         <div class="sc-kv"><div class="sc-kl">Payback estimado</div><div style="font-family:var(--serif);font-size:21px;color:var(--navy)">8,9 anos</div></div>
-        <p class="sc-foot">★ Hipótese: escala linear de ocupação; ADR mantido constante como premissa conservadora</p>
+        <p class="sc-foot">Os três cenários usam as mesmas premissas de diária. A diferença entre eles está apenas na taxa de ocupação.</p>
       </div>
     </div>
-    <p style="font-size:12.5px;color:#8a9ea5;margin-bottom:36px;font-style:italic">Referência: Studio (R$&nbsp;315.000). Variação reflete exclusivamente a taxa de ocupação; diária média mantida constante como premissa conservadora.</p>
+    <p style="font-size:12.5px;color:#8a9ea5;margin-bottom:36px;font-style:italic">Referência: Studio (R$&nbsp;315.000). As diárias da modelagem foram recalibradas de forma conservadora. A diferença entre cenários reflete apenas a variação de ocupação.</p>
     <!-- BREAKEVEN -->
     <div class="be-box">
       <div class="be-num">15,9%</div>
@@ -990,13 +990,13 @@ document.addEventListener('keydown',function(e){
           <div class="ib-head"><span class="ib-tag">D · O Perfil de Uso</span><div class="ib-title">Como pretende usar a unidade</div></div>
           <div class="ib-body">
             <div class="rg" id="rgPerfil">
-              <label class="ro on"><input type="radio" name="perf" value="0" checked><div class="ri"></div><div class="rt"><strong>Uso e monetização</strong><small>Uso próprio e locação STR combinados</small></div></label>
+              <label class="ro on"><input type="radio" name="perf" value="0" checked><div class="ri"></div><div class="rt"><strong>Uso e monetização</strong><small>Uso próprio e locação de curta temporada combinados</small></div></label>
               <label class="ro"><input type="radio" name="perf" value="1"><div class="ri"></div><div class="rt"><strong>Uso prioritário</strong><small>Uso próprio frequente; sem locação regular</small></div></label>
-              <label class="ro"><input type="radio" name="perf" value="2"><div class="ri"></div><div class="rt"><strong>Monetização exclusiva</strong><small>Operação STR integral, sem uso próprio</small></div></label>
+              <label class="ro"><input type="radio" name="perf" value="2"><div class="ri"></div><div class="rt"><strong>Monetização exclusiva</strong><small>Operação em locação de curta temporada integral, sem uso próprio</small></div></label>
             </div>
             <div id="monPctRow" style="margin-top:14px">
               <div class="slider-row">
-                <label class="fl">Fração disponível para locação STR</label>
+                <label class="fl">Fração disponível para locação de curta temporada</label>
                 <div class="sl-top"><span style="font-size:12px;color:rgba(255,255,255,.38)">50% – 95%</span><span class="sl-val" id="svMon">75%</span></div>
                 <input type="range" id="slMon" min="50" max="95" value="75" step="5">
                 <span class="sl-sub" id="ssMon">25% reservado para uso próprio</span>
@@ -1171,19 +1171,19 @@ document.addEventListener('keydown',function(e){
       <div class="pp left">
         <h3>O que sustenta esta simulação</h3>
         <ul class="pp-list">
-          <li class="pp-item"><span class="pp-icon">✓</span><span>Custos reais e auditáveis: condomínio por fração ideal verificada, SPU por decreto-lei, manutenção a 1,5% do valor da cota</span></li>
-          <li class="pp-item"><span class="pp-icon">✓</span><span>Ocupação prudente: o cenário base usa 50,4%, abaixo da ocupação registrada na alta temporada do destino</span></li>
-          <li class="pp-item"><span class="pp-icon">✓</span><span>Gestão profissional já descontada: o retorno apresentado já desconta 25% de administração de locações</span></li>
-          <li class="pp-item" style="border-bottom:none"><span class="pp-icon">✓</span><span>Ponto de equilíbrio: apenas 15,9% de ocupação cobre os custos operacionais fixos anuais</span></li>
+          <li class="pp-item"><span class="pp-icon">✓</span><span>Custos reais e verificáveis: todos os descontos têm base documental — condomínio, manutenção e taxa de uso do terreno (SPU)</span></li>
+          <li class="pp-item"><span class="pp-icon">✓</span><span>Ocupação conservadora: o cenário base usa 50,4% de ocupação ponderada, abaixo dos picos de alta temporada do destino</span></li>
+          <li class="pp-item"><span class="pp-icon">✓</span><span>Gestão já descontada: o retorno apresentado já considera 25% de taxa de administração das locações</span></li>
+          <li class="pp-item" style="border-bottom:none"><span class="pp-icon">✓</span><span>Ponto de equilíbrio acessível: apenas 15,9% de ocupação já cobre todos os custos fixos anuais da unidade</span></li>
         </ul>
       </div>
       <div class="pp right">
         <h3>Limites desta simulação</h3>
         <ul class="pp-list">
-          <li class="pp-item"><span class="pp-icon">⚠</span><span>Variações de mercado: ADR e ocupação dependem da demanda real, que pode ser diferente do estimado em qualquer sentido</span></li>
+          <li class="pp-item"><span class="pp-icon">⚠</span><span>Variações de mercado: a diária praticada e a ocupação dependem da demanda real, que pode ser maior ou menor do que o estimado</span></li>
           <li class="pp-item"><span class="pp-icon">⚠</span><span>Valorização patrimonial: a projeção de 9% a.a. é estimativa de tendência, não projeção garantida</span></li>
           <li class="pp-item"><span class="pp-icon">⚠</span><span>Custos extraordinários: reformas atípicas, manutenção corretiva pesada ou eventos não previstos</span></li>
-          <li class="pp-item" style="border-bottom:none"><span class="pp-icon">⚠</span><span>Sazonalidade da renda: a receita mensal de STR é irregular. O valor anual apresentado é uma média</span></li>
+          <li class="pp-item" style="border-bottom:none"><span class="pp-icon">⚠</span><span>Sazonalidade da renda: a receita de locação de curta temporada é irregular ao longo do ano. O valor anual apresentado é uma média</span></li>
         </ul>
       </div>
     </div>
@@ -1217,18 +1217,16 @@ document.addEventListener('keydown',function(e){
   <div class="wrap">
     <div class="sh">
       <span class="eyebrow">Sensibilidades · O que mais influencia a leitura</span>
-      <h2 class="d-l" style="color:var(--navy)">Quais fatores podem alterar esta leitura</h2>
-      <p class="lead">Os resultados apresentados dependem de variáveis operacionais, patrimoniais e de mercado. Explicitar essas variáveis ajuda a interpretar a simulação com mais critério.</p>
+      <h2 class="d-l" style="color:var(--navy)">O que mais influencia os resultados</h2>
+      <p class="lead">Os números apresentados dependem de como algumas variáveis vão se comportar na prática. Entender o que pesa mais ajuda a ler a simulação com mais critério e contexto.</p>
     </div>
     <div class="rk-grid">
-      <div class="rk-card"><div class="rk-title">Taxa de ocupação efetiva</div><p class="rk-desc">A taxa de ocupação efetiva é a principal variável operacional da projeção. Uma queda de 10 pontos percentuais reduz a receita bruta em aproximadamente 18%.</p><span class="rk-impact">Relevante</span><div class="rk-mit">Destino em crescimento verificável; breakeven de 15,9% oferece margem antes do impacto operacional.</div></div>
-      <div class="rk-card"><div class="rk-title">Diária média praticada</div><p class="rk-desc">A diária média praticada afeta diretamente a receita bruta sem alteração nos custos fixos, comprimindo a margem operacional.</p><span class="rk-impact">Relevante</span><div class="rk-mit">ADR calculado de forma conservadora a partir das receitas aprovadas por empreendimento, não de projeções otimistas.</div></div>
-      <div class="rk-card"><div class="rk-title">Prazo e especificação de entrega</div><p class="rk-desc">Um atraso na entrega adia o início da geração de renda. Desvio de especificação pode afetar o posicionamento e a diária praticada.</p><span class="rk-impact">Moderado</span><div class="rk-mit">Grupo Arrey: 35 anos de histórico de entrega, maior rede hoteleira do Piauí.</div></div>
-      <div class="rk-card"><div class="rk-title">Trajetória patrimonial do ativo</div><p class="rk-desc">A hipótese de valorização de 9% a.a. afeta a TIR e o valor residual estimado ao final do horizonte de 10 anos.</p><span class="rk-impact">Moderado</span><div class="rk-mit">Valorização é hipótese complementar. O retorno operacional via renda não depende dela.</div></div>
-      <div class="rk-card"><div class="rk-title">Eficiência da gestão operacional</div><p class="rk-desc">A receita bruta depende da eficiência da operação das locações na plataforma STR, incluindo precificação dinâmica e taxa de conversão.</p><span class="rk-impact">Relevante</span><div class="rk-mit">Operação gerida por estrutura especializada em STR de alto padrão, chancelada pelo Grupo Arrey.</div></div>
-      <div class="rk-card"><div class="rk-title">Liquidez do ativo</div><p class="rk-desc">Cotas SCP não têm liquidez equivalente à de ativos financeiros. A saída do investimento depende de revenda ou transferência contratual.</p><span class="rk-impact">Moderado</span><div class="rk-mit">Cotas SCP de empreendimentos com histórico comprovado de execução tendem a gerar demanda secundária ao longo do tempo.</div></div>
+      <div class="rk-card"><div class="rk-title">Taxa de ocupação</div><p class="rk-desc">A ocupação é o principal fator que determina quanto o ativo gera. O cenário base usa 50,4% de ocupação ponderada — patamar prudente, com margem relevante acima do ponto de equilíbrio de 15,9%.</p><span class="rk-impact">Relevante</span><div class="rk-mit">Destino em crescimento verificável, com sazonalidade positiva e demanda crescente por hospedagens de qualidade.</div></div>
+      <div class="rk-card"><div class="rk-title">Valor da diária</div><p class="rk-desc">O valor cobrado por noite afeta diretamente a receita sem mudar os custos fixos. As diárias usadas na modelagem foram recalibradas de forma mais conservadora, abaixo das referências originais, para reduzir excesso de otimismo.</p><span class="rk-impact">Relevante</span><div class="rk-mit">Valores calculados com base nas receitas aprovadas por empreendimento, não em projeções otimistas de mercado.</div></div>
+      <div class="rk-card"><div class="rk-title">Entrega e execução</div><p class="rk-desc">O histórico do Grupo Arrey reduz de forma importante a percepção de risco de execução. Com 35 anos de trajetória e a maior rede hoteleira do Piauí, o grupo tem histórico consistente de entrega.</p><span class="rk-impact">Controlado</span><div class="rk-mit">O histórico do empreendedor é um fator relevante de confiança — prazo e especificação são variáveis monitoradas, não ignoradas.</div></div>
+      <div class="rk-card"><div class="rk-title">Valorização patrimonial</div><p class="rk-desc">A hipótese de 9% a.a. afeta a TIR e o valor projetado ao final de 10 anos. O retorno operacional via renda não depende dela — é calculado de forma independente.</p><span class="rk-impact">Hipótese</span><div class="rk-mit">Premissa mais prudente do que a valorização já observada (14,5% em 14 meses). Editável diretamente no simulador.</div></div>
     </div>
-    <div class="rk-close">A variabilidade é inerente a qualquer ativo imobiliário. As premissas desta simulação foram construídas com critério explícito, o que permite interpretar os resultados com mais precisão, mas não os isenta de incerteza.</div>
+    <div class="rk-close">A variabilidade é inerente a qualquer ativo imobiliário. As premissas desta simulação foram construídas com critério explícito para permitir uma leitura mais precisa — não para eliminar a incerteza, mas para torná-la visível e dimensionada. <span style="font-size:11.5px;opacity:.65">Nota: cotas SCP têm liquidez diferente de ativos financeiros; a saída depende de revenda ou transferência contratual. A operação de locação é gerida por estrutura especializada chancelada pelo Grupo Arrey.</span></div>
   </div>
 </section>
 
