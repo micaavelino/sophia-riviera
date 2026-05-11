@@ -340,6 +340,16 @@ td.mid{color:var(--muted)}
   h2{page-break-after:avoid}
   .cover::before{display:none}
 }
+
+/* BACK TO TOP */
+#btt{position:fixed;bottom:28px;right:28px;width:40px;height:40px;background:var(--navy);border:1px solid rgba(200,176,131,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transition:.3s;z-index:99;text-decoration:none}
+#btt.show{opacity:1}
+#btt svg{width:16px;height:16px}
+/* MODULE PROGRESS STRIP */
+.mod-progress{display:flex;gap:3px;padding:10px 52px;background:var(--white);border-bottom:1px solid var(--cream);position:sticky;top:0;z-index:50;overflow-x:auto}
+.mp-dot{width:28px;height:4px;background:var(--cream);border-radius:2px;flex-shrink:0;transition:.2s;cursor:pointer;text-decoration:none}
+.mp-dot.active,.mp-dot:hover{background:var(--gold)}
+@media(max-width:768px){.mod-progress{padding:10px 20px}.mp-dot{width:20px}}
 </style>
 </head>
 <body>
@@ -358,6 +368,46 @@ td.mid{color:var(--muted)}
   </div>
 </div>
 
+<!-- HERO VISUAL STRIP -->
+<div style="background:linear-gradient(135deg,var(--navy) 0%,var(--teal) 60%,rgba(111,185,178,.4) 100%);padding:0;position:relative;overflow:hidden;height:220px;display:flex;align-items:flex-end">
+  <div style="position:absolute;inset:0;opacity:.06;background-image:url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22300%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%22.65%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22300%22 height=%22300%22 filter=%22url(%23n)%22/%3E%3C/svg%3E')"></div>
+  <!-- Geometric shapes -->
+  <div style="position:absolute;right:80px;top:30px;width:140px;height:140px;border:1px solid rgba(200,176,131,.2);border-radius:50%"></div>
+  <div style="position:absolute;right:110px;top:55px;width:90px;height:90px;border:1px solid rgba(200,176,131,.15);border-radius:50%"></div>
+  <div style="position:absolute;right:135px;top:80px;width:40px;height:40px;background:rgba(200,176,131,.12);border-radius:50%"></div>
+  <div style="position:absolute;left:52px;top:28px;width:1px;height:164px;background:linear-gradient(to bottom,transparent,rgba(200,176,131,.3),transparent)"></div>
+  <div style="position:relative;z-index:1;padding:0 52px 32px;width:100%">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px">
+      <div>
+        <span style="font-size:9.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--lteal);display:block;margin-bottom:10px">Ferramenta de Estudo Interno</span>
+        <div style="font-family:Georgia,serif;font-size:clamp(18px,3vw,28px);font-weight:400;color:var(--white);line-height:1.2;letter-spacing:-.01em">Como conduzir comparações com<br>inteligência consultiva</div>
+      </div>
+      <div style="display:flex;gap:24px">
+        <div style="text-align:center"><div style="font-family:Georgia,serif;font-size:32px;font-weight:400;color:var(--gold);line-height:1">10</div><div style="font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:3px">Módulos</div></div>
+        <div style="text-align:center"><div style="font-family:Georgia,serif;font-size:32px;font-weight:400;color:var(--gold);line-height:1">13</div><div style="font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:3px">Objeções</div></div>
+        <div style="text-align:center"><div style="font-family:Georgia,serif;font-size:32px;font-weight:400;color:var(--gold);line-height:1">8</div><div style="font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-top:3px">Tipologias</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODULE PROGRESS STRIP -->
+<div class="mod-progress">
+  <a href="#" class="mp-dot active" title="Topo"></a>
+  <a href="#mod1" class="mp-dot" title="Módulo 1"></a>
+  <a href="#mod2" class="mp-dot" title="Módulo 2"></a>
+  <a href="#mod3" class="mp-dot" title="Módulo 3"></a>
+  <a href="#mod4" class="mp-dot" title="Módulo 4"></a>
+  <a href="#mod5" class="mp-dot" title="Módulo 5"></a>
+  <a href="#mod6" class="mp-dot" title="Módulo 6"></a>
+  <a href="#mod7" class="mp-dot" title="Módulo 7"></a>
+  <a href="#mod8" class="mp-dot" title="Módulo 8"></a>
+  <a href="#tipologias" class="mp-dot" title="Tipologias"></a>
+  <a href="#mod9" class="mp-dot" title="Módulo 9"></a>
+  <a href="#mod10" class="mp-dot" title="Módulo 10"></a>
+  <a href="#bolso" class="mp-dot" title="Resumo"></a>
+</div>
+
 <!-- ══════════════════════ ABERTURA ══════════════════════ -->
 <div class="wrap">
 <h3 style="margin-top:0">Por que este guia existe</h3>
@@ -366,6 +416,47 @@ td.mid{color:var(--muted)}
 
 <div class="destaque">
   O consultor não deve vencer a comparação no grito.<br>Deve conduzir o cliente a comparar corretamente.
+</div>
+
+<!-- DIAGRAMA: A COMPARAÇÃO CORRETA -->
+<div style="margin:2em 0">
+  <div style="font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--lteal);margin-bottom:1em">Diagrama · A comparação correta</div>
+  <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:0;align-items:center">
+    <!-- Errado -->
+    <div style="background:var(--redlt);border:1px solid rgba(158,58,58,.2);padding:20px 24px;border-right:none">
+      <div style="font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:12px">Como não comparar</div>
+      <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+        <div style="text-align:center;padding:12px 16px;background:rgba(158,58,58,.08);border:1px solid rgba(158,58,58,.15)">
+          <div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--red);opacity:.7;margin-bottom:4px">Critério único</div>
+          <div style="font-family:Georgia,serif;font-size:18px;color:var(--red)">Preço</div>
+        </div>
+        <div style="font-size:18px;color:rgba(158,58,58,.4)">×</div>
+        <div style="text-align:center;padding:12px 16px;background:rgba(158,58,58,.08);border:1px solid rgba(158,58,58,.15)">
+          <div style="font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--red);opacity:.7;margin-bottom:4px">Critério único</div>
+          <div style="font-family:Georgia,serif;font-size:18px;color:var(--red)">Preço</div>
+        </div>
+      </div>
+    </div>
+    <!-- Seta -->
+    <div style="background:var(--navy);padding:20px 14px;display:flex;align-items:center;justify-content:center;align-self:stretch">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M12 6l4 4-4 4" stroke="#C8B083" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+    <!-- Correto -->
+    <div style="background:var(--greenlt);border:1px solid rgba(36,102,68,.18);padding:20px 24px;border-left:none">
+      <div style="font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:12px">Como comparar corretamente</div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px">
+        <span style="background:rgba(36,102,68,.1);border:1px solid rgba(36,102,68,.2);padding:5px 10px;font-size:12px;color:var(--green)">Preço</span>
+        <span style="background:rgba(36,102,68,.1);border:1px solid rgba(36,102,68,.2);padding:5px 10px;font-size:12px;color:var(--green)">Entrega</span>
+        <span style="background:rgba(36,102,68,.1);border:1px solid rgba(36,102,68,.2);padding:5px 10px;font-size:12px;color:var(--green)">Prazo</span>
+        <span style="background:rgba(36,102,68,.1);border:1px solid rgba(36,102,68,.2);padding:5px 10px;font-size:12px;color:var(--green)">Esforço</span>
+        <span style="background:rgba(36,102,68,.1);border:1px solid rgba(36,102,68,.2);padding:5px 10px;font-size:12px;color:var(--green)">Risco</span>
+        <span style="background:rgba(36,102,68,.1);border:1px solid rgba(36,102,68,.2);padding:5px 10px;font-size:12px;color:var(--green)">Experiência</span>
+        <span style="background:rgba(36,102,68,.1);border:1px solid rgba(36,102,68,.2);padding:5px 10px;font-size:12px;color:var(--green)">Uso familiar</span>
+        <span style="background:rgba(36,102,68,.1);border:1px solid rgba(36,102,68,.2);padding:5px 10px;font-size:12px;color:var(--green)">Locação</span>
+      </div>
+    </div>
+  </div>
+  <div style="font-size:11px;color:var(--muted);margin-top:8px;font-style:italic">Referência para estudo interno. A comparação correta muda o critério antes de apresentar qualquer produto.</div>
 </div>
 
 <div class="abertura-cards">
@@ -574,6 +665,171 @@ td.mid{color:var(--muted)}
     <td>"Aceita esperar até 1S/2028?"</td>
   </tr>
 </table>
+
+<!-- MATRIZ: CUSTO INICIAL × ESFORÇO OPERACIONAL -->
+<h3>Matriz qualitativa: percepção de custo × esforço operacional</h3>
+<div style="position:relative;margin:1.6em 0;background:var(--white);border:1px solid var(--cream);padding:32px">
+  <div style="font-size:10px;color:var(--muted);font-style:italic;margin-bottom:20px">Mapa qualitativo para estudo interno. Posições são percepções de referência e variam conforme caso.</div>
+  <!-- Grid -->
+  <div style="position:relative;height:280px">
+    <!-- Axes background quadrants -->
+    <div style="position:absolute;inset:40px 0 0 40px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:2px">
+      <div style="background:rgba(158,58,58,.04)"></div>
+      <div style="background:rgba(158,58,58,.08)"></div>
+      <div style="background:rgba(36,102,68,.04)"></div>
+      <div style="background:rgba(200,176,131,.08)"></div>
+    </div>
+    <!-- Y axis label -->
+    <div style="position:absolute;left:0;top:50%;transform:translateY(-50%) rotate(-90deg);transform-origin:center;font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);white-space:nowrap">Esforço operacional</div>
+    <!-- X axis label -->
+    <div style="position:absolute;bottom:0;left:50%;transform:translateX(-50%);font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">Custo inicial percebido</div>
+    <!-- Y axis arrow -->
+    <div style="position:absolute;left:40px;top:40px;bottom:20px;width:1px;background:var(--mid)">
+      <div style="position:absolute;top:-6px;left:-3px;width:0;height:0;border-left:3.5px solid transparent;border-right:3.5px solid transparent;border-bottom:6px solid var(--mid)"></div>
+    </div>
+    <!-- X axis arrow -->
+    <div style="position:absolute;left:40px;right:0;bottom:20px;height:1px;background:var(--mid)">
+      <div style="position:absolute;right:-6px;top:-3px;width:0;height:0;border-top:3.5px solid transparent;border-bottom:3.5px solid transparent;border-left:6px solid var(--mid)"></div>
+    </div>
+    <!-- Axis labels -->
+    <div style="position:absolute;left:44px;top:44px;font-size:10px;color:var(--muted)">Alto</div>
+    <div style="position:absolute;left:44px;bottom:24px;font-size:10px;color:var(--muted)">Baixo</div>
+    <div style="position:absolute;left:44px;bottom:24px;font-size:10px;color:var(--muted)">→</div>
+    <!-- Model dots -->
+    <!-- Lote: alto custo total, alto esforço -->
+    <div style="position:absolute;left:55%;top:15%;transform:translate(-50%,-50%);text-align:center">
+      <div style="width:52px;height:52px;border-radius:50%;background:rgba(158,58,58,.12);border:2px solid rgba(158,58,58,.3);display:flex;align-items:center;justify-content:center;margin:0 auto;font-size:10px;font-weight:700;color:var(--red)">Lote</div>
+      <div style="font-size:9.5px;color:var(--muted);margin-top:4px;white-space:nowrap">Baixo inicial,<br>alto total</div>
+    </div>
+    <!-- Casa: alto custo, alto esforço -->
+    <div style="position:absolute;left:72%;top:22%;transform:translate(-50%,-50%);text-align:center">
+      <div style="width:52px;height:52px;border-radius:50%;background:rgba(158,58,58,.12);border:2px solid rgba(158,58,58,.3);display:flex;align-items:center;justify-content:center;margin:0 auto;font-size:10px;font-weight:700;color:var(--red)">Casa</div>
+      <div style="font-size:9.5px;color:var(--muted);margin-top:4px;white-space:nowrap">Alto inicial,<br>alto esforço</div>
+    </div>
+    <!-- Apartamento: menor custo, esforço médio -->
+    <div style="position:absolute;left:38%;top:55%;transform:translate(-50%,-50%);text-align:center">
+      <div style="width:52px;height:52px;border-radius:50%;background:rgba(78,108,120,.1);border:2px solid rgba(78,108,120,.25);display:flex;align-items:center;justify-content:center;margin:0 auto;font-size:9px;font-weight:700;color:var(--teal)">Apto.</div>
+      <div style="font-size:9.5px;color:var(--muted);margin-top:4px;white-space:nowrap">Médio inicial,<br>esforço médio</div>
+    </div>
+    <!-- Sophia: maior custo inicial, menor esforço -->
+    <div style="position:absolute;left:72%;top:72%;transform:translate(-50%,-50%);text-align:center">
+      <div style="width:58px;height:58px;border-radius:50%;background:rgba(200,176,131,.18);border:2px solid rgba(200,176,131,.5);display:flex;align-items:center;justify-content:center;margin:0 auto;font-size:9px;font-weight:700;color:var(--navy)">Sophia</div>
+      <div style="font-size:9.5px;color:var(--muted);margin-top:4px;white-space:nowrap">Ticket qualificado,<br>menor esforço</div>
+    </div>
+    <!-- Quadrant labels -->
+    <div style="position:absolute;left:46px;top:48px;font-size:9px;color:rgba(158,58,58,.5);font-weight:600">ALTO ESFORÇO<br>MENOR CUSTO</div>
+    <div style="position:absolute;right:4px;top:48px;font-size:9px;color:rgba(158,58,58,.5);font-weight:600;text-align:right">ALTO ESFORÇO<br>MAIOR CUSTO</div>
+    <div style="position:absolute;left:46px;bottom:28px;font-size:9px;color:rgba(36,102,68,.5);font-weight:600">MENOR ESFORÇO<br>MENOR CUSTO</div>
+    <div style="position:absolute;right:4px;bottom:28px;font-size:9px;color:rgba(200,176,131,.8);font-weight:600;text-align:right">MENOR ESFORÇO<br>MAIOR CUSTO</div>
+  </div>
+  <div style="margin-top:12px;padding-top:10px;border-top:1px solid var(--cream);font-size:11px;color:var(--muted);font-style:italic">Posicionamento qualitativo para referência de estudo. Custo e esforço variam conforme o caso, a tipologia, o perfil de uso e a gestão individual.</div>
+</div>
+
+<!-- LINHA DO TEMPO COMPARATIVA -->
+<h3>Tempo estimado até uso: comparativo por modelo</h3>
+<div style="margin:1.4em 0">
+  <div style="font-size:10px;color:var(--muted);font-style:italic;margin-bottom:16px">Referência qualitativa para estudo. Prazos variam conforme o caso.</div>
+  <!-- Lote -->
+  <div style="margin-bottom:14px">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:6px">
+      <div style="width:80px;flex-shrink:0;font-size:11px;font-weight:700;color:var(--red)">Lote</div>
+      <div style="flex:1;display:flex;gap:2px">
+        <div style="flex:1;background:rgba(158,58,58,.15);border:1px solid rgba(158,58,58,.2);padding:6px 8px;font-size:10px;text-align:center;color:var(--red)">Compra</div>
+        <div style="flex:1;background:rgba(158,58,58,.15);border:1px solid rgba(158,58,58,.2);padding:6px 8px;font-size:10px;text-align:center;color:var(--red)">Projeto</div>
+        <div style="flex:1;background:rgba(158,58,58,.18);border:1px solid rgba(158,58,58,.2);padding:6px 8px;font-size:10px;text-align:center;color:var(--red)">Aprovação</div>
+        <div style="flex:2;background:rgba(158,58,58,.22);border:1px solid rgba(158,58,58,.2);padding:6px 8px;font-size:10px;text-align:center;color:var(--red)">Construção (24–36m)</div>
+        <div style="flex:1;background:rgba(158,58,58,.15);border:1px solid rgba(158,58,58,.2);padding:6px 8px;font-size:10px;text-align:center;color:var(--red)">Mobília</div>
+        <div style="flex:1;background:rgba(36,102,68,.1);border:1px solid rgba(36,102,68,.2);padding:6px 8px;font-size:10px;text-align:center;color:var(--green);font-weight:700">Uso</div>
+      </div>
+    </div>
+  </div>
+  <!-- Casa pronta -->
+  <div style="margin-bottom:14px">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:6px">
+      <div style="width:80px;flex-shrink:0;font-size:11px;font-weight:700;color:var(--muted)">Casa pronta</div>
+      <div style="flex:1;display:flex;gap:2px">
+        <div style="flex:1;background:rgba(78,108,120,.1);border:1px solid rgba(78,108,120,.15);padding:6px 8px;font-size:10px;text-align:center;color:var(--teal)">Compra</div>
+        <div style="flex:1;background:rgba(78,108,120,.08);border:1px solid rgba(78,108,120,.12);padding:6px 8px;font-size:10px;text-align:center;color:var(--teal)">Ajustes</div>
+        <div style="flex:1;background:rgba(78,108,120,.08);border:1px solid rgba(78,108,120,.12);padding:6px 8px;font-size:10px;text-align:center;color:var(--teal)">Mobília</div>
+        <div style="flex:1;background:rgba(36,102,68,.1);border:1px solid rgba(36,102,68,.2);padding:6px 8px;font-size:10px;text-align:center;color:var(--green);font-weight:700">Uso</div>
+      </div>
+    </div>
+  </div>
+  <!-- Apartamento pronto -->
+  <div style="margin-bottom:14px">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:6px">
+      <div style="width:80px;flex-shrink:0;font-size:11px;font-weight:700;color:var(--muted)">Apartamento</div>
+      <div style="flex:1;display:flex;gap:2px">
+        <div style="flex:1;background:rgba(78,108,120,.1);border:1px solid rgba(78,108,120,.15);padding:6px 8px;font-size:10px;text-align:center;color:var(--teal)">Compra</div>
+        <div style="flex:1;background:rgba(78,108,120,.08);border:1px solid rgba(78,108,120,.12);padding:6px 8px;font-size:10px;text-align:center;color:var(--teal)">Mobília</div>
+        <div style="flex:1;background:rgba(36,102,68,.1);border:1px solid rgba(36,102,68,.2);padding:6px 8px;font-size:10px;text-align:center;color:var(--green);font-weight:700">Uso</div>
+      </div>
+    </div>
+  </div>
+  <!-- Sophia -->
+  <div>
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:80px;flex-shrink:0;font-size:11px;font-weight:700;color:var(--navy)">Sophia</div>
+      <div style="flex:1;display:flex;gap:2px">
+        <div style="flex:1;background:rgba(200,176,131,.15);border:1px solid rgba(200,176,131,.3);padding:6px 8px;font-size:10px;text-align:center;color:var(--navy)">Compra</div>
+        <div style="flex:3;background:rgba(200,176,131,.12);border:1px solid rgba(200,176,131,.25);padding:6px 8px;font-size:10px;text-align:center;color:var(--navy)">Obra em andamento → entrega 1S/2028</div>
+        <div style="flex:1.5;background:rgba(200,176,131,.18);border:1.5px solid rgba(200,176,131,.4);padding:6px 8px;font-size:10px;text-align:center;color:var(--navy);font-weight:700">Proposta<br>completa</div>
+      </div>
+    </div>
+    <div style="margin-left:92px;margin-top:8px;font-size:11px;color:var(--muted);font-style:italic;border-left:2px solid var(--gold);padding-left:10px">O pronto entrega tempo agora. O Sophia entrega uma proposta mais completa, com espera planejada.</div>
+  </div>
+</div>
+
+<!-- MATRIZ DE ATRIBUTOS -->
+<h3>Mapa qualitativo de atributos · comparativo por modelo</h3>
+<div style="overflow-x:auto;margin:1.4em 0">
+  <div style="font-size:10px;color:var(--muted);font-style:italic;margin-bottom:12px">Avaliação qualitativa para estudo interno. Não constitui classificação definitiva.</div>
+  <table style="font-size:12px;margin:0">
+    <tr>
+      <th style="width:22%">Atributo</th>
+      <th style="text-align:center;width:19.5%">Lote</th>
+      <th style="text-align:center;width:19.5%">Casa de praia</th>
+      <th style="text-align:center;width:19.5%">Apartamento</th>
+      <th style="text-align:center;width:19.5%;background:rgba(200,176,131,.25);color:var(--navy)">Sophia Riviera</th>
+    </tr>
+    <tr>
+      <td style="font-weight:600;color:var(--navy)">Personalização</td>
+      <td style="text-align:center"><span style="display:inline-flex;gap:2px"><span style="width:10px;height:10px;background:var(--green);border-radius:1px;display:inline-block"></span><span style="width:10px;height:10px;background:var(--green);border-radius:1px;display:inline-block"></span><span style="width:10px;height:10px;background:var(--green);border-radius:1px;display:inline-block"></span><span style="width:10px;height:10px;background:var(--green);border-radius:1px;display:inline-block"></span><span style="width:10px;height:10px;background:var(--green);border-radius:1px;display:inline-block"></span></span><div style="font-size:9px;color:var(--green);margin-top:2px">Muito alta</div></td>
+      <td style="text-align:center"><span style="display:inline-flex;gap:2px"><span style="width:10px;height:10px;background:var(--green);border-radius:1px;display:inline-block"></span><span style="width:10px;height:10px;background:var(--green);border-radius:1px;display:inline-block"></span><span style="width:10px;height:10px;background:var(--green);border-radius:1px;display:inline-block"></span><span style="width:10px;height:10px;background:var(--green);border-radius:1px;display:inline-block"></span><span style="width:10px;height:10px;background:var(--cream);border-radius:1px;display:inline-block;border:1px solid var(--mid)"></span></span><div style="font-size:9px;color:var(--muted);margin-top:2px">Alta</div></td>
+      <td style="text-align:center"><span style="display:inline-flex;gap:2px"><span style="width:10px;height:10px;background:var(--muted);border-radius:1px;display:inline-block;opacity:.6"></span><span style="width:10px;height:10px;background:var(--muted);border-radius:1px;display:inline-block;opacity:.6"></span><span style="width:10px;height:10px;background:var(--cream);border-radius:1px;display:inline-block;border:1px solid var(--mid)"></span><span style="width:10px;height:10px;background:var(--cream);border-radius:1px;display:inline-block;border:1px solid var(--mid)"></span><span style="width:10px;height:10px;background:var(--cream);border-radius:1px;display:inline-block;border:1px solid var(--mid)"></span></span><div style="font-size:9px;color:var(--muted);margin-top:2px">Limitada</div></td>
+      <td style="text-align:center;background:rgba(200,176,131,.06)"><span style="display:inline-flex;gap:2px"><span style="width:10px;height:10px;background:var(--gold);border-radius:1px;display:inline-block"></span><span style="width:10px;height:10px;background:var(--gold);border-radius:1px;display:inline-block"></span><span style="width:10px;height:10px;background:var(--gold);border-radius:1px;display:inline-block"></span><span style="width:10px;height:10px;background:var(--cream);border-radius:1px;display:inline-block;border:1px solid var(--mid)"></span><span style="width:10px;height:10px;background:var(--cream);border-radius:1px;display:inline-block;border:1px solid var(--mid)"></span></span><div style="font-size:9px;color:var(--navy);margin-top:2px">Orientada</div></td>
+    </tr>
+    <tr>
+      <td style="font-weight:600;color:var(--navy)">Menor esforço operacional</td>
+      <td style="text-align:center"><span style="display:inline-flex;gap:2px"><span style="width:10px;height:10px;background:var(--red);border-radius:1px;display:inline-block;opacity:.7"></span><span style="width:10px;height:10px;background:var(--cream);border-radius:1px;display:inline-block;border:1px solid var(--mid)"></span><span style="width:10px;height:10px;background:var(--cream);border-radius:1px;display:inline-block;border:1px solid var(--mid)"></span><span style="width:10px;height:10px;background:var(--cream);border-radius:1px;display:inline-block;border:1px solid var(--mid)"></span><span style="width:10px;height:10px;background:var(--cream);border-radius:1px;display:inline-block;border:1px solid var(--mid)"></span></span><div style="font-size:9px;color:var(--red);margin-top:2px">Baixo</div></td>
+      <td style="text-align:center"><span style="display:inline-flex;gap:2px"><span style="width:10px;height:10px;background:var(--red);border-radius:1px;display:inline-block;opacity:.7"></span><span style="width:10px;height:10px;background:var(--red);border-radius:1px;display:inline-block;opacity:.5"></span><span style="width:10px;height:10px;background:var(--cream);border-radius:1px;display:inline-block;border:1px solid var(--mid)"></span><span style="width:10px;height:10px;background:var(--cream);border-radius:1px;display:inline-block;border:1px solid var(--mid)"></span><span style="width:10px;height:10px;background:var(--cream);border-radius:1px;display:inline-block;border:1px solid var(--mid)"></span></span><div style="font-size:9px;color:var(--red);margin-top:2px">Baixo</div></td>
+      <td style="text-align:center"><span style="display:inline-flex;gap:2px"><span style="width:10px;height:10px;background:var(--muted);border-radius:1px;display:inline-block;opacity:.6"></span><span style="width:10px;height:10px;background:var(--muted);border-radius:1px;display:inline-block;opacity:.6"></span><span style="width:10px;height:10px;background:var(--muted);border-radius:1px;display:inline-block;opacity:.6"></span><span style="width:10px;height:10px;background:var(--cream);border-radius:1px;display:inline-block;border:1px solid var(--mid)"></span><span style="width:10px;height:10px;background:var(--cream);border-radius:1px;display:inline-block;border:1px solid var(--mid)"></span></span><div style="font-size:9px;color:var(--muted);margin-top:2px">Médio</div></td>
+      <td style="text-align:center;background:rgba(200,176,131,.06)"><span style="display:inline-flex;gap:2px"><span style="width:10px;height:10px;background:var(--gold);border-radius:1px;display:inline-block"></span><span style="width:10px;height:10px;background:var(--gold);border-radius:1px;display:inline-block"></span><span style="width:10px;height:10px;background:var(--gold);border-radius:1px;display:inline-block"></span><span style="width:10px;height:10px;background:var(--gold);border-radius:1px;display:inline-block"></span><span style="width:10px;height:10px;background:var(--cream);border-radius:1px;display:inline-block;border:1px solid var(--mid)"></span></span><div style="font-size:9px;color:var(--navy);margin-top:2px">Alto individual</div></td>
+    </tr>
+    <tr>
+      <td style="font-weight:600;color:var(--navy)">Estrutura de lazer</td>
+      <td style="text-align:center"><span style="display:inline-flex;gap:2px"><span style="width:10px;height:10px;background:var(--cream);border-radius:1px;display:inline-block;border:1px solid var(--mid)"></span><span style="width:10px;height:10px;background:var(--cream);border-radius:1px;display:inline-block;border:1px solid var(--mid)"></span><span style="width:10px;height:10px;background:var(--cream);border-radius:1px;display:inline-block;border:1px solid var(--mid)"></span><span style="width:10px;height:10px;background:var(--cream);border-radius:1px;display:inline-block;border:1px solid var(--mid)"></span><span style="width:10px;height:10px;background:var(--cream);border-radius:1px;display:inline-block;border:1px solid var(--mid)"></span></span><div style="font-size:9px;color:var(--muted);margin-top:2px">Depende de obra</div></td>
+      <td style="text-align:center"><span style="display:inline-flex;gap:2px"><span style="width:10px;height:10px;background:var(--muted);border-radius:1px;display:inline-block;opacity:.6"></span><span style="width:10px;height:10px;background:var(--muted);border-radius:1px;display:inline-block;opacity:.6"></span><span style="width:10px;height:10px;background:var(--muted);border-radius:1px;display:inline-block;opacity:.6"></span><span style="width:10px;height:10px;background:var(--cream);border-radius:1px;display:inline-block;border:1px solid var(--mid)"></span><span style="width:10px;height:10px;background:var(--cream);border-radius:1px;display:inline-block;border:1px solid var(--mid)"></span></span><div style="font-size:9px;color:var(--muted);margin-top:2px">Média (individual)</div></td>
+      <td style="text-align:center"><span style="display:inline-flex;gap:2px"><span style="width:10px;height:10px;background:var(--muted);border-radius:1px;display:inline-block;opacity:.5"></span><span style="width:10px;height:10px;background:var(--muted);border-radius:1px;display:inline-block;opacity:.5"></span><span style="width:10px;height:10px;background:var(--cream);border-radius:1px;display:inline-block;border:1px solid var(--mid)"></span><span style="width:10px;height:10px;background:var(--cream);border-radius:1px;display:inline-block;border:1px solid var(--mid)"></span><span style="width:10px;height:10px;background:var(--cream);border-radius:1px;display:inline-block;border:1px solid var(--mid)"></span></span><div style="font-size:9px;color:var(--muted);margin-top:2px">Limitada</div></td>
+      <td style="text-align:center;background:rgba(200,176,131,.06)"><span style="display:inline-flex;gap:2px"><span style="width:10px;height:10px;background:var(--gold);border-radius:1px;display:inline-block"></span><span style="width:10px;height:10px;background:var(--gold);border-radius:1px;display:inline-block"></span><span style="width:10px;height:10px;background:var(--gold);border-radius:1px;display:inline-block"></span><span style="width:10px;height:10px;background:var(--gold);border-radius:1px;display:inline-block"></span><span style="width:10px;height:10px;background:var(--gold);border-radius:1px;display:inline-block"></span></span><div style="font-size:9px;color:var(--navy);margin-top:2px">Planejada em projeto</div></td>
+    </tr>
+    <tr>
+      <td style="font-weight:600;color:var(--navy)">Possibilidade de locação</td>
+      <td style="text-align:center"><span style="display:inline-flex;gap:2px"><span style="width:10px;height:10px;background:var(--muted);border-radius:1px;display:inline-block;opacity:.6"></span><span style="width:10px;height:10px;background:var(--muted);border-radius:1px;display:inline-block;opacity:.6"></span><span style="width:10px;height:10px;background:var(--cream);border-radius:1px;display:inline-block;border:1px solid var(--mid)"></span><span style="width:10px;height:10px;background:var(--cream);border-radius:1px;display:inline-block;border:1px solid var(--mid)"></span><span style="width:10px;height:10px;background:var(--cream);border-radius:1px;display:inline-block;border:1px solid var(--mid)"></span></span><div style="font-size:9px;color:var(--muted);margin-top:2px">Viável, com gestão</div></td>
+      <td style="text-align:center"><span style="display:inline-flex;gap:2px"><span style="width:10px;height:10px;background:var(--muted);border-radius:1px;display:inline-block;opacity:.6"></span><span style="width:10px;height:10px;background:var(--muted);border-radius:1px;display:inline-block;opacity:.6"></span><span style="width:10px;height:10px;background:var(--muted);border-radius:1px;display:inline-block;opacity:.6"></span><span style="width:10px;height:10px;background:var(--cream);border-radius:1px;display:inline-block;border:1px solid var(--mid)"></span><span style="width:10px;height:10px;background:var(--cream);border-radius:1px;display:inline-block;border:1px solid var(--mid)"></span></span><div style="font-size:9px;color:var(--muted);margin-top:2px">Viável, com gestão</div></td>
+      <td style="text-align:center"><span style="display:inline-flex;gap:2px"><span style="width:10px;height:10px;background:var(--muted);border-radius:1px;display:inline-block;opacity:.5"></span><span style="width:10px;height:10px;background:var(--muted);border-radius:1px;display:inline-block;opacity:.5"></span><span style="width:10px;height:10px;background:var(--cream);border-radius:1px;display:inline-block;border:1px solid var(--mid)"></span><span style="width:10px;height:10px;background:var(--cream);border-radius:1px;display:inline-block;border:1px solid var(--mid)"></span><span style="width:10px;height:10px;background:var(--cream);border-radius:1px;display:inline-block;border:1px solid var(--mid)"></span></span><div style="font-size:9px;color:var(--muted);margin-top:2px">Depende das regras</div></td>
+      <td style="text-align:center;background:rgba(200,176,131,.06)"><span style="display:inline-flex;gap:2px"><span style="width:10px;height:10px;background:var(--gold);border-radius:1px;display:inline-block"></span><span style="width:10px;height:10px;background:var(--gold);border-radius:1px;display:inline-block"></span><span style="width:10px;height:10px;background:var(--gold);border-radius:1px;display:inline-block"></span><span style="width:10px;height:10px;background:var(--gold);border-radius:1px;display:inline-block"></span><span style="width:10px;height:10px;background:var(--cream);border-radius:1px;display:inline-block;border:1px solid var(--mid)"></span></span><div style="font-size:9px;color:var(--navy);margin-top:2px">Possibilidade (sem garantia)</div></td>
+    </tr>
+    <tr>
+      <td style="font-weight:600;color:var(--navy)">Previsibilidade de uso</td>
+      <td style="text-align:center"><span style="display:inline-flex;gap:2px"><span style="width:10px;height:10px;background:var(--cream);border-radius:1px;display:inline-block;border:1px solid var(--mid)"></span><span style="width:10px;height:10px;background:var(--cream);border-radius:1px;display:inline-block;border:1px solid var(--mid)"></span><span style="width:10px;height:10px;background:var(--cream);border-radius:1px;display:inline-block;border:1px solid var(--mid)"></span><span style="width:10px;height:10px;background:var(--cream);border-radius:1px;display:inline-block;border:1px solid var(--mid)"></span><span style="width:10px;height:10px;background:var(--cream);border-radius:1px;display:inline-block;border:1px solid var(--mid)"></span></span><div style="font-size:9px;color:var(--muted);margin-top:2px">Depende da obra</div></td>
+      <td style="text-align:center"><span style="display:inline-flex;gap:2px"><span style="width:10px;height:10px;background:var(--muted);border-radius:1px;display:inline-block;opacity:.6"></span><span style="width:10px;height:10px;background:var(--muted);border-radius:1px;display:inline-block;opacity:.6"></span><span style="width:10px;height:10px;background:var(--muted);border-radius:1px;display:inline-block;opacity:.6"></span><span style="width:10px;height:10px;background:var(--muted);border-radius:1px;display:inline-block;opacity:.5"></span><span style="width:10px;height:10px;background:var(--cream);border-radius:1px;display:inline-block;border:1px solid var(--mid)"></span></span><div style="font-size:9px;color:var(--muted);margin-top:2px">Variável</div></td>
+      <td style="text-align:center"><span style="display:inline-flex;gap:2px"><span style="width:10px;height:10px;background:var(--muted);border-radius:1px;display:inline-block;opacity:.6"></span><span style="width:10px;height:10px;background:var(--muted);border-radius:1px;display:inline-block;opacity:.6"></span><span style="width:10px;height:10px;background:var(--muted);border-radius:1px;display:inline-block;opacity:.6"></span><span style="width:10px;height:10px;background:var(--muted);border-radius:1px;display:inline-block;opacity:.4"></span><span style="width:10px;height:10px;background:var(--cream);border-radius:1px;display:inline-block;border:1px solid var(--mid)"></span></span><div style="font-size:9px;color:var(--muted);margin-top:2px">Razoável</div></td>
+      <td style="text-align:center;background:rgba(200,176,131,.06)"><span style="display:inline-flex;gap:2px"><span style="width:10px;height:10px;background:var(--gold);border-radius:1px;display:inline-block"></span><span style="width:10px;height:10px;background:var(--gold);border-radius:1px;display:inline-block"></span><span style="width:10px;height:10px;background:var(--gold);border-radius:1px;display:inline-block"></span><span style="width:10px;height:10px;background:var(--gold);border-radius:1px;display:inline-block"></span><span style="width:10px;height:10px;background:var(--gold);border-radius:1px;display:inline-block"></span></span><div style="font-size:9px;color:var(--navy);margin-top:2px">Alta (estrutura planejada)</div></td>
+    </tr>
+  </table>
+</div>
+
 </div>
 
 <div class="divider"></div>
@@ -600,6 +856,46 @@ td.mid{color:var(--muted)}
   <div class="formula-item"><span class="fi-label">Componente 5</span>Riscos assumidos</div>
   <div class="formula-op">=</div>
   <div class="formula-result"><span class="fi-label">Resultado</span>Custo Total de Uso</div>
+</div>
+
+<!-- INFOGRÁFICO: CUSTO TOTAL DE USO (visual) -->
+<div style="background:var(--white);border:1px solid var(--cream);padding:24px;margin:1.8em 0">
+  <div style="font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lteal);margin-bottom:16px">Custo total de uso: o que entra na conta</div>
+  <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:2px">
+    <div style="background:var(--navy);padding:16px 12px;text-align:center">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="margin:0 auto 8px;display:block"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#C8B083" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div style="font-size:9.5px;color:var(--gold);font-weight:700;letter-spacing:.06em;text-transform:uppercase;line-height:1.3">Preço<br>de compra</div>
+    </div>
+    <div style="background:var(--teal);padding:16px 12px;text-align:center;position:relative">
+      <div style="position:absolute;left:-6px;top:50%;transform:translateY(-50%);width:0;height:0;border-top:8px solid transparent;border-bottom:8px solid transparent;border-left:6px solid var(--navy)"></div>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="margin:0 auto 8px;display:block"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z" stroke="rgba(255,255,255,.75)" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <div style="font-size:9.5px;color:rgba(255,255,255,.8);font-weight:700;letter-spacing:.06em;text-transform:uppercase;line-height:1.3">Custos<br>adicionais</div>
+    </div>
+    <div style="background:rgba(32,78,92,.7);padding:16px 12px;text-align:center;position:relative">
+      <div style="position:absolute;left:-6px;top:50%;transform:translateY(-50%);width:0;height:0;border-top:8px solid transparent;border-bottom:8px solid transparent;border-left:6px solid var(--teal)"></div>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="margin:0 auto 8px;display:block"><circle cx="12" cy="12" r="10" stroke="rgba(255,255,255,.75)" stroke-width="1.5"/><path d="M12 6v6l4 2" stroke="rgba(255,255,255,.75)" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <div style="font-size:9.5px;color:rgba(255,255,255,.8);font-weight:700;letter-spacing:.06em;text-transform:uppercase;line-height:1.3">Tempo<br>até uso</div>
+    </div>
+    <div style="background:rgba(22,52,62,.85);padding:16px 12px;text-align:center;position:relative">
+      <div style="position:absolute;left:-6px;top:50%;transform:translateY(-50%);width:0;height:0;border-top:8px solid transparent;border-bottom:8px solid transparent;border-left:6px solid rgba(32,78,92,.7)"></div>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="margin:0 auto 8px;display:block"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="rgba(255,255,255,.75)" stroke-width="1.5" stroke-linejoin="round"/></svg>
+      <div style="font-size:9.5px;color:rgba(255,255,255,.8);font-weight:700;letter-spacing:.06em;text-transform:uppercase;line-height:1.3">Esforço de<br>gestão</div>
+    </div>
+    <div style="background:rgba(16,40,52,.95);padding:16px 12px;text-align:center;position:relative">
+      <div style="position:absolute;left:-6px;top:50%;transform:translateY(-50%);width:0;height:0;border-top:8px solid transparent;border-bottom:8px solid transparent;border-left:6px solid rgba(22,52,62,.85)"></div>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="margin:0 auto 8px;display:block"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" stroke="rgba(255,255,255,.75)" stroke-width="1.5"/><line x1="12" y1="9" x2="12" y2="13" stroke="rgba(255,255,255,.75)" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="17" r=".5" fill="rgba(255,255,255,.75)" stroke="rgba(255,255,255,.75)" stroke-width="1"/></svg>
+      <div style="font-size:9.5px;color:rgba(255,255,255,.8);font-weight:700;letter-spacing:.06em;text-transform:uppercase;line-height:1.3">Riscos<br>assumidos</div>
+    </div>
+    <div style="background:var(--gold);padding:16px 12px;text-align:center;position:relative">
+      <div style="position:absolute;left:-6px;top:50%;transform:translateY(-50%);width:0;height:0;border-top:8px solid transparent;border-bottom:8px solid transparent;border-left:6px solid rgba(16,40,52,.95)"></div>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="margin:0 auto 8px;display:block"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="var(--navy)" stroke-width="1.5"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01" stroke="var(--navy)" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <div style="font-size:9.5px;color:var(--navy);font-weight:700;letter-spacing:.06em;text-transform:uppercase;line-height:1.3">Qualidade da<br>experiência</div>
+    </div>
+  </div>
+  <div style="background:var(--navy);padding:14px 20px;margin-top:2px;text-align:center">
+    <span style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-right:12px">= Resultado</span>
+    <span style="font-family:Georgia,serif;font-size:18px;color:var(--gold)">Custo Total de Uso</span>
+  </div>
 </div>
 
 <h3>Como funciona em cada modelo</h3>
@@ -630,6 +926,34 @@ td.mid{color:var(--muted)}
     <td class="ok"><strong>Mais previsível.</strong> O cliente personaliza o espaço privativo, mas não carrega o custo e a complexidade de criar a estrutura de resort do zero</td>
   </tr>
 </table>
+
+<!-- BARRAS DE ESFORÇO OPERACIONAL -->
+<div style="background:var(--white);border:1px solid var(--cream);padding:20px 24px;margin:1.6em 0">
+  <div style="font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lteal);margin-bottom:16px">Esforço operacional após a compra · referência qualitativa</div>
+  <div style="display:flex;flex-direction:column;gap:12px">
+    <div style="display:grid;grid-template-columns:100px 1fr auto;align-items:center;gap:12px">
+      <div style="font-size:12px;font-weight:600;color:var(--red)">Lote</div>
+      <div style="background:var(--cream);height:10px;border-radius:2px;overflow:hidden"><div style="width:92%;height:100%;background:linear-gradient(to right,rgba(158,58,58,.6),rgba(158,58,58,.8));border-radius:2px"></div></div>
+      <div style="font-size:10.5px;color:var(--red);font-weight:600;white-space:nowrap">Muito alto</div>
+    </div>
+    <div style="display:grid;grid-template-columns:100px 1fr auto;align-items:center;gap:12px">
+      <div style="font-size:12px;font-weight:600;color:var(--red)">Casa de praia</div>
+      <div style="background:var(--cream);height:10px;border-radius:2px;overflow:hidden"><div style="width:80%;height:100%;background:linear-gradient(to right,rgba(158,58,58,.5),rgba(158,58,58,.7));border-radius:2px"></div></div>
+      <div style="font-size:10.5px;color:var(--red);font-weight:600;white-space:nowrap">Alto</div>
+    </div>
+    <div style="display:grid;grid-template-columns:100px 1fr auto;align-items:center;gap:12px">
+      <div style="font-size:12px;font-weight:600;color:var(--muted)">Apartamento</div>
+      <div style="background:var(--cream);height:10px;border-radius:2px;overflow:hidden"><div style="width:45%;height:100%;background:linear-gradient(to right,rgba(78,108,120,.4),rgba(78,108,120,.6));border-radius:2px"></div></div>
+      <div style="font-size:10.5px;color:var(--muted);font-weight:600;white-space:nowrap">Médio</div>
+    </div>
+    <div style="display:grid;grid-template-columns:100px 1fr auto;align-items:center;gap:12px">
+      <div style="font-size:12px;font-weight:700;color:var(--navy)">Sophia Riviera</div>
+      <div style="background:var(--cream);height:10px;border-radius:2px;overflow:hidden"><div style="width:28%;height:100%;background:linear-gradient(to right,rgba(200,176,131,.6),rgba(200,176,131,.9));border-radius:2px"></div></div>
+      <div style="font-size:10.5px;color:var(--navy);font-weight:600;white-space:nowrap">Menor individual</div>
+    </div>
+  </div>
+  <div style="margin-top:14px;font-size:11px;color:var(--muted);font-style:italic">Comparativo qualitativo para estudo. Esforço real depende das regras condominiais, uso, gestão e operação final. "Menor esforço individual" refere-se à estrutura coletiva prevista, não a ausência de esforço.</div>
+</div>
 
 <div class="box green">
   <div class="box-label">Frase para memorizar</div>
@@ -790,6 +1114,43 @@ td.mid{color:var(--muted)}
 </div>
 <div class="wrap">
 <div class="mod-obj"><strong>Objetivo:</strong> treinar respostas consultivas para as objeções mais comuns.</div>
+
+<!-- FLUXOGRAMA DE OBJEÇÕES -->
+<div style="background:var(--white);border:1px solid var(--cream);padding:24px;margin:1.6em 0">
+  <div style="font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lteal);margin-bottom:20px">O fluxo consultivo de objeções</div>
+  <div style="display:flex;flex-wrap:wrap;align-items:stretch;gap:0">
+    <div style="flex:1;min-width:100px;background:rgba(158,58,58,.06);border:1px solid rgba(158,58,58,.15);padding:14px 12px;text-align:center;position:relative">
+      <div style="font-size:10px;font-weight:700;color:var(--red);margin-bottom:6px;letter-spacing:.06em;text-transform:uppercase">Cliente</div>
+      <div style="font-family:Georgia,serif;font-size:13px;color:var(--navy);font-style:italic">"Prefiro o lote / a casa / algo mais barato / algo pronto"</div>
+    </div>
+    <div style="display:flex;align-items:center;padding:0 6px;color:var(--gold);font-size:16px">→</div>
+    <div style="flex:1;min-width:90px;background:rgba(200,176,131,.08);border:1px solid rgba(200,176,131,.2);padding:14px 12px;text-align:center">
+      <div style="font-size:10px;font-weight:700;color:var(--gold);margin-bottom:6px;letter-spacing:.06em;text-transform:uppercase">1. Validar</div>
+      <div style="font-size:12px;color:var(--muted)">Confirmar que comparar faz sentido</div>
+    </div>
+    <div style="display:flex;align-items:center;padding:0 6px;color:var(--gold);font-size:16px">→</div>
+    <div style="flex:1;min-width:90px;background:rgba(32,78,92,.06);border:1px solid rgba(32,78,92,.12);padding:14px 12px;text-align:center">
+      <div style="font-size:10px;font-weight:700;color:var(--teal);margin-bottom:6px;letter-spacing:.06em;text-transform:uppercase">2. Investigar</div>
+      <div style="font-size:12px;color:var(--muted)">Entender o motivo real</div>
+    </div>
+    <div style="display:flex;align-items:center;padding:0 6px;color:var(--gold);font-size:16px">→</div>
+    <div style="flex:1;min-width:90px;background:rgba(22,52,62,.06);border:1px solid rgba(22,52,62,.12);padding:14px 12px;text-align:center">
+      <div style="font-size:10px;font-weight:700;color:var(--navy);margin-bottom:6px;letter-spacing:.06em;text-transform:uppercase">3. Reposicionar</div>
+      <div style="font-size:12px;color:var(--muted)">Mudar o critério da comparação</div>
+    </div>
+    <div style="display:flex;align-items:center;padding:0 6px;color:var(--gold);font-size:16px">→</div>
+    <div style="flex:1;min-width:90px;background:rgba(36,102,68,.06);border:1px solid rgba(36,102,68,.15);padding:14px 12px;text-align:center">
+      <div style="font-size:10px;font-weight:700;color:var(--green);margin-bottom:6px;letter-spacing:.06em;text-transform:uppercase">4. Vantagem</div>
+      <div style="font-size:12px;color:var(--muted)">Mostrar o que o Sophia oferece para esse perfil</div>
+    </div>
+    <div style="display:flex;align-items:center;padding:0 6px;color:var(--gold);font-size:16px">→</div>
+    <div style="flex:1;min-width:90px;background:rgba(111,185,178,.08);border:1px solid rgba(111,185,178,.25);padding:14px 12px;text-align:center">
+      <div style="font-size:10px;font-weight:700;color:var(--lteal);margin-bottom:6px;letter-spacing:.06em;text-transform:uppercase">5. Pergunta</div>
+      <div style="font-size:12px;color:var(--muted)">Avançar a conversa com uma pergunta precisa</div>
+    </div>
+  </div>
+  <div style="margin-top:12px;padding:10px 14px;background:rgba(158,58,58,.04);border-left:2px solid rgba(158,58,58,.3);font-size:12px;color:var(--muted);font-style:italic">Só após percorrer esses passos considere admitir que o produto pode não ser adequado para aquele perfil específico.</div>
+</div>
 
 <!-- Objeção 1 -->
 <div class="obj-block">
@@ -1203,6 +1564,67 @@ td.mid{color:var(--muted)}
 <div class="alert">
   <strong>Atenção:</strong> metragens específicas devem ser validadas no quadro de áreas atualizado antes de qualquer uso externo. Dados financeiros ilustrativos devem ser validados no simulador interno e com a equipe jurídica antes de apresentação ao cliente. Esta seção é para raciocínio e estudo interno.
 </div>
+
+<!-- CARDS VISUAIS DE TIPOLOGIAS -->
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--cream);margin:1.6em 0">
+  <!-- Studio -->
+  <div style="background:var(--white);padding:22px 18px;border-top:2px solid var(--navy)">
+    <div style="font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lteal);margin-bottom:6px">Studio</div>
+    <div style="font-family:Georgia,serif;font-size:15px;color:var(--navy);margin-bottom:10px;line-height:1.2">Compacto.<br>Versátil.</div>
+    <div style="font-size:11.5px;color:var(--muted);line-height:1.6;margin-bottom:10px">Investidor, casal, uso individual ou locação como critério relevante.</div>
+    <div style="font-size:10px;color:var(--teal);border-top:1px solid var(--cream);padding-top:8px;font-style:italic">vs. Apartamento de ticket similar</div>
+  </div>
+  <!-- Studio Hub 1 -->
+  <div style="background:var(--white);padding:22px 18px;border-top:2px solid var(--teal)">
+    <div style="font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lteal);margin-bottom:6px">Studio Hub 1</div>
+    <div style="font-family:Georgia,serif;font-size:15px;color:var(--navy);margin-bottom:10px;line-height:1.2">Praticidade.<br>Flexibilidade.</div>
+    <div style="font-size:11.5px;color:var(--muted);line-height:1.6;margin-bottom:10px">Perfil que busca praticidade de uso e menor complexidade no dia a dia.</div>
+    <div style="font-size:10px;color:var(--teal);border-top:1px solid var(--cream);padding-top:8px;font-style:italic">vs. Apartamento compacto</div>
+  </div>
+  <!-- Studio Hub 2 -->
+  <div style="background:var(--white);padding:22px 18px;border-top:2px solid var(--lteal)">
+    <div style="font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lteal);margin-bottom:6px">Studio Hub 2</div>
+    <div style="font-family:Georgia,serif;font-size:15px;color:var(--navy);margin-bottom:10px;line-height:1.2">Diferenciado.<br>Compacto.</div>
+    <div style="font-size:11.5px;color:var(--muted);line-height:1.6;margin-bottom:10px">Variação do Hub com configuração diferente. Público semelhante ao Hub 1.</div>
+    <div style="font-size:10px;color:var(--teal);border-top:1px solid var(--cream);padding-top:8px;font-style:italic">vs. Studio convencional</div>
+  </div>
+  <!-- Studio Garden -->
+  <div style="background:var(--white);padding:22px 18px;border-top:2px solid var(--gold)">
+    <div style="font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lteal);margin-bottom:6px">Studio Garden</div>
+    <div style="font-family:Georgia,serif;font-size:15px;color:var(--navy);margin-bottom:10px;line-height:1.2">Área externa.<br>Sensação de casa.</div>
+    <div style="font-size:11.5px;color:var(--muted);line-height:1.6;margin-bottom:10px">Casal que quer área externa privativa com estrutura resort coletiva.</div>
+    <div style="font-size:10px;color:var(--teal);border-top:1px solid var(--cream);padding-top:8px;font-style:italic">vs. Apartamento térreo / casa compacta</div>
+  </div>
+  <!-- Garden -->
+  <div style="background:var(--white);padding:22px 18px;border-top:2px solid var(--gold)">
+    <div style="font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lteal);margin-bottom:6px">Garden</div>
+    <div style="font-family:Georgia,serif;font-size:15px;color:var(--navy);margin-bottom:10px;line-height:1.2">Mais conforto.<br>Família pequena.</div>
+    <div style="font-size:11.5px;color:var(--muted);line-height:1.6;margin-bottom:10px">Família pequena ou casal com filho que quer mais espaço interno sem ir para Duplex.</div>
+    <div style="font-size:10px;color:var(--teal);border-top:1px solid var(--cream);padding-top:8px;font-style:italic">vs. Apartamento maior / casa simples</div>
+  </div>
+  <!-- Garden Premium -->
+  <div style="background:var(--white);padding:22px 18px;border-top:2px solid var(--gold)">
+    <div style="font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lteal);margin-bottom:6px">Garden Premium</div>
+    <div style="font-family:Georgia,serif;font-size:15px;color:var(--navy);margin-bottom:10px;line-height:1.2">Diferenciação.<br>Permanência.</div>
+    <div style="font-size:11.5px;color:var(--muted);line-height:1.6;margin-bottom:10px">Família que valoriza espaço, permanência longa e diferenciação dentro do produto.</div>
+    <div style="font-size:10px;color:var(--teal);border-top:1px solid var(--cream);padding-top:8px;font-style:italic">vs. Casa de praia padrão médio</div>
+  </div>
+  <!-- Duplex -->
+  <div style="background:var(--white);padding:22px 18px;border-top:2px solid var(--navy)">
+    <div style="font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lteal);margin-bottom:6px">Duplex</div>
+    <div style="font-family:Georgia,serif;font-size:15px;color:var(--navy);margin-bottom:10px;line-height:1.2">Experiência de casa.<br>Dentro do resort.</div>
+    <div style="font-size:11.5px;color:var(--muted);line-height:1.6;margin-bottom:10px">Família com filhos que compara diretamente com casa de praia ou condomínio fechado.</div>
+    <div style="font-size:10px;color:var(--teal);border-top:1px solid var(--cream);padding-top:8px;font-style:italic">vs. Casa de praia pronta</div>
+  </div>
+  <!-- Duplex Premium -->
+  <div style="background:var(--white);padding:22px 18px;border-top:2px solid var(--navy)">
+    <div style="font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lteal);margin-bottom:6px">Duplex Premium</div>
+    <div style="font-family:Georgia,serif;font-size:15px;color:var(--navy);margin-bottom:10px;line-height:1.2">Alto padrão.<br>Exclusividade.</div>
+    <div style="font-size:11.5px;color:var(--muted);line-height:1.6;margin-bottom:10px">Família maior ou maior poder aquisitivo. Compara com casa de alto padrão ou lote para construção.</div>
+    <div style="font-size:10px;color:var(--teal);border-top:1px solid var(--cream);padding-top:8px;font-style:italic">vs. Casa de alto padrão / lote premium</div>
+  </div>
+</div>
+<div style="font-size:11px;color:var(--muted);font-style:italic;margin-bottom:1.6em">Metragens conforme tabela vigente. Consulte a equipe comercial antes de qualquer uso com clientes.</div>
 
 <h3>Tabela por tipologia</h3>
 <table>
@@ -1863,5 +2285,24 @@ td.mid{color:var(--muted)}
   <span>Não é material de cliente · Entrega prevista 1S/2028</span>
 </div>
 
+<!-- BACK TO TOP -->
+<a href="#" id="btt" title="Voltar ao topo">
+  <svg viewBox="0 0 16 16" fill="none"><path d="M8 12V4M4 8l4-4 4 4" stroke="#C8B083" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</a>
+<script>
+(function(){
+  var btt=document.getElementById('btt');
+  window.addEventListener('scroll',function(){btt.classList.toggle('show',window.scrollY>400)});
+  // Progress dots
+  var dots=document.querySelectorAll('.mp-dot');
+  var sections=Array.from(dots).map(function(d){return document.querySelector(d.getAttribute('href'))}).filter(Boolean);
+  window.addEventListener('scroll',function(){
+    var sy=window.scrollY+200;
+    sections.forEach(function(s,i){
+      if(s&&sy>=s.offsetTop)dots.forEach(function(d,j){d.classList.toggle('active',j===i)});
+    });
+  });
+})();
+</script>
 </body>
 </html>
