@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sophia Riviera · Comparativo</title>
+<style>
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --navy:  #16343E;
+  --teal:  #204E5C;
+  --lteal: #6FB9B2;
+  --gold:  #C8B083;
+  --cream: #E3DED2;
+  --bg:    #F5F3EF;
+  --white: #FFFFFF;
+  --muted: #4e6c78;
+  --low:   #8a3c3c;
+}
+
+html, body {
+  width: 210mm;
+  height: 297mm;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  color-adjust: exact;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 7.8pt;
+  line-height: 1.5;
+  color: var(--navy);
+  background: var(--bg);
+}
+
+/* ── PAGE CONTAINER ─────────────────────────────── */
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  height: 297mm;
+  padding: 12mm 14mm 10mm;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+}
+
+/* decorative bg shape */
+.page::before {
+  content: '';
+  position: absolute;
+  top: -40mm;
+  right: -30mm;
+  width: 90mm;
+  height: 90mm;
+  border-radius: 50%;
+  background: rgba(200,176,131,.07);
+  pointer-events: none;
+}
+
+/* ── HEADER ─────────────────────────────────────── */
+.header {
+  padding-bottom: 7mm;
+  border-bottom: 1.5px solid var(--gold);
+  margin-bottom: 6mm;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 4mm;
+}
+
+.header-left {}
+
+.brand-tag {
+  display: inline-block;
+  font-size: 6.5pt;
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--lteal);
+  margin-bottom: 3.5mm;
+}
+
+.headline {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 21pt;
+  color: var(--navy);
+  line-height: 1.12;
+  letter-spacing: -.02em;
+  font-weight: 400;
+  margin-bottom: 2.5mm;
+}
+
+.sub {
+  font-size: 8.5pt;
+  color: var(--muted);
+  line-height: 1.6;
+  max-width: 148mm;
+}
+
+.header-badge {
+  flex-shrink: 0;
+  border: 1.5px solid var(--gold);
+  padding: 4mm 5mm;
+  text-align: center;
+  background: rgba(200,176,131,.06);
+}
+
+.badge-label {
+  font-size: 5.8pt;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--lteal);
+  display: block;
+  margin-bottom: 1mm;
+}
+
+.badge-val {
+  font-family: Georgia, serif;
+  font-size: 12pt;
+  color: var(--navy);
+  line-height: 1.2;
+  display: block;
+}
+
+.badge-sub {
+  font-size: 5.8pt;
+  color: var(--muted);
+  display: block;
+  margin-top: .8mm;
+}
+
+/* ── COMPARISON TABLE ───────────────────────────── */
+.comp-wrap {
+  flex: 0 0 auto;
+  margin-bottom: 5.5mm;
+}
+
+.comp-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* header row */
+.comp-table thead tr th {
+  padding: 5px 8px 6px;
+  font-size: 7pt;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  vertical-align: bottom;
+}
+
+.th-crit {
+  text-align: left;
+  width: 30%;
+  color: var(--muted);
+  padding-left: 0 !important;
+  border-bottom: 1.5px solid var(--cream);
+}
+
+.th-opt {
+  text-align: center;
+  width: 16%;
+  background: var(--white);
+  color: var(--navy);
+  border: 1px solid var(--cream);
+  border-bottom: 1.5px solid var(--cream);
+  padding-bottom: 7px;
+}
+
+.th-sophia {
+  text-align: center;
+  width: 22%;
+  background: var(--navy);
+  color: var(--gold);
+  padding: 0 !important;
+}
+
+.sophia-th-inner {
+  padding: 6px 8px 8px;
+  border-bottom: 2px solid var(--gold);
+}
+
+.sophia-tag {
+  display: block;
+  font-size: 5.5pt;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(111,185,178,.75);
+  margin-bottom: 1.5px;
+}
+
+.sophia-name {
+  display: block;
+  font-size: 8.5pt;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: .04em;
+}
+
+/* body rows */
+.comp-table tbody tr {
+  border-bottom: 1px solid rgba(206,200,190,.45);
+}
+
+.comp-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.comp-table tbody tr:nth-child(even) .td-opt {
+  background: rgba(245,243,239,.6);
+}
+
+.comp-table tbody tr:nth-child(even) .td-sophia {
+  background: #152f38;
+}
+
+.td-crit {
+  padding: 5.5px 8px 5.5px 0;
+  font-size: 7.8pt;
+  font-weight: 600;
+  color: var(--navy);
+  vertical-align: middle;
+}
+
+.td-opt {
+  padding: 5px 7px;
+  font-size: 7.5pt;
+  text-align: center;
+  background: var(--white);
+  color: var(--muted);
+  border-left: 1px solid var(--cream);
+  border-right: 1px solid var(--cream);
+  vertical-align: middle;
+  line-height: 1.35;
+}
+
+.td-sophia {
+  padding: 5px 8px;
+  font-size: 7.5pt;
+  text-align: center;
+  background: var(--navy);
+  color: rgba(200,176,131,.85);
+  font-weight: 600;
+  vertical-align: middle;
+  line-height: 1.35;
+}
+
+.td-sophia strong {
+  color: var(--gold);
+}
+
+/* label modifiers */
+.lbl-hi  { color: var(--navy); font-weight: 700; }
+.lbl-low { color: var(--low); }
+.lbl-mid { color: var(--muted); }
+.lbl-na  { color: rgba(206,200,190,.7); }
+
+/* ── BOTTOM BLOCKS ──────────────────────────────── */
+.bottom-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr 1fr;
+  gap: 4mm;
+  flex: 0 0 auto;
+  margin-bottom: 5mm;
+}
+
+.block {
+  padding: 4.5mm 5mm;
+  border-top: 2px solid;
+}
+
+.block-title {
+  font-size: 6.2pt;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  margin-bottom: 2mm;
+}
+
+.block-text {
+  font-size: 7.4pt;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.b-synth {
+  background: var(--white);
+  border-top-color: var(--navy);
+}
+.b-synth .block-title { color: var(--navy); }
+.b-synth .block-text  { color: var(--teal); font-size: 7.8pt; }
+
+.b-locacao {
+  background: rgba(111,185,178,.05);
+  border-top-color: var(--lteal);
+}
+.b-locacao .block-title { color: var(--teal); }
+
+.b-clube {
+  background: rgba(200,176,131,.06);
+  border-top-color: var(--gold);
+}
+.b-clube .block-title { color: var(--navy); }
+
+/* ── FOOTER ─────────────────────────────────────── */
+.footer {
+  border-top: 1px solid var(--cream);
+  padding-top: 3mm;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: auto;
+}
+
+.footer-left {}
+
+.footer-brand {
+  font-size: 7pt;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.footer-loc {
+  font-size: 6.2pt;
+  color: var(--muted);
+  margin-top: .8mm;
+}
+
+.footer-note {
+  font-size: 6pt;
+  color: var(--muted);
+  text-align: right;
+  max-width: 88mm;
+  line-height: 1.45;
+}
+
+/* ── PRINT ──────────────────────────────────────── */
+@media print {
+  html, body {
+    width: 210mm;
+    height: 297mm;
+  }
+  .page {
+    page-break-inside: avoid;
+  }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── HEADER ── -->
+  <header class="header">
+    <div class="header-left">
+      <span class="brand-tag">Sophia Riviera · Condomínio Resort Residencial</span>
+      <h1 class="headline">Antes de comparar preço,<br>compare a entrega.</h1>
+      <p class="sub">O Sophia Riviera reúne lazer, patrimônio, estrutura de resort e menor esforço operacional individual em uma única escolha no litoral do Piauí.</p>
+    </div>
+    <div class="header-badge">
+      <span class="badge-label">Entrega prevista</span>
+      <span class="badge-val">1S / 2028</span>
+      <span class="badge-sub">126 unidades · Praia das Tartarugas</span>
+    </div>
+  </header>
+
+  <!-- ── COMPARISON TABLE ── -->
+  <div class="comp-wrap">
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th class="th-crit"></th>
+          <th class="th-opt">Lote</th>
+          <th class="th-opt">Casa<br>de praia</th>
+          <th class="th-opt">Apartamento<br>comum</th>
+          <th class="th-sophia">
+            <div class="sophia-th-inner">
+              <span class="sophia-tag">em análise</span>
+              <span class="sophia-name">Sophia Riviera</span>
+            </div>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-crit">Estrutura de lazer</td>
+          <td class="td-opt lbl-low">Exige obra</td>
+          <td class="td-opt lbl-mid">Depende da casa</td>
+          <td class="td-opt lbl-mid">Limitada</td>
+          <td class="td-sophia"><strong>Resort planejado em projeto</strong></td>
+        </tr>
+        <tr>
+          <td class="td-crit">Esforço de implantação</td>
+          <td class="td-opt lbl-low">Muito alto</td>
+          <td class="td-opt lbl-low">Alto</td>
+          <td class="td-opt lbl-mid">Ajustes e mobília</td>
+          <td class="td-sophia">Menor esforço individual</td>
+        </tr>
+        <tr>
+          <td class="td-crit">Manutenção e gestão</td>
+          <td class="td-opt lbl-low">Integral pelo cliente</td>
+          <td class="td-opt lbl-low">Alta, equipe própria</td>
+          <td class="td-opt lbl-mid">Média</td>
+          <td class="td-sophia">Estrutura condominial</td>
+        </tr>
+        <tr>
+          <td class="td-crit">Uso pela família</td>
+          <td class="td-opt lbl-low">Após obra completa</td>
+          <td class="td-opt lbl-mid">Imediato se pronta</td>
+          <td class="td-opt lbl-mid">Imediato se pronto</td>
+          <td class="td-sophia">Após entrega 1S/2028</td>
+        </tr>
+        <tr>
+          <td class="td-crit">Possibilidade de locação</td>
+          <td class="td-opt lbl-mid">Viável, exige gestão</td>
+          <td class="td-opt lbl-mid">Viável, exige gestão</td>
+          <td class="td-opt lbl-mid">Depende das regras</td>
+          <td class="td-sophia">Cenário simulado,<br>premissas conservadoras</td>
+        </tr>
+        <tr>
+          <td class="td-crit">Conveniência no dia a dia</td>
+          <td class="td-opt lbl-low">Baixa</td>
+          <td class="td-opt lbl-mid">Média</td>
+          <td class="td-opt lbl-mid">Média</td>
+          <td class="td-sophia"><strong>Alta</strong></td>
+        </tr>
+        <tr>
+          <td class="td-crit">Experiência de resort</td>
+          <td class="td-opt lbl-low">Não inclusa</td>
+          <td class="td-opt lbl-mid">Parcial</td>
+          <td class="td-opt lbl-low">Não inclusa</td>
+          <td class="td-sophia"><strong>Sim, prevista em projeto</strong></td>
+        </tr>
+        <tr>
+          <td class="td-crit">Entrega e prazo de uso</td>
+          <td class="td-opt lbl-low">30 a 42 meses de obra</td>
+          <td class="td-opt lbl-mid">Imediato se pronta</td>
+          <td class="td-opt lbl-mid">Imediato se pronto</td>
+          <td class="td-sophia">Proposta completa · 1S/2028</td>
+        </tr>
+        <tr>
+          <td class="td-crit">Antes da entrega</td>
+          <td class="td-opt lbl-na">n.a.</td>
+          <td class="td-opt lbl-na">n.a.</td>
+          <td class="td-opt lbl-na">n.a.</td>
+          <td class="td-sophia"><strong>Clube Sophia</strong><br><span style="font-size:6.5pt;font-weight:400;color:rgba(200,176,131,.7)">Hotéis do grupo, regras vigentes</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── BOTTOM BLOCKS ── -->
+  <div class="bottom-grid">
+    <div class="block b-synth">
+      <div class="block-title">Por que o Sophia tende a fazer mais sentido</div>
+      <div class="block-text">O Sophia não é apenas uma unidade no litoral. É uma escolha para quem quer uma solução mais completa: estrutura de resort planejada, marca forte, experiência familiar de qualidade e análise patrimonial mais organizada, sem a complexidade de construir e gerir do zero.</div>
+    </div>
+    <div class="block b-locacao">
+      <div class="block-title">Locação de temporada</div>
+      <div class="block-text">A locação pode entrar na análise como cenário simulado, com premissas conservadoras e declaradas. Não representa garantia de rentabilidade, ocupação ou retorno. O resultado real depende de diária, ocupação, sazonalidade, gestão, conservação da unidade e demanda de mercado.</div>
+    </div>
+    <div class="block b-clube">
+      <div class="block-title">Clube Sophia · antes da entrega</div>
+      <div class="block-text">Enquanto o empreendimento está em obras, o Clube Sophia pode aproximar o comprador da experiência do litoral por meio de benefícios nos hotéis do grupo, conforme regras vigentes do programa. Consulte a equipe comercial para condições atualizadas.</div>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="footer-left">
+      <div class="footer-brand">Sophia Riviera</div>
+      <div class="footer-loc">Condomínio Resort Residencial · Praia das Tartarugas, Luís Correia, PI</div>
+    </div>
+    <div class="footer-note">Material informativo. Condições, disponibilidade, tipologias, benefícios e regras sujeitos à confirmação com a equipe comercial.</div>
+  </footer>
+
+</div>
+</body>
+</html>
