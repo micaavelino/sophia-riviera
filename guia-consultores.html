@@ -1,0 +1,1807 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia de Estudo para Consultores | Sophia Riviera</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#1a2e44;--teal:#2a7f7f;--gold:#c9a84c;--cream:#faf8f4;
+  --light:#f0ece3;--mid:#d4cfc4;--text:#2c2c2c;--muted:#6b6560;
+  --red:#b94040;--green:#2d7a4f;--redlt:#fdf0f0;--greenlt:#f0f8f3;
+}
+html{font-size:15px;scroll-behavior:smooth}
+body{font-family:'Georgia',serif;color:var(--text);background:#fff;
+  line-height:1.7;max-width:920px;margin:0 auto;padding:0 0 80px}
+
+/* TIPOGRAFIA */
+h1{font-size:1.9rem;color:var(--navy);line-height:1.2}
+h2{font-size:1.25rem;color:#fff;background:var(--navy);
+   padding:10px 20px;margin:0;letter-spacing:.02em}
+h3{font-size:1rem;color:var(--teal);margin:1.6em 0 .5em}
+h4{font-size:.9rem;color:var(--navy);margin:1em 0 .3em;font-style:italic}
+p{margin-bottom:.75em}
+ul,ol{margin:.4em 0 .8em 1.4em}
+li{margin-bottom:.3em}
+strong{color:var(--navy)}
+small{font-size:.78em;color:var(--muted)}
+
+/* CAPA */
+.cover{background:var(--navy);padding:52px 44px 44px;border-bottom:5px solid var(--gold)}
+.cover .tag{font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:1em;font-family:'Courier New',monospace}
+.cover h1{color:#fff;font-size:1.8rem;margin-bottom:.5em}
+.cover .sub{color:rgba(255,255,255,.62);font-size:.9rem;line-height:1.65;max-width:620px}
+.cover-meta{display:flex;flex-wrap:wrap;gap:24px;margin-top:2em;
+  padding-top:1.4em;border-top:1px solid rgba(255,255,255,.15)}
+.cover-meta span{font-size:.77rem;color:rgba(255,255,255,.5)}
+.cover-meta span strong{color:rgba(255,255,255,.85)}
+
+/* WRAPPER */
+.wrap{padding:28px 40px}
+.wrap-tight{padding:16px 40px}
+
+/* MÓDULO HEADER */
+.mod-band{display:flex;align-items:stretch;margin-top:3em}
+.mod-num-box{background:var(--gold);color:var(--navy);width:72px;
+  display:flex;align-items:center;justify-content:center;flex-direction:column;
+  font-family:'Courier New',monospace;font-size:.68rem;font-weight:bold;
+  letter-spacing:.1em;text-transform:uppercase;flex-shrink:0;padding:8px 4px;text-align:center}
+.mod-num-box .mn{font-size:1.5rem;font-family:'Georgia',serif;font-weight:bold;line-height:1}
+.mod-title-box{flex:1;display:flex;align-items:center;padding-left:20px;background:var(--navy)}
+.mod-title-box h2{font-size:1.1rem;padding:0;background:none;margin:0}
+.mod-obj{background:var(--light);border-left:4px solid var(--teal);
+  padding:10px 16px;font-size:.84rem;margin-bottom:1.2em;color:var(--navy)}
+.mod-obj strong{display:inline;color:var(--teal);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;margin-right:6px}
+
+/* DESTAQUE / FRASE CENTRAL */
+.destaque{background:var(--navy);color:#fff;padding:22px 28px;
+  margin:1.4em 0;font-size:1.05rem;font-style:italic;line-height:1.55;border-left:5px solid var(--gold)}
+.destaque cite{display:block;font-size:.72rem;font-style:normal;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-top:.7em}
+
+/* CAIXAS */
+.box{padding:14px 18px;margin:1em 0;font-size:.86rem;border-left:4px solid var(--teal);background:var(--cream)}
+.box.gold{border-left-color:var(--gold)}
+.box.red{border-left-color:var(--red);background:var(--redlt)}
+.box.green{border-left-color:var(--green);background:var(--greenlt)}
+.box.navy{border-left-color:var(--navy);background:#edf1f7}
+.box-label{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
+  font-family:'Courier New',monospace;margin-bottom:5px}
+.box.red .box-label{color:var(--red)}
+.box.green .box-label{color:var(--green)}
+.box.gold .box-label{color:var(--gold)}
+.box .box-label{color:var(--teal)}
+
+/* CARDS GRID — 4 modelos */
+.model-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:1.2em 0;border:1px solid var(--mid)}
+.model-card{padding:18px 16px;border-right:1px solid var(--mid)}
+.model-card:last-child{border-right:none}
+.mc-top{height:5px;margin:-18px -16px 14px;background:var(--mid)}
+.mc-top.gold{background:var(--gold)}
+.mc-top.teal{background:var(--teal)}
+.mc-top.navy{background:var(--navy)}
+.mc-top.red{background:var(--red)}
+.mc-name{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);font-family:'Courier New',monospace;margin-bottom:6px}
+.mc-title{font-size:.95rem;font-weight:bold;color:var(--navy);margin-bottom:8px;line-height:1.3}
+.mc-body{font-size:.8rem;color:var(--text);line-height:1.55}
+.mc-tag{display:inline-block;font-size:.68rem;padding:2px 8px;
+  border-radius:2px;margin-top:8px;letter-spacing:.06em}
+.mc-tag.red{background:#fde8e8;color:var(--red)}
+.mc-tag.gold{background:#fdf6e0;color:#8a6b1a}
+.mc-tag.green{background:#e8f5ed;color:var(--green)}
+.mc-tag.teal{background:#e6f4f4;color:var(--teal)}
+
+/* TABELAS */
+table{width:100%;border-collapse:collapse;font-size:.81rem;margin:1em 0 1.6em}
+th{background:var(--navy);color:#fff;text-align:left;padding:9px 12px;
+  font-weight:normal;font-size:.75rem;letter-spacing:.04em}
+td{padding:8px 12px;border-bottom:1px solid var(--mid);vertical-align:top}
+tr:nth-child(even) td{background:var(--cream)}
+.th-teal th{background:var(--teal)}
+.th-gold th{background:#7a5e1a;color:#fff}
+td.ok{color:var(--green);font-weight:bold}
+td.no{color:var(--red)}
+td.mid{color:var(--muted)}
+.row-head td{background:var(--light);font-weight:bold;color:var(--navy);
+  font-size:.82rem;border-top:2px solid var(--teal)}
+
+/* FÓRMULA VISUAL */
+.formula{display:flex;flex-wrap:wrap;align-items:center;gap:0;
+  background:var(--navy);margin:1.4em 0;padding:0}
+.formula-item{padding:14px 18px;color:#fff;font-size:.85rem;text-align:center;
+  border-right:1px solid rgba(255,255,255,.15);line-height:1.4;flex:1;min-width:110px}
+.formula-item .fi-label{font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--gold);display:block;margin-bottom:4px}
+.formula-op{padding:0 10px;color:var(--gold);font-size:1.3rem;font-weight:bold;
+  display:flex;align-items:center;flex-shrink:0}
+.formula-result{background:var(--teal);padding:14px 18px;color:#fff;
+  font-size:.88rem;font-weight:bold;text-align:center;flex:1.2;line-height:1.4}
+.formula-result .fi-label{font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;
+  color:rgba(255,255,255,.7);display:block;margin-bottom:4px}
+
+/* PASSOS */
+.steps{margin:1.2em 0}
+.step{display:flex;gap:0;margin-bottom:12px;background:var(--cream);border:1px solid var(--mid)}
+.step-num{background:var(--navy);color:var(--gold);width:52px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;font-family:'Courier New',monospace;font-weight:bold;flex-shrink:0}
+.step-body{padding:14px 18px;flex:1}
+.step-title{font-weight:bold;color:var(--navy);margin-bottom:.3em;font-size:.9rem}
+.step-phrase{font-size:.82rem;background:var(--greenlt);border-left:3px solid var(--green);
+  padding:8px 12px;margin:.5em 0;color:var(--green);font-style:italic}
+.step-care{font-size:.78rem;color:var(--red);margin-top:.4em}
+.step-ask{font-size:.78rem;color:var(--teal);margin-top:.3em;font-weight:bold}
+
+/* SIMULAÇÕES — CHAT */
+.sim{margin:1.4em 0;border:1px solid var(--mid)}
+.sim-head{background:var(--teal);color:#fff;padding:10px 18px;font-size:.82rem;font-weight:bold;letter-spacing:.04em}
+.sim-body{padding:18px}
+.sim-row{display:flex;gap:10px;margin:8px 0;align-items:flex-start}
+.sim-avatar{flex-shrink:0;width:34px;height:34px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.65rem;font-weight:bold;letter-spacing:.04em;line-height:1;text-align:center}
+.sim-avatar.cliente{background:var(--mid);color:var(--navy)}
+.sim-bubble{font-size:.84rem;padding:10px 14px;border-radius:2px;flex:1;line-height:1.5}
+.sim-bubble.cliente{background:var(--light);border-left:3px solid var(--mid)}
+.sim-bad-wrap,.sim-good-wrap{margin:10px 0;padding:10px 14px;font-size:.83rem}
+.sim-bad-wrap{background:var(--redlt);border-left:4px solid var(--red)}
+.sim-good-wrap{background:var(--greenlt);border-left:4px solid var(--green)}
+.sim-bad-wrap .tag,.sim-good-wrap .tag{font-size:.7rem;font-weight:bold;
+  letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:5px}
+.sim-bad-wrap .tag{color:var(--red)}
+.sim-good-wrap .tag{color:var(--green)}
+.sim-why{font-size:.78rem;color:var(--muted);font-style:italic;
+  padding:6px 14px;border-left:3px solid var(--mid);margin:6px 0}
+.sim-goal{font-size:.78rem;font-weight:bold;color:var(--navy);
+  background:var(--light);padding:8px 14px;margin-top:8px}
+
+/* CHECKLIST */
+.checklist{list-style:none;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.checklist li{display:flex;gap:10px;align-items:flex-start;
+  background:var(--cream);padding:9px 12px;border:1px solid var(--mid);font-size:.82rem}
+.checklist li::before{content:"";flex-shrink:0;width:16px;height:16px;
+  border:2px solid var(--teal);border-radius:2px;margin-top:1px}
+
+/* DO / DON'T TABLE */
+.ddt{width:100%;border-collapse:collapse;font-size:.8rem;margin:1em 0 1.6em}
+.ddt th{padding:9px 14px;font-size:.73rem;letter-spacing:.05em;font-weight:bold;text-align:left}
+.ddt .th-no{background:var(--red);color:#fff}
+.ddt .th-why{background:#8a3030;color:#fff}
+.ddt .th-yes{background:var(--green);color:#fff}
+.ddt .th-when{background:#1e5535;color:#fff}
+.ddt td{padding:8px 14px;border-bottom:1px solid var(--mid);vertical-align:top}
+.ddt tr:nth-child(even) td{background:var(--cream)}
+.ddt td.no-cell{color:var(--red);font-weight:bold}
+.ddt td.yes-cell{color:var(--green)}
+.ddt td.why-cell{color:var(--muted);font-style:italic;font-size:.77rem}
+
+/* EXERCÍCIOS */
+.ex-block{background:var(--cream);border:1px solid var(--mid);padding:16px 20px;margin:1em 0;font-size:.84rem}
+.ex-num{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--gold);font-family:'Courier New',monospace;margin-bottom:5px}
+.ex-q{font-weight:bold;color:var(--navy);margin-bottom:8px;font-size:.88rem}
+.ex-opt{margin:3px 0 3px 1.2em;color:var(--text)}
+.ex-ans{font-size:.78rem;color:var(--teal);border-top:1px solid var(--mid);
+  margin-top:10px;padding-top:8px}
+.ex-ans strong{color:var(--teal)}
+
+/* ESCALA AUTOAVALIAÇÃO */
+.scale-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:1em 0}
+.scale-item{display:flex;align-items:center;gap:10px;
+  background:var(--cream);padding:10px 14px;border:1px solid var(--mid)}
+.scale-label{flex:1;font-size:.82rem}
+.scale-dots{display:flex;gap:4px;flex-shrink:0}
+.scale-dots span{width:26px;height:26px;border-radius:50%;
+  border:2px solid var(--teal);display:flex;align-items:center;
+  justify-content:center;font-size:.7rem;color:var(--muted)}
+
+/* OBJEÇÕES — ACCORDION VISUAL */
+.obj-block{border:1px solid var(--mid);margin:8px 0;background:#fff}
+.obj-q{background:var(--light);padding:11px 16px;font-weight:bold;
+  color:var(--navy);font-size:.88rem;border-left:4px solid var(--gold)}
+.obj-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--mid)}
+.obj-cell{padding:12px 16px;font-size:.82rem;border-right:1px solid var(--mid)}
+.obj-cell:last-child{border-right:none}
+.obj-cell .oc-label{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
+  font-family:'Courier New',monospace;margin-bottom:5px;display:block}
+.obj-cell.red-bg{background:var(--redlt)}
+.obj-cell.red-bg .oc-label{color:var(--red)}
+.obj-cell.green-bg{background:var(--greenlt)}
+.obj-cell.green-bg .oc-label{color:var(--green)}
+.obj-cell.navy-bg{background:#edf1f7}
+.obj-cell.navy-bg .oc-label{color:var(--navy)}
+.obj-ask{grid-column:1/-1;background:var(--light);padding:10px 16px;
+  font-size:.8rem;color:var(--teal);border-top:1px solid var(--mid);font-style:italic}
+
+/* PERGUNTAS — PILL GRID */
+.pill-section{margin:1.2em 0}
+.pill-section h3{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);font-family:'Courier New',monospace;background:var(--light);
+  padding:6px 14px;margin:0 0 0}
+.pill-grid{display:flex;flex-wrap:wrap;gap:8px;padding:12px 14px;
+  background:var(--cream);border:1px solid var(--mid);border-top:none;margin-bottom:8px}
+.pill{background:#fff;border:1px solid var(--border,var(--mid));
+  padding:7px 13px;font-size:.8rem;color:var(--text);
+  line-height:1.45;border-left:3px solid var(--teal)}
+
+/* BOLSO */
+.pocket{background:var(--navy);color:#fff;padding:36px 44px;margin:3em -0px 0}
+.pocket h2{color:var(--gold);font-size:1.1rem;border-bottom:1px solid rgba(255,255,255,.2);
+  padding-bottom:.5em;margin-bottom:1em;background:none}
+.pocket h3{color:rgba(255,255,255,.75);font-size:.82rem;
+  letter-spacing:.1em;text-transform:uppercase;margin:1.6em 0 .5em}
+.pocket ul{margin-left:1.2em}
+.pocket li{color:rgba(255,255,255,.82);font-size:.86rem;margin-bottom:.5em;line-height:1.5}
+.pocket-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:1.2em}
+.pocket-col{}
+.pocket-final{font-size:1.05rem;font-style:italic;color:var(--gold);
+  margin-top:1.8em;padding-top:1.4em;border-top:1px solid rgba(255,255,255,.2);
+  line-height:1.6}
+
+/* ÍNDICE */
+.toc{background:var(--cream);border:1px solid var(--mid);padding:20px 28px;margin:1.8em 40px}
+.toc h3{color:var(--navy);margin:0 0 .8em;font-size:.95rem}
+.toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 24px}
+.toc-grid a{display:flex;gap:8px;font-size:.82rem;color:var(--navy);
+  padding:4px 0;text-decoration:none;border-bottom:1px solid var(--light)}
+.toc-grid a:hover{color:var(--teal)}
+.toc-grid a .toc-num{color:var(--gold);font-family:'Courier New',monospace;
+  font-size:.7rem;flex-shrink:0;padding-top:2px}
+
+/* RODAPÉ */
+.footer{margin-top:40px;padding:16px 40px;border-top:1px solid var(--mid);
+  font-size:.73rem;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+/* ABERTURA */
+.abertura-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:1.4em 0}
+.ab-card{background:var(--cream);border:1px solid var(--mid);padding:16px 18px;border-top:3px solid var(--teal)}
+.ab-card.gold{border-top-color:var(--gold)}
+.ab-card.navy{border-top-color:var(--navy)}
+.ab-card .ac-num{font-size:1.8rem;font-weight:bold;color:var(--teal);line-height:1;margin-bottom:4px}
+.ab-card.gold .ac-num{color:var(--gold)}
+.ab-card.navy .ac-num{color:var(--navy)}
+.ab-card .ac-title{font-size:.82rem;font-weight:bold;color:var(--navy);margin-bottom:4px}
+.ab-card .ac-body{font-size:.78rem;color:var(--muted)}
+
+/* SEPARADOR */
+.divider{height:2px;background:linear-gradient(to right,var(--gold),transparent);margin:2em 40px}
+
+/* AVISO */
+.alert{background:#fff8e8;border-left:4px solid var(--gold);padding:12px 18px;
+  font-size:.82rem;color:#4a3a10;margin:1.2em 0}
+.alert strong{color:#4a3a10}
+
+@media print{
+  body{max-width:100%;font-size:13px}
+  .mod-band,.sim,.obj-block{page-break-inside:avoid}
+  h2{page-break-after:avoid}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════ CAPA ══════════════════════ -->
+<div class="cover">
+  <div class="tag">Material de Estudo Interno · Equipe Comercial · Uso Restrito</div>
+  <h1>Guia de Estudo<br>para Consultores</h1>
+  <p class="sub">Como comparar o Sophia Riviera com lote, apartamento comum de praia e casa de praia de forma consultiva, tecnicamente segura e comercialmente eficaz.</p>
+  <div class="cover-meta">
+    <span><strong>Versão:</strong> 1.0</span>
+    <span><strong>Data:</strong> maio/2026</span>
+    <span><strong>Público:</strong> Consultores e equipe comercial</span>
+    <span><strong>Produto:</strong> Sophia Riviera · Condomínio Resort Residencial</span>
+    <span><strong>Entrega prevista:</strong> primeiro semestre de 2028</span>
+  </div>
+</div>
+
+<!-- ══════════════════════ ABERTURA ══════════════════════ -->
+<div class="wrap">
+<h3 style="margin-top:0">Por que este guia existe</h3>
+<p>Comparar o Sophia Riviera com lote, apartamento e casa de praia é uma das situações mais frequentes no atendimento. E também uma das mais delicadas. O problema não está em o cliente comparar. O problema está no critério que ele usa.</p>
+<p>Quando a comparação fica só no preço de entrada, na parcela ou no metro quadrado, o consultor cai numa armadilha: tenta defender o produto pelo mesmo parâmetro errado que o cliente escolheu. Este guia ensina a mudar o parâmetro <strong>antes</strong> de apresentar o produto.</p>
+
+<div class="destaque">
+  O consultor não deve vencer a comparação no grito.<br>Deve conduzir o cliente a comparar corretamente.
+</div>
+
+<div class="abertura-cards">
+  <div class="ab-card">
+    <div class="ac-num">10</div>
+    <div class="ac-title">Módulos de estudo</div>
+    <div class="ac-body">Do conceito à prática, com exemplos reais de atendimento</div>
+  </div>
+  <div class="ab-card gold">
+    <div class="ac-num ac-num-gold" style="color:var(--gold)">13</div>
+    <div class="ac-title">Objeções com resposta</div>
+    <div class="ac-body">Tabela com o que dizer e como avançar a conversa</div>
+  </div>
+  <div class="ab-card navy">
+    <div class="ac-num" style="color:var(--navy)">5</div>
+    <div class="ac-title">Simulações de diálogo</div>
+    <div class="ac-body">Resposta ruim, por que falha e resposta recomendada</div>
+  </div>
+</div>
+
+<h3>Como estudar e aplicar</h3>
+<table>
+  <tr><th>Faça</th><th>Não faça</th></tr>
+  <tr><td>Leia um módulo por vez, sem pressa</td><td>Tentar absorver tudo em uma leitura</td></tr>
+  <tr><td>Pratique as frases em voz alta antes de usar com cliente</td><td>Usar o material como script rígido</td></tr>
+  <tr><td>Use o Resumo de Bolso antes de cada atendimento</td><td>Pular os exercícios de fixação</td></tr>
+  <tr><td>Valide dados financeiros com a equipe jurídica antes de apresentar a clientes</td><td>Apresentar números de simulação como certeza</td></tr>
+</table>
+</div>
+
+<!-- ÍNDICE -->
+<div class="toc">
+  <h3>Mapa de Aprendizado</h3>
+  <div class="toc-grid">
+    <a href="#mod1"><span class="toc-num">01</span>A lógica da comparação correta</a>
+    <a href="#mod6"><span class="toc-num">06</span>Objeções e respostas</a>
+    <a href="#mod2"><span class="toc-num">02</span>O que cada modelo realmente entrega</a>
+    <a href="#mod7"><span class="toc-num">07</span>Frases proibidas e alternativas seguras</a>
+    <a href="#mod3"><span class="toc-num">03</span>Custo total de uso</a>
+    <a href="#mod8"><span class="toc-num">08</span>Perguntas inteligentes</a>
+    <a href="#mod4"><span class="toc-num">04</span>Como conduzir a conversa</a>
+    <a href="#mod9"><span class="toc-num">09</span>Simulações de atendimento</a>
+    <a href="#mod5"><span class="toc-num">05</span>Locação sem promessa</a>
+    <a href="#mod10"><span class="toc-num">10</span>Checklist de domínio</a>
+    <a href="#tipologias"><span class="toc-num">+</span>Como usar as tipologias na comparação</a>
+    <a href="#bolso"><span class="toc-num">+</span>Resumo final de bolso</a>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ══════════════════════ MÓDULO 1 ══════════════════════ -->
+<div class="mod-band" id="mod1">
+  <div class="mod-num-box"><div class="mn">01</div>MÓDULO</div>
+  <div class="mod-title-box"><h2>A Lógica da Comparação Correta</h2></div>
+</div>
+<div class="wrap">
+<div class="mod-obj"><strong>Objetivo:</strong> tirar o cliente da comparação rasa por preço, parcela e metro quadrado antes de qualquer apresentação do produto.</div>
+
+<h3>Os três critérios que enganam</h3>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:1em 0">
+  <div class="box gold" style="margin:0">
+    <div class="box-label">Preço</div>
+    Mede apenas o desembolso de entrada. <strong>Não mede o que está incluso</strong> nem o que ainda precisa ser feito.
+  </div>
+  <div class="box gold" style="margin:0">
+    <div class="box-label">Parcela</div>
+    Pode esconder obra, mobília, manutenção e gestão que virão depois. <strong>Não é o custo total.</strong>
+  </div>
+  <div class="box gold" style="margin:0">
+    <div class="box-label">Metro quadrado</div>
+    Um Studio de 27 m² em resort com SPA entrega experiência diferente de 70 m² sem estrutura. <strong>M² não captura isso.</strong>
+  </div>
+</div>
+
+<h3>Exemplo real de atendimento</h3>
+<div class="obj-block">
+  <div class="obj-q">"Encontrei um lote em Luís Correia por R$ 180 mil. Fica bem mais barato do que o Sophia."</div>
+  <div class="obj-grid">
+    <div class="obj-cell red-bg">
+      <span class="oc-label">Erro comum do corretor</span>
+      Rebater com o preço do Sophia ou atacar o lote. Isso cria defesa e encerra a conversa.
+    </div>
+    <div class="obj-cell green-bg">
+      <span class="oc-label">Resposta correta</span>
+      "Faz sentido olhar. O que vale colocar na conta é o que falta para esse lote virar o que o senhor quer usar: projeto, aprovação, construção, mobília, piscina, paisagismo, manutenção. O senhor está buscando um terreno para desenvolver ou uma solução de lazer já planejada?"
+    </div>
+  </div>
+</div>
+
+<div class="destaque" style="font-size:.92rem">
+  Nunca rebata preço com preço. Mude o critério da comparação.
+</div>
+
+<h3>Resumo do Módulo 1</h3>
+<table class="th-teal">
+  <tr><th>Conceito</th><th>Mensagem para o cliente</th></tr>
+  <tr><td>Preço inicial ≠ custo total</td><td>"O que parece mais barato no início pode custar mais no total."</td></tr>
+  <tr><td>Modelos diferentes, critérios diferentes</td><td>"Lote, casa, apartamento e resort entregam coisas diferentes."</td></tr>
+  <tr><td>Mude o parâmetro antes do produto</td><td>"Antes de comparar preço, compare entrega, prazo e esforço."</td></tr>
+</table>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ══════════════════════ MÓDULO 2 ══════════════════════ -->
+<div class="mod-band" id="mod2">
+  <div class="mod-num-box"><div class="mn">02</div>MÓDULO</div>
+  <div class="mod-title-box"><h2>O Que Cada Modelo Realmente Entrega</h2></div>
+</div>
+<div class="wrap">
+<div class="mod-obj"><strong>Objetivo:</strong> dominar o que cada modelo entrega, o que exige do cliente e qual pergunta usar para avançar a conversa.</div>
+
+<div class="model-grid">
+  <div class="model-card">
+    <div class="mc-top gold"></div>
+    <div class="mc-name">Modelo 01</div>
+    <div class="mc-title">Lote</div>
+    <div class="mc-body">
+      <strong>O que compra:</strong> potencial de construção. Um terreno, não uma solução de uso.<br><br>
+      <strong>O que ainda precisa fazer:</strong> projeto, aprovações, obra, mobília, piscina, paisagismo, manutenção.<br><br>
+      <strong>Prazo até uso:</strong> 30 a 42 meses.<br><br>
+      <strong>Faz sentido para:</strong> quem quer construir do próprio jeito e aceita gerir obra.
+    </div>
+    <span class="mc-tag red">Esforço: muito alto</span>
+  </div>
+  <div class="model-card">
+    <div class="mc-top" style="background:var(--mid)"></div>
+    <div class="mc-name">Modelo 02</div>
+    <div class="mc-title">Apartamento comum de praia</div>
+    <div class="mc-body">
+      <strong>O que compra:</strong> unidade residencial em condomínio convencional.<br><br>
+      <strong>Vantagens:</strong> compra mais simples, ticket possivelmente menor, uso mais rápido.<br><br>
+      <strong>Limitações:</strong> estrutura de lazer limitada, sem operadora, regras podem restringir locação.<br><br>
+      <strong>Faz sentido para:</strong> quem quer simplicidade e menor ticket.
+    </div>
+    <span class="mc-tag teal">Esforço: médio</span>
+  </div>
+  <div class="model-card">
+    <div class="mc-top red"></div>
+    <div class="mc-name">Modelo 03</div>
+    <div class="mc-title">Casa de praia</div>
+    <div class="mc-body">
+      <strong>O que compra:</strong> imóvel com autonomia total.<br><br>
+      <strong>O que exige:</strong> manutenção, piscina, jardim, equipe, segurança, desgaste por maresia, gestão de locação.<br><br>
+      <strong>Custo anual estimado:</strong> R$ 27 a 55 mil (uso próprio).<br><br>
+      <strong>Faz sentido para:</strong> quem quer controle total e aceita operação recorrente.
+    </div>
+    <span class="mc-tag red">Esforço: alto</span>
+  </div>
+  <div class="model-card">
+    <div class="mc-top navy"></div>
+    <div class="mc-name">Modelo 04</div>
+    <div class="mc-title">Sophia Riviera</div>
+    <div class="mc-body">
+      <strong>O que compra:</strong> unidade em condomínio resort residencial, Praia das Tartarugas, Luís Correia, PI. 126 unidades em mais de 19 mil m².<br><br>
+      <strong>Entrega prevista:</strong> primeiro semestre de 2028. Não permite uso imediato.<br><br>
+      <strong>Estrutura prevista:</strong> piscinas, SPA, academia, beach tennis, kite center e mais de 15 espaços de lazer. Resort e áreas comuns entregues mobiliados e equipados conforme memorial descritivo.<br><br>
+      <strong>Unidade privativa:</strong> mobiliada pelo cliente, conforme gosto, perfil familiar e estratégia de uso.<br><br>
+      <strong>Personalização:</strong> permite possibilidades de personalização interna durante a obra, dentro de alternativas previamente validadas.<br><br>
+      <strong>Tipologias:</strong> Studio, Studio Hub 1, Studio Hub 2, Studio Garden, Garden, Garden Premium, Duplex e Duplex Premium.<br><br>
+      <strong>Faz sentido para:</strong> quem busca lazer familiar, estrutura planejada e menor esforço individual.
+    </div>
+    <span class="mc-tag green">Esforço: menor</span>
+  </div>
+</div>
+
+<h3>Tabela comparativa rápida</h3>
+<table>
+  <tr><th>Critério</th><th>Lote</th><th>Apartamento</th><th>Casa de praia</th><th>Sophia Riviera</th></tr>
+  <tr>
+    <td><strong>O que entrega</strong></td>
+    <td>Terreno</td><td>Unidade residencial</td><td>Imóvel com autonomia</td><td>Condomínio resort planejado</td>
+  </tr>
+  <tr>
+    <td><strong>Obra pelo cliente?</strong></td>
+    <td class="no">Sim, completa</td><td class="ok">Não</td><td class="mid">Reforma, se houver</td><td class="ok">Não</td>
+  </tr>
+  <tr>
+    <td><strong>Prazo até uso</strong></td>
+    <td class="no">30–42 meses</td><td class="ok">Imediato (se pronto)</td><td class="ok">Imediato (se pronta)</td><td class="mid">Entrega 1S/2028</td>
+  </tr>
+  <tr>
+    <td><strong>Estrutura de lazer</strong></td>
+    <td class="no">Depende da construção</td><td class="mid">Limitada</td><td class="mid">Depende da casa</td><td class="ok">Prevista em projeto</td>
+  </tr>
+  <tr>
+    <td><strong>Gestão de manutenção</strong></td>
+    <td class="no">Toda pelo cliente</td><td class="mid">Média</td><td class="no">Alta (equipe própria)</td><td class="ok">Menor (estrutura condominial)</td>
+  </tr>
+  <tr>
+    <td><strong>Personalização</strong></td>
+    <td class="ok">Muito alta (construção total)</td><td class="mid">Interna limitada pelo condomínio</td><td class="ok">Alta (imóvel próprio)</td><td class="mid">Personalização interna orientada, dentro de alternativas validadas durante a obra</td>
+  </tr>
+  <tr>
+    <td><strong>Mobília</strong></td>
+    <td class="no">Cliente mobilia tudo: casa, piscina, gourmet, jardim</td><td class="mid">Cliente mobilia a unidade</td><td class="no">Cliente mobilia e mantém unidade e áreas externas</td><td class="ok">Cliente mobilia a unidade privativa. Resort e áreas comuns: entregues mobiliados conforme memorial descritivo</td>
+  </tr>
+  <tr>
+    <td><strong>Pergunta decisiva</strong></td>
+    <td>"Quer construir ou receber?"</td>
+    <td>"A estrutura atende sua família?"</td>
+    <td>"Quer autonomia ou conveniência?"</td>
+    <td>"Aceita esperar até 1S/2028?"</td>
+  </tr>
+</table>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ══════════════════════ MÓDULO 3 ══════════════════════ -->
+<div class="mod-band" id="mod3">
+  <div class="mod-num-box"><div class="mn">03</div>MÓDULO</div>
+  <div class="mod-title-box"><h2>Custo Total de Uso</h2></div>
+</div>
+<div class="wrap">
+<div class="mod-obj"><strong>Objetivo:</strong> dominar o conceito e saber usá-lo antes de apresentar qualquer produto.</div>
+
+<h3>A fórmula</h3>
+<div class="formula">
+  <div class="formula-item"><span class="fi-label">Componente 1</span>Preço de compra</div>
+  <div class="formula-op">+</div>
+  <div class="formula-item"><span class="fi-label">Componente 2</span>Custos adicionais</div>
+  <div class="formula-op">+</div>
+  <div class="formula-item"><span class="fi-label">Componente 3</span>Tempo até uso</div>
+  <div class="formula-op">+</div>
+  <div class="formula-item"><span class="fi-label">Componente 4</span>Esforço de gestão</div>
+  <div class="formula-op">+</div>
+  <div class="formula-item"><span class="fi-label">Componente 5</span>Riscos assumidos</div>
+  <div class="formula-op">=</div>
+  <div class="formula-result"><span class="fi-label">Resultado</span>Custo Total de Uso</div>
+</div>
+
+<h3>Como funciona em cada modelo</h3>
+<table>
+  <tr><th style="width:20%">Modelo</th><th>Preço inicial</th><th>Custos que aparecem depois</th><th>Custo total estimado</th></tr>
+  <tr>
+    <td><strong>Lote</strong></td>
+    <td>R$ 180–400 mil</td>
+    <td>Obra + projeto + mobília + piscina + paisagismo + manutenção</td>
+    <td class="no"><strong>R$ 1,0 a 1,6 mi</strong> até o primeiro uso</td>
+  </tr>
+  <tr>
+    <td><strong>Casa de praia</strong></td>
+    <td>R$ 600 k–1,3 mi</td>
+    <td>Reforma + manutenção anual (R$ 27–55 k) + segurança + equipe</td>
+    <td class="no"><strong>Ultrapassa preço de compra</strong> em 10 anos</td>
+  </tr>
+  <tr>
+    <td><strong>Apartamento</strong></td>
+    <td>R$ 340–700 k</td>
+    <td>ITBI + mobília + condomínio + IPTU + manutenção</td>
+    <td class="mid"><strong>R$ 400–740 k</strong> na entrada + R$ 11–28 k/ano</td>
+  </tr>
+  <tr>
+    <td><strong>Sophia Riviera</strong></td>
+    <td>Conforme tipologia e tabela vigente (validar com equipe comercial)</td>
+    <td>Condomínio + manutenção da unidade. Unidade privativa: mobiliada pelo cliente. Resort e áreas comuns: entregues mobiliados e equipados conforme memorial descritivo. Sem ITBI, sem obra individual</td>
+    <td class="ok"><strong>Mais previsível.</strong> O cliente personaliza o espaço privativo, mas não carrega o custo e a complexidade de criar a estrutura de resort do zero</td>
+  </tr>
+</table>
+
+<div class="box green">
+  <div class="box-label">Frase para memorizar</div>
+  "O que parece mais barato no início pode custar mais no total. Compare sempre o custo até o imóvel estar pronto, usável e mantido."
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:1em 0">
+  <div class="box red" style="margin:0">
+    <div class="box-label">Erro comum</div>
+    Apresentar o conceito de custo total <em>depois</em> que o cliente já criou uma âncora de preço. A essa altura, é muito mais difícil mudar o critério.
+  </div>
+  <div class="box green" style="margin:0">
+    <div class="box-label">Correção</div>
+    Introduza o conceito <em>antes</em> de qualquer número. "O senhor está comparando o preço de compra ou o custo total até o imóvel estar pronto para o uso que imagina?"
+  </div>
+</div>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ══════════════════════ MÓDULO 4 ══════════════════════ -->
+<div class="mod-band" id="mod4">
+  <div class="mod-num-box"><div class="mn">04</div>MÓDULO</div>
+  <div class="mod-title-box"><h2>Como Conduzir a Conversa</h2></div>
+</div>
+<div class="wrap">
+<div class="mod-obj"><strong>Objetivo:</strong> ter um passo a passo claro para atendimentos em que o cliente compara o Sophia com outra opção.</div>
+
+<div class="steps">
+  <div class="step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <div class="step-title">Valide a comparação do cliente</div>
+      <p style="font-size:.84rem">Não rebata. Confirme que comparar faz sentido e que você quer ajudá-lo a fazer isso com mais precisão.</p>
+      <div class="step-phrase">"Faz sentido comparar as opções. Esse é exatamente o tipo de análise que vale fazer antes de decidir."</div>
+      <div class="step-care">Cuidado: não diga que o cliente está errado. Diga que a comparação pode ser mais completa.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <div class="step-title">Entenda com o que ele está comparando</div>
+      <p style="font-size:.84rem">Lote? Casa pronta? Apartamento em condomínio convencional? Você precisa saber antes de reagir.</p>
+      <div class="step-phrase">"O senhor está olhando alguma opção específica? Já sabe o que está incluso na entrega?"</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">3</div>
+    <div class="step-body">
+      <div class="step-title">Pergunte sobre uso, família, prazo e esforço</div>
+      <p style="font-size:.84rem">Antes de qualquer argumento, entenda o perfil real. As perguntas certas revelam o que o cliente realmente precisa.</p>
+      <div class="step-phrase">"O que o senhor imagina para esse imóvel: uso próprio com a família, segunda residência, possibilidade de locação ou uma combinação?"</div>
+      <div class="step-ask">Complemento: quando pretende usar, quem vai junto, quanto trabalho quer ter depois da compra, se precisa usar antes de 2028.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">4</div>
+    <div class="step-body">
+      <div class="step-title">Reposicione para custo total de uso</div>
+      <p style="font-size:.84rem">Com base no que o cliente disse, introduza o conceito como ferramenta de análise, não como argumento de venda.</p>
+      <div class="step-phrase">"A comparação mais justa não é só pelo preço de entrada. É pelo custo total até o imóvel estar pronto para o que o senhor quer usar."</div>
+      <div class="step-care">Cuidado: não transforme isso em ataque à outra opção. Apresente como método.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">5</div>
+    <div class="step-body">
+      <div class="step-title">Mostre onde o Sophia pode fazer mais sentido</div>
+      <p style="font-size:.84rem">Agora, e só agora, apresente o que o Sophia oferece em função do que o cliente disse que busca.</p>
+      <div class="step-phrase">"Pelo que o senhor descreveu, o Sophia tende a fazer mais sentido porque [motivo ligado ao que ele disse]."</div>
+      <div class="step-care">Cuidado: não diga "o Sophia é melhor". Diga "tende a fazer mais sentido para esse perfil".</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">6</div>
+    <div class="step-body">
+      <div class="step-title">Confirme se o perfil combina com o Sophia</div>
+      <p style="font-size:.84rem">Antes de avançar para preço, confirme o prazo.</p>
+      <div class="step-phrase">"O senhor aceita o prazo de entrega previsto para o primeiro semestre de 2028? Isso é fundamental para a análise fazer sentido."</div>
+      <div class="step-care">Se o cliente precisar usar antes de 2028, seja objetivo: o Sophia não atende esse requisito agora.</div>
+    </div>
+  </div>
+  <div class="step">
+    <div class="step-num">7</div>
+    <div class="step-body">
+      <div class="step-title">Avance para preço, tipologia ou simulação</div>
+      <p style="font-size:.84rem">Somente agora o cliente está em condições de avaliar o preço com contexto correto.</p>
+      <div class="step-phrase">"Com esse contexto, posso mostrar as tipologias disponíveis e, se quiser, uma simulação de cenário de locação com premissas claras."</div>
+      <div class="step-ask">Pergunta de avanço: "Quer começar pela tipologia que faz mais sentido para o uso que descreveu?"</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ══════════════════════ MÓDULO 5 ══════════════════════ -->
+<div class="mod-band" id="mod5">
+  <div class="mod-num-box"><div class="mn">05</div>MÓDULO</div>
+  <div class="mod-title-box"><h2>Locação de Temporada sem Promessa</h2></div>
+</div>
+<div class="wrap">
+<div class="mod-obj"><strong>Objetivo:</strong> falar de locação com segurança jurídica e comercial, sem prometer rentabilidade e sem perder o argumento.</div>
+
+<div class="destaque" style="font-size:.92rem">
+  Locação pode entrar na análise, mas sempre como cenário ilustrativo, nunca como garantia.
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:1em 0">
+  <div class="box green" style="margin:0">
+    <div class="box-label">Pode falar</div>
+    <ul>
+      <li>O Sophia pode ser analisado pela possibilidade de locação de curta temporada.</li>
+      <li>A estrutura prevista tende a favorecer o apelo para locação.</li>
+      <li>Posso montar uma simulação ilustrativa com premissas declaradas.</li>
+      <li>Resultado depende de ocupação, diária, sazonalidade, custos e gestão.</li>
+    </ul>
+  </div>
+  <div class="box red" style="margin:0">
+    <div class="box-label">Não pode falar</div>
+    <ul>
+      <li>"A locação paga o imóvel."</li>
+      <li>"O retorno é garantido."</li>
+      <li>"É só colocar no Airbnb."</li>
+      <li>"A diária será de R$ X."</li>
+      <li>"A ocupação será de X%."</li>
+      <li>"O payback é de Y anos."</li>
+    </ul>
+  </div>
+</div>
+
+<div class="alert">
+  <strong>Aviso obrigatório antes de qualquer simulação:</strong> "Antes de olhar a simulação, é importante considerar que os números são ilustrativos. Eles dependem de premissas de diária, ocupação, sazonalidade, custos, gestão e regras do condomínio. Não representam promessa de rentabilidade, retorno ou ocupação."
+</div>
+
+<h3>Como responder "a locação paga o imóvel?"</h3>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:.8em 0">
+  <div class="box red" style="margin:0">
+    <div class="box-label">Resposta errada</div>
+    "Sim, em poucos anos o retorno da locação cobre o investimento."
+  </div>
+  <div class="box green" style="margin:0">
+    <div class="box-label">Resposta correta</div>
+    "Não colocaria dessa forma, porque seria uma promessa. O que posso fazer é mostrar uma simulação de cenário com premissas explícitas para o senhor avaliar. Resultado depende de ocupação, diária, sazonalidade, custos e gestão."
+  </div>
+</div>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ══════════════════════ MÓDULO 6 ══════════════════════ -->
+<div class="mod-band" id="mod6">
+  <div class="mod-num-box"><div class="mn">06</div>MÓDULO</div>
+  <div class="mod-title-box"><h2>Objeções e Respostas</h2></div>
+</div>
+<div class="wrap">
+<div class="mod-obj"><strong>Objetivo:</strong> treinar respostas consultivas para as objeções mais comuns.</div>
+
+<!-- Objeção 1 -->
+<div class="obj-block">
+  <div class="obj-q">"Vi um lote mais barato."</div>
+  <div class="obj-grid">
+    <div class="obj-cell navy-bg"><span class="oc-label">O que quer dizer</span>O preço inicial do lote parece menor. Ele não calculou o custo total.</div>
+    <div class="obj-cell red-bg"><span class="oc-label">Erro do corretor</span>Rebater com o preço do Sophia ou atacar o lote diretamente.</div>
+    <div class="obj-cell green-bg" style="grid-column:1/-1"><span class="oc-label">Resposta consultiva</span>"Faz sentido. Lote costuma parecer mais leve no início. Vale colocar na conta o que ainda falta: projeto, aprovação, obra, mobília, piscina, paisagismo, manutenção e o prazo até poder usar. O senhor quer construir do zero ou prefere avaliar uma solução já planejada?"</div>
+  </div>
+  <div class="obj-ask">Pergunta de avanço: "O senhor quer construir do zero ou prefere avaliar uma solução já planejada?"</div>
+</div>
+
+<!-- Objeção 2 -->
+<div class="obj-block">
+  <div class="obj-q">"Prefiro construir do meu jeito."</div>
+  <div class="obj-grid">
+    <div class="obj-cell navy-bg"><span class="oc-label">O que quer dizer</span>Personalização e autonomia são prioridade para ele.</div>
+    <div class="obj-cell red-bg"><span class="oc-label">Erro do corretor</span>Tentar convencer que personalizar é ruim.</div>
+    <div class="obj-cell green-bg" style="grid-column:1/-1"><span class="oc-label">Resposta consultiva</span>"Faz sentido quando personalização é prioridade. O ponto é aceitar a gestão da obra, os prazos e as decisões que vêm junto. O senhor quer essa autonomia total ou prefere reduzir o envolvimento operacional?"</div>
+  </div>
+  <div class="obj-ask">Pergunta de avanço: "O senhor já construiu antes? Como foi essa experiência?"</div>
+</div>
+
+<!-- Objeção 3 -->
+<div class="obj-block">
+  <div class="obj-q">"Casa de praia me dá mais liberdade."</div>
+  <div class="obj-grid">
+    <div class="obj-cell navy-bg"><span class="oc-label">O que quer dizer</span>Valoriza autonomia e controle total.</div>
+    <div class="obj-cell red-bg"><span class="oc-label">Erro do corretor</span>Dizer que casa de praia dá muito trabalho ou problemas.</div>
+    <div class="obj-cell green-bg" style="grid-column:1/-1"><span class="oc-label">Resposta consultiva</span>"A casa entrega autonomia mesmo. A contrapartida é que manutenção, segurança, limpeza, piscina e eventuais locações ficam com o proprietário. Essa operação faz sentido para o senhor ou prefere algo com estrutura compartilhada?"</div>
+  </div>
+  <div class="obj-ask">Pergunta de avanço: "O senhor prefere liberdade total ou conveniência?"</div>
+</div>
+
+<!-- Objeção 4 -->
+<div class="obj-block">
+  <div class="obj-q">"Apartamento comum já resolve."</div>
+  <div class="obj-grid">
+    <div class="obj-cell navy-bg"><span class="oc-label">O que quer dizer</span>Não quer complexidade; ticket menor é atrativo.</div>
+    <div class="obj-cell red-bg"><span class="oc-label">Erro do corretor</span>Desqualificar o apartamento.</div>
+    <div class="obj-cell green-bg" style="grid-column:1/-1"><span class="oc-label">Resposta consultiva</span>"Pode resolver bem quando a busca é simplicidade. O que vale avaliar é se ele entrega a experiência que sua família espera e se tem diferenciação para uso e eventual locação."</div>
+  </div>
+  <div class="obj-ask">Pergunta de avanço: "Para o senhor, a estrutura de lazer pesa ou basta ter uma unidade na praia?"</div>
+</div>
+
+<!-- Objeção 5 -->
+<div class="obj-block">
+  <div class="obj-q">"O Sophia é mais caro."</div>
+  <div class="obj-grid">
+    <div class="obj-cell navy-bg"><span class="oc-label">O que quer dizer</span>Está comparando só pelo preço de entrada.</div>
+    <div class="obj-cell red-bg"><span class="oc-label">Erro do corretor</span>Defender o preço abstratamente ou pedir desculpa pelo valor.</div>
+    <div class="obj-cell green-bg" style="grid-column:1/-1"><span class="oc-label">Resposta consultiva</span>"Pode parecer mais alto quando a comparação é só por preço. A análise correta é olhar o que está incluso, a estrutura prevista, a experiência de uso, o prazo e o custo total. Quer que eu compare com o senhor por esse critério?"</div>
+  </div>
+  <div class="obj-ask">Pergunta de avanço: "O senhor quer comparar pelo preço inicial ou pela entrega final?"</div>
+</div>
+
+<!-- Objeção 6 -->
+<div class="obj-block">
+  <div class="obj-q">"Quero algo pronto antes de 2028."</div>
+  <div class="obj-grid">
+    <div class="obj-cell navy-bg"><span class="oc-label">O que quer dizer</span>Uso imediato é prioridade.</div>
+    <div class="obj-cell red-bg"><span class="oc-label">Erro do corretor</span>Minimizar o prazo ou dizer "2028 passa rápido".</div>
+    <div class="obj-cell green-bg" style="grid-column:1/-1"><span class="oc-label">Resposta consultiva</span>"Preciso ser objetivo: o Sophia está em obras, com entrega prevista para o primeiro semestre de 2028. Se uso imediato é prioridade absoluta, uma casa ou apartamento pronto pode fazer mais sentido agora."</div>
+  </div>
+  <div class="obj-ask">Pergunta de avanço: "Além do uso imediato, o que mais é importante para o senhor?"</div>
+</div>
+
+<!-- Objeção 7 -->
+<div class="obj-block">
+  <div class="obj-q">"Quero algo para alugar."</div>
+  <div class="obj-grid">
+    <div class="obj-cell navy-bg"><span class="oc-label">O que quer dizer</span>Rentabilidade é critério central.</div>
+    <div class="obj-cell red-bg"><span class="oc-label">Erro do corretor</span>Prometer ROI, payback ou ocupação.</div>
+    <div class="obj-cell green-bg" style="grid-column:1/-1"><span class="oc-label">Resposta consultiva</span>"Podemos analisar por esse caminho, com prudência. Posso montar uma simulação ilustrativa, sem tratar isso como garantia."</div>
+  </div>
+  <div class="obj-ask">Pergunta de avanço: "A locação seria essencial ou apenas uma possibilidade adicional na análise?"</div>
+</div>
+
+<!-- Objeção 8 -->
+<div class="obj-block">
+  <div class="obj-q">"Não quero ter trabalho."</div>
+  <div class="obj-grid">
+    <div class="obj-cell navy-bg"><span class="oc-label">O que quer dizer</span>Baixo esforço operacional é prioridade.</div>
+    <div class="obj-cell red-bg"><span class="oc-label">Erro do corretor</span>Dizer que o Sophia é automático e o cliente não faz nada.</div>
+    <div class="obj-cell green-bg" style="grid-column:1/-1"><span class="oc-label">Resposta consultiva</span>"Então o ponto principal não é só preço. É esforço operacional. Lote e casa tendem a exigir muito mais gestão. O Sophia tende a fazer mais sentido para quem quer uma solução mais estruturada."</div>
+  </div>
+  <div class="obj-ask">Pergunta de avanço: "O que mais incomoda: gestão de obra, manutenção ou locação?"</div>
+</div>
+
+<!-- Objeção 9 -->
+<div class="obj-block">
+  <div class="obj-q">"Vou pesquisar mais."</div>
+  <div class="obj-grid">
+    <div class="obj-cell navy-bg"><span class="oc-label">O que quer dizer</span>Não se sentiu seguro o suficiente para avançar.</div>
+    <div class="obj-cell red-bg"><span class="oc-label">Erro do corretor</span>Pressionar ou usar urgência artificial.</div>
+    <div class="obj-cell green-bg" style="grid-column:1/-1"><span class="oc-label">Resposta consultiva</span>"Claro. Só sugiro que a pesquisa não fique só em preço e metragem. Compare o que está incluso, quanto ainda precisa investir, quando poderá usar e quanto trabalho cada modelo exige."</div>
+  </div>
+  <div class="obj-ask">Pergunta de avanço: "Posso te enviar um comparativo de custo total de uso para ajudar na pesquisa?"</div>
+</div>
+
+<!-- Objeções 10–13 em tabela compacta -->
+<h3>Mais objeções</h3>
+<table>
+  <tr><th style="width:25%">Objeção</th><th>Resposta consultiva</th><th style="width:25%">Pergunta de avanço</th></tr>
+  <tr>
+    <td>"Quero comparar pelo metro quadrado."</td>
+    <td>"Dá para olhar m², mas em imóvel de lazer, estrutura, áreas comuns e experiência também pesam."</td>
+    <td>"Quer comparar área ou entrega final?"</td>
+  </tr>
+  <tr>
+    <td>"Quero comparar pela parcela."</td>
+    <td>"A parcela é importante, mas pode esconder custo posterior de obra, mobília ou gestão."</td>
+    <td>"Vamos comparar a parcela junto com o custo total até o uso?"</td>
+  </tr>
+  <tr>
+    <td>"Quero saber quanto isso rende."</td>
+    <td>"Posso fazer uma simulação ilustrativa, com aviso de que não há rentabilidade garantida."</td>
+    <td>"Quer que eu monte uma simulação com premissas explícitas?"</td>
+  </tr>
+  <tr>
+    <td>"A locação paga o investimento?"</td>
+    <td>"Não colocaria dessa forma, porque seria uma promessa. Posso simular cenários e mostrar como a locação pode ajudar na estratégia."</td>
+    <td>"Quer ver uma simulação com premissas conservadoras?"</td>
+  </tr>
+</table>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- OBJEÇÕES: PERSONALIZAÇÃO E MOBÍLIA -->
+<h3>Objeções sobre personalização e mobília</h3>
+
+<div class="obj-block">
+  <div class="obj-q">"Mas se eu comprar uma casa, faço do meu jeito."</div>
+  <div class="obj-grid">
+    <div class="obj-cell navy-bg"><span class="oc-label">O que quer dizer</span>Personalização é prioridade; a ideia de ter controle total sobre o imóvel é muito atraente.</div>
+    <div class="obj-cell red-bg"><span class="oc-label">Erro do corretor</span>Negar que a casa entrega mais personalização ou dizer que o Sophia é igualmente personalizável.</div>
+    <div class="obj-cell green-bg" style="grid-column:1/-1"><span class="oc-label">Resposta consultiva</span>"É verdade que a casa entrega mais liberdade de personalização. O ponto é o que vem junto: obra, aprovações, fornecedores, prazo, risco de orçamento e manutenção contínua. O Sophia oferece personalização interna durante a obra, dentro de alternativas previamente validadas, sem que o cliente precise assumir a obra completa. É menos personalizável que uma casa construída do zero, mas entrega mais previsibilidade, estrutura coletiva planejada e menor esforço individual."</div>
+  </div>
+  <div class="obj-ask">Pergunta de avanço: "O senhor quer personalização máxima ou quer equilibrar personalização com comodidade?"</div>
+</div>
+
+<div class="obj-block">
+  <div class="obj-q">"Vou ter que mobiliar do mesmo jeito."</div>
+  <div class="obj-grid">
+    <div class="obj-cell navy-bg"><span class="oc-label">O que quer dizer</span>Ele percebe que vai gastar com mobília de qualquer forma e não enxerga diferença.</div>
+    <div class="obj-cell red-bg"><span class="oc-label">Erro do corretor</span>Negar que o cliente vai mobiliar a unidade, ou dizer que o Sophia entrega tudo pronto.</div>
+    <div class="obj-cell green-bg" style="grid-column:1/-1"><span class="oc-label">Resposta consultiva</span>"Sim, a unidade privativa será mobiliada pelo cliente conforme gosto e perfil de uso. A diferença está no que o senhor não precisa criar do zero: a estrutura de resort, as áreas comuns, o lazer e a conveniência coletiva serão entregues mobiliados e equipados conforme memorial descritivo. No lote, o senhor mobilia a casa e ainda precisa criar e manter piscina, área gourmet, jardim e toda a estrutura de lazer. No Sophia, esse custo e essa complexidade já estão na proposta coletiva do empreendimento."</div>
+  </div>
+  <div class="obj-ask">Pergunta de avanço: "O que pesaria mais para o senhor: mobiliar a unidade privativa ou ter que criar toda a estrutura de lazer do zero?"</div>
+</div>
+
+<div class="obj-block">
+  <div class="obj-q">"O apartamento comum eu também mobilio."</div>
+  <div class="obj-grid">
+    <div class="obj-cell navy-bg"><span class="oc-label">O que quer dizer</span>Ele está usando a mobília da unidade como único critério de comparação, sem considerar o que está ao redor.</div>
+    <div class="obj-cell red-bg"><span class="oc-label">Erro do corretor</span>Concordar sem reposicionar, deixando parecer que a diferença entre Sophia e apartamento comum é só de preço.</div>
+    <div class="obj-cell green-bg" style="grid-column:1/-1"><span class="oc-label">Resposta consultiva</span>"Sim, e isso é verdade para a unidade privativa em ambos os casos. A diferença não está na mobília interna. Está na estrutura ao redor da unidade. O apartamento comum normalmente depende de uma estrutura condominial mais simples. O Sophia entrega uma experiência de condomínio resort residencial, com piscinas, SPA, academia, beach tennis, kite center e muito mais, tudo entregue mobiliado e equipado conforme memorial descritivo. A mobília interna é do cliente em qualquer cenário. O que muda é o que o cliente encontra quando abre a porta e sai da unidade."</div>
+  </div>
+  <div class="obj-ask">Pergunta de avanço: "Para o senhor, a estrutura ao redor da unidade pesa na decisão ou basta o espaço interno?"</div>
+</div>
+
+<div class="obj-block">
+  <div class="obj-q">"Lote me deixa construir melhor."</div>
+  <div class="obj-grid">
+    <div class="obj-cell navy-bg"><span class="oc-label">O que quer dizer</span>Ele valoriza a ideia de ter liberdade total para projetar e construir do jeito que quiser.</div>
+    <div class="obj-cell red-bg"><span class="oc-label">Erro do corretor</span>Negar que lote oferece liberdade ou tentar convencer que personalização não importa.</div>
+    <div class="obj-cell green-bg" style="grid-column:1/-1"><span class="oc-label">Resposta consultiva</span>"Pode mesmo, se a prioridade for liberdade máxima. Isso vem com obra, prazo, custo de projeto, aprovações, risco de orcamento estourar e toda a gestão que a construção exige. O Sophia oferece menos personalização do que uma casa construída do zero, mas permite personalização interna durante a obra, dentro de alternativas previamente validadas, com muito menos esforço e sem assumir a obra completa. A pergunta é: o senhor quer liberdade máxima ou quer equilibrar personalização com previsibilidade e menor envolvimento operacional?"</div>
+  </div>
+  <div class="obj-ask">Pergunta de avanço: "O senhor está preparado para assumir a gestão completa de uma obra no litoral?"</div>
+</div>
+
+</div>
+<div class="divider"></div>
+
+<!-- ══════════════════════ MÓDULO 7 ══════════════════════ -->
+<div class="mod-band" id="mod7">
+  <div class="mod-num-box"><div class="mn">07</div>MÓDULO</div>
+  <div class="mod-title-box"><h2>Frases Proibidas e Alternativas Seguras</h2></div>
+</div>
+<div class="wrap">
+<div class="mod-obj"><strong>Objetivo:</strong> evitar frases que geram risco jurídico, promessa financeira ou postura agressiva.</div>
+
+<table class="ddt">
+  <tr>
+    <th class="th-no" style="width:23%">Não diga</th>
+    <th class="th-why" style="width:22%">Por que prejudica</th>
+    <th class="th-yes" style="width:33%">Diga assim</th>
+    <th class="th-when" style="width:22%">Quando usar</th>
+  </tr>
+  <tr>
+    <td class="no-cell">"O lote é ruim."</td>
+    <td class="why-cell">Ataca a alternativa e cria resistência</td>
+    <td class="yes-cell">"Lote faz sentido para quem quer construir e aceita gerir obra."</td>
+    <td>Quando cliente citar lote</td>
+  </tr>
+  <tr>
+    <td class="no-cell">"Casa de praia dá muito trabalho."</td>
+    <td class="why-cell">Parece julgamento</td>
+    <td class="yes-cell">"Casa oferece autonomia, mas exige manutenção e gestão recorrente."</td>
+    <td>Quando cliente mencionar casa</td>
+  </tr>
+  <tr>
+    <td class="no-cell">"Apartamento comum não presta."</td>
+    <td class="why-cell">Desqualifica o mercado</td>
+    <td class="yes-cell">"Apartamento pode atender bem quem busca simplicidade."</td>
+    <td>Sempre que comparar</td>
+  </tr>
+  <tr>
+    <td class="no-cell">"O Sophia é melhor em tudo."</td>
+    <td class="why-cell">Promessa absoluta e frágil</td>
+    <td class="yes-cell">"O Sophia tende a fazer mais sentido para quem busca estrutura planejada."</td>
+    <td>Ao posicionar o produto</td>
+  </tr>
+  <tr>
+    <td class="no-cell">"A locação paga o imóvel."</td>
+    <td class="why-cell">Promessa financeira proibida</td>
+    <td class="yes-cell">"A locação pode ser simulada como possibilidade, sem garantia."</td>
+    <td>Sempre que tocar em locação</td>
+  </tr>
+  <tr>
+    <td class="no-cell">"Vai valorizar com certeza."</td>
+    <td class="why-cell">Promessa de valorização</td>
+    <td class="yes-cell">"Há referências de mercado que podem ser analisadas, mas valorização não é garantida."</td>
+    <td>Quando perguntarem valorização</td>
+  </tr>
+  <tr>
+    <td class="no-cell">"A praia é privativa."</td>
+    <td class="why-cell">Risco jurídico e factual</td>
+    <td class="yes-cell">"O empreendimento é à beira-mar, na Praia das Tartarugas."</td>
+    <td>Sempre. Nunca use "privativa".</td>
+  </tr>
+  <tr>
+    <td class="no-cell">"É igual hotel."</td>
+    <td class="why-cell">Confunde o modelo do produto</td>
+    <td class="yes-cell">"É um condomínio resort residencial."</td>
+    <td>Sempre. Nunca use "hotel".</td>
+  </tr>
+  <tr>
+    <td class="no-cell">"Já está pronto."</td>
+    <td class="why-cell">Informação incorreta</td>
+    <td class="yes-cell">"Empreendimento em obras. Entrega prevista 1S/2028."</td>
+    <td>Em todo atendimento</td>
+  </tr>
+  <tr>
+    <td class="no-cell">"Você já pode usar."</td>
+    <td class="why-cell">Informação incorreta</td>
+    <td class="yes-cell">"O uso será após a entrega prevista."</td>
+    <td>Em todo atendimento</td>
+  </tr>
+  <tr>
+    <td class="no-cell">"É só colocar no Airbnb."</td>
+    <td class="why-cell">Cria expectativa irreal</td>
+    <td class="yes-cell">"Locação depende de regras, gestão, preço, sazonalidade e demanda."</td>
+    <td>Quando cliente mencionar plataformas</td>
+  </tr>
+  <tr>
+    <td class="no-cell">"Se não comprar agora, vai perder."</td>
+    <td class="why-cell">Pressão artificial. Pouco premium.</td>
+    <td class="yes-cell">"Posso verificar disponibilidade e condições vigentes para decisão com segurança."</td>
+    <td>Nunca use pressão de escassez artificial</td>
+  </tr>
+  <tr>
+    <td class="no-cell">"O ROI é garantido."</td>
+    <td class="why-cell">Promessa financeira proibida</td>
+    <td class="yes-cell">"ROI pode ser analisado em simulação ilustrativa, sem garantia."</td>
+    <td>Sempre que tocar em ROI</td>
+  </tr>
+  <tr>
+    <td class="no-cell">"A diária será de R$ X."</td>
+    <td class="why-cell">Promessa operacional</td>
+    <td class="yes-cell">"A diária pode variar conforme temporada, gestão e demanda."</td>
+    <td>Quando perguntarem diária</td>
+  </tr>
+  <tr>
+    <td class="no-cell">"É multipropriedade."</td>
+    <td class="why-cell">Categoriza incorretamente</td>
+    <td class="yes-cell">"É um condomínio resort residencial com cotas."</td>
+    <td>Se cliente usar o termo</td>
+  </tr>
+</table>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ══════════════════════ MÓDULO 8 ══════════════════════ -->
+<div class="mod-band" id="mod8">
+  <div class="mod-num-box"><div class="mn">08</div>MÓDULO</div>
+  <div class="mod-title-box"><h2>Perguntas Inteligentes</h2></div>
+</div>
+<div class="wrap">
+<div class="mod-obj"><strong>Objetivo:</strong> banco de perguntas por tema para usar em atendimento de forma natural, não robótica.</div>
+
+<div class="pill-section">
+  <h3>Uso</h3>
+  <div class="pill-grid">
+    <div class="pill">O senhor pretende usar com frequência ou apenas em férias e feriados?</div>
+    <div class="pill">Esse imóvel seria mais para lazer, patrimônio, locação ou uma combinação?</div>
+    <div class="pill">Quando o senhor imagina começar a usar?</div>
+    <div class="pill">Com que frequência a família costuma ir ao litoral?</div>
+    <div class="pill">O uso seria mais de praia ou de resort? A estrutura do condomínio pesa?</div>
+  </div>
+</div>
+
+<div class="pill-section">
+  <h3>Família</h3>
+  <div class="pill-grid">
+    <div class="pill">Quem mais usaria esse imóvel com o senhor?</div>
+    <div class="pill">O que sua família valoriza mais quando viaja para a praia?</div>
+    <div class="pill">Crianças, idosos ou pets entram nessa decisão?</div>
+    <div class="pill">O senhor imagina receber amigos ou a família toda em algum momento?</div>
+    <div class="pill">Qual experiência sua família esperaria encontrar?</div>
+  </div>
+</div>
+
+<div class="pill-section">
+  <h3>Construção</h3>
+  <div class="pill-grid">
+    <div class="pill">O senhor quer construir e acompanhar obra ou prefere receber uma solução já planejada?</div>
+    <div class="pill">Tem tempo para lidar com projeto, aprovação, fornecedores e fiscalização?</div>
+    <div class="pill">O senhor já construiu imóvel antes? Como foi essa experiência?</div>
+    <div class="pill">Quanto tempo o senhor pode esperar até começar a usar o imóvel?</div>
+  </div>
+</div>
+
+<div class="pill-section">
+  <h3>Manutenção</h3>
+  <div class="pill-grid">
+    <div class="pill">Quanto tempo o senhor quer dedicar à manutenção desse imóvel?</div>
+    <div class="pill">Se aparecer um problema fora de temporada, quem resolve?</div>
+    <div class="pill">O senhor prefere gerenciar equipe própria ou reduzir esse envolvimento?</div>
+    <div class="pill">Piscina, jardim, segurança: o senhor quer assumir isso ou prefere que o condomínio resolva?</div>
+  </div>
+</div>
+
+<div class="pill-section">
+  <h3>Locação</h3>
+  <div class="pill-grid">
+    <div class="pill">A locação seria essencial ou apenas uma possibilidade adicional?</div>
+    <div class="pill">O senhor já considerou custos de gestão, limpeza, manutenção e sazonalidade?</div>
+    <div class="pill">Prefere uma simulação prudente ou quer avaliar primeiro o uso familiar?</div>
+    <div class="pill">O que pesa mais: a renda potencial ou a comodidade de uma estrutura gerida?</div>
+  </div>
+</div>
+
+<div class="pill-section">
+  <h3>Prazo</h3>
+  <div class="pill-grid">
+    <div class="pill">O senhor precisa usar antes de 2028?</div>
+    <div class="pill">O prazo de entrega influencia muito sua decisão?</div>
+    <div class="pill">Aceitaria esperar pelo primeiro semestre de 2028 se a entrega fizer mais sentido?</div>
+    <div class="pill">O senhor já tem outro imóvel de lazer enquanto espera?</div>
+  </div>
+</div>
+
+<div class="pill-section">
+  <h3>Preço e esforço</h3>
+  <div class="pill-grid">
+    <div class="pill">O senhor está comparando o preço de compra ou o custo total até o imóvel ficar pronto?</div>
+    <div class="pill">O que pesa mais: menor entrada ou entrega mais completa?</div>
+    <div class="pill">Quanto o senhor quer se envolver depois da compra?</div>
+    <div class="pill">Prefere autonomia total ou conveniência?</div>
+    <div class="pill">Quer um imóvel para aproveitar ou um projeto para administrar?</div>
+  </div>
+</div>
+
+<div class="pill-section">
+  <h3>Personalização</h3>
+  <div class="pill-grid">
+    <div class="pill">O senhor quer personalizar o interior da unidade ao seu gosto?</div>
+    <div class="pill">Quanta liberdade de personalização é importante para o senhor?</div>
+    <div class="pill">O senhor prefere personalização máxima com obra própria ou personalização orientada dentro de um projeto já validado?</div>
+    <div class="pill">Qual é o nível de envolvimento que o senhor quer ter nas decisões de acabamento e personalização?</div>
+  </div>
+</div>
+
+<div class="pill-section">
+  <h3>Mobília</h3>
+  <div class="pill-grid">
+    <div class="pill">O senhor já tem ideia de como quer mobiliar a unidade?</div>
+    <div class="pill">O senhor está considerando usar a unidade para locação? Isso muda o padrão de mobília que faz sentido.</div>
+    <div class="pill">No lote, o senhor considerou que precisará mobiliar também a piscina, área gourmet e estrutura de lazer? Isso já está no seu cálculo?</div>
+    <div class="pill">Faz sentido para o senhor receber as áreas de lazer e convivência já prontas, e mobiliar apenas o seu espaço privativo?</div>
+  </div>
+</div>
+
+<div class="pill-section">
+  <h3>Decisão</h3>
+  <div class="pill-grid">
+    <div class="pill">A decisão é sua ou envolve família e sócios?</div>
+    <div class="pill">O que normalmente trava uma decisão desse porte?</div>
+    <div class="pill">O que o senhor precisaria ver para decidir com segurança?</div>
+    <div class="pill">Qual é o critério mais importante: experiência, rentabilidade, patrimônio ou comodidade?</div>
+  </div>
+</div>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ══════════════════════ TIPOLOGIAS ══════════════════════ -->
+<div class="mod-band" id="tipologias">
+  <div class="mod-num-box" style="background:var(--teal);color:#fff"><div class="mn" style="font-size:.95rem;line-height:1.2">TIP.<br>LOG.</div>SEÇÃO</div>
+  <div class="mod-title-box"><h2>Como Usar as Tipologias do Sophia na Comparação</h2></div>
+</div>
+<div class="wrap">
+<div class="mod-obj"><strong>Objetivo:</strong> entender qual tipologia do Sophia apresentar para cada perfil de cliente e como compará-la com as alternativas de mercado.</div>
+
+<div class="alert">
+  <strong>Atenção:</strong> metragens específicas devem ser validadas no quadro de áreas atualizado antes de qualquer uso externo. Dados financeiros ilustrativos devem ser validados no simulador interno e com a equipe jurídica antes de apresentação ao cliente. Esta seção é para raciocínio e estudo interno.
+</div>
+
+<h3>Tabela por tipologia</h3>
+<table>
+  <tr>
+    <th style="width:14%">Tipologia</th>
+    <th style="width:18%">Perfil mais provável</th>
+    <th style="width:17%">Comparação mais comum</th>
+    <th style="width:20%">Argumento comercial principal</th>
+    <th style="width:16%">Ponto de atenção</th>
+    <th style="width:15%">Pergunta do consultor</th>
+  </tr>
+  <tr>
+    <td><strong>Studio</strong></td>
+    <td>Investidor, casal sem filhos, entrada no produto, uso individual, locação como critério relevante</td>
+    <td>Apartamento comum de praia de ticket semelhante</td>
+    <td>Menor entrada relativa no produto; estrutura de resort coletiva; possibilidade de locação favorecida pela estrutura</td>
+    <td>Locação como possibilidade, nunca como garantia. Metragem: validar na tabela vigente</td>
+    <td>"O senhor está buscando uso próprio, locação ou uma combinação?"</td>
+  </tr>
+  <tr>
+    <td><strong>Studio Hub 1</strong></td>
+    <td>Perfil que busca praticidade, flexibilidade de layout e menor complexidade de uso</td>
+    <td>Apartamento compacto de praia ou Studio convencional</td>
+    <td>Flexibilidade de uso dentro da lógica resort; estrutura coletiva de alto padrão sem aumento proporcional do esforço</td>
+    <td>Validar especificidades do layout na tabela vigente antes de comparar com alternativas</td>
+    <td>"O senhor prioriza praticidade no uso diário ou quer mais espaço de convivência interna?"</td>
+  </tr>
+  <tr>
+    <td><strong>Studio Hub 2</strong></td>
+    <td>Perfil semelhante ao Hub 1 com variação de configuração; pode atrair quem quer opção diferenciada no mesmo segmento compacto</td>
+    <td>Apartamento compacto, Studio convencional</td>
+    <td>Diversificação de configuração sem sair da lógica resort; estrutura coletiva preservada</td>
+    <td>Validar diferenças entre Hub 1 e Hub 2 na tabela vigente antes de usar em comparação</td>
+    <td>"O senhor já visitou as plantas das duas opções de Studio Hub? A diferença de configuração muda o uso que o senhor imagina?"</td>
+  </tr>
+  <tr>
+    <td><strong>Studio Garden</strong></td>
+    <td>Casal, cliente que quer área externa privativa, uso mais completo dentro de metragem compacta, sensação de casa com estrutura de resort</td>
+    <td>Apartamento térreo com jardim ou casa pequena de praia</td>
+    <td>Área externa privativa sem os custos de manutenção de uma casa; experiência de uso mais completa dentro da lógica resort</td>
+    <td>Diferencial da área externa: validar tamanho e características na tabela vigente</td>
+    <td>"O senhor valoriza ter uma área externa própria para uso familiar ou de convivência?"</td>
+  </tr>
+  <tr>
+    <td><strong>Garden</strong></td>
+    <td>Família pequena, casal com filho, cliente que quer mais conforto e espaço interno sem ir para Duplex</td>
+    <td>Apartamento maior de praia ou casa simples</td>
+    <td>Mais conforto interno com toda a estrutura resort; custo total de uso tende a ser mais competitivo que casa com manutenção equivalente</td>
+    <td>Metragem: validar na tabela vigente. Não comparar com casa sem incluir custos de manutenção e gestão da casa</td>
+    <td>"A família usaria com frequência ou principalmente em férias? Isso muda a análise da tipologia."</td>
+  </tr>
+  <tr>
+    <td><strong>Garden Premium</strong></td>
+    <td>Família, cliente que valoriza área, permanência mais longa, diferenciação dentro do produto</td>
+    <td>Casa de praia de padrão médio ou apartamento amplo em condomínio convencional</td>
+    <td>Maior espaço e diferenciação sem abrir mão da estrutura resort; custo total de uso pode ser mais previsível que casa de praia equivalente</td>
+    <td>Comparação com casa exige incluir na conta todos os custos operacionais e de manutenção da casa</td>
+    <td>"O senhor está comparando só o preço de compra ou o custo total de uso nos próximos dez anos?"</td>
+  </tr>
+  <tr>
+    <td><strong>Duplex</strong></td>
+    <td>Família com filhos, cliente que compara diretamente com casa de praia, cliente que quer experiência mais completa e exclusiva dentro do resort</td>
+    <td>Casa de praia pronta ou casa de condomínio fechado</td>
+    <td>Experiência próxima de casa de praia, com dois pavimentos, dentro de um resort com toda a estrutura coletiva; sem assumir manutenção, equipe, segurança individual</td>
+    <td>Principal objeção: custo de entrada pode ser maior que Studio. Reposicionar para custo total de uso vs. casa de praia equivalente</td>
+    <td>"O senhor quer a experiência de uma casa de praia com a comodidade de um resort? Essa é exatamente a proposta do Duplex."</td>
+  </tr>
+  <tr>
+    <td><strong>Duplex Premium</strong></td>
+    <td>Família maior, maior poder aquisitivo, uso mais exclusivo, cliente que compara com casa de praia de alto padrão ou lote para construção maior</td>
+    <td>Casa de praia de alto padrão, lote em condomínio de luxo para construir</td>
+    <td>Experiência de alto padrão dentro do resort sem assumir obra, manutenção, equipe e gestão de uma casa de praia de alto padrão; custo total de uso pode ser muito mais previsível</td>
+    <td>Público com expectativa alta de personalização. Reforçar personalização interna durante a obra como diferencial frente a apartamento convencional</td>
+    <td>"O senhor está comparando o custo de entrar ou o custo total de manter e usar ao longo dos anos?"</td>
+  </tr>
+</table>
+
+<h3>Tabela por perfil de cliente</h3>
+<table>
+  <tr>
+    <th style="width:18%">Perfil do cliente</th>
+    <th style="width:16%">Tipologia Sophia sugerida</th>
+    <th style="width:18%">Alternativa que ele compara</th>
+    <th style="width:18%">Risco da comparação</th>
+    <th style="width:30%">Como conduzir</th>
+  </tr>
+  <tr>
+    <td>Quer menor entrada no Sophia</td>
+    <td>Studio ou Studio Hub</td>
+    <td>Apartamento comum de praia de ticket semelhante</td>
+    <td>Comparar só por preço, ignorando estrutura coletiva e possibilidade de locação</td>
+    <td>Mostrar o que está incluso na proposta coletiva vs. o que o apartamento entrega. Reposicionar para entrega, não só preço.</td>
+  </tr>
+  <tr>
+    <td>Cliente investidor</td>
+    <td>Studio, Studio Hub 1 ou Studio Hub 2</td>
+    <td>Apartamento para locação de temporada ou FII</td>
+    <td>Prometer rentabilidade ou ROI garantido</td>
+    <td>Oferecer simulação ilustrativa com aviso obrigatório. Nunca prometer retorno. Destacar estrutura de resort como fator de diferenciação para locação.</td>
+  </tr>
+  <tr>
+    <td>Casal sem filhos</td>
+    <td>Studio Garden ou Garden</td>
+    <td>Apartamento maior ou casa compacta de praia</td>
+    <td>Comparar metragem sem comparar experiência</td>
+    <td>Focar na experiência de uso do casal: área externa, lazer coletivo, conveniência. Perguntar sobre frequência de uso e o que valorizam na praia.</td>
+  </tr>
+  <tr>
+    <td>Família pequena</td>
+    <td>Garden ou Garden Premium</td>
+    <td>Casa de praia ou apartamento de 2 quartos</td>
+    <td>Comparar metragem ou preço sem incluir custo de manutenção da casa</td>
+    <td>Introduzir conceito de custo total de uso. Mostrar o que a família ganha em estrutura coletiva sem assumir manutenção de casa individual.</td>
+  </tr>
+  <tr>
+    <td>Família com filhos</td>
+    <td>Garden Premium, Duplex ou Duplex Premium</td>
+    <td>Casa de praia ou lote para construir</td>
+    <td>Comparar só preço de entrada, sem custo de obra ou manutenção de casa</td>
+    <td>Destacar estrutura de lazer para crianças (Acquaplay, brinquedoteca, playground, kite center). Mostrar que no Duplex a família tem experiência de casa dentro de resort.</td>
+  </tr>
+  <tr>
+    <td>Compara com lote</td>
+    <td>Qualquer, dependendo do perfil familiar</td>
+    <td>Lote em condomínio fechado ou lote aberto no litoral</td>
+    <td>Comparar preço de lote com cota sem incluir custo de obra completa</td>
+    <td>Introduzir custo total de uso imediatamente. Perguntar se o cliente quer construir ou receber. Mostrar prazo e risco de obra.</td>
+  </tr>
+  <tr>
+    <td>Compara com casa de praia</td>
+    <td>Duplex ou Duplex Premium</td>
+    <td>Casa pronta ou casa a reformar em Luís Correia ou região</td>
+    <td>Comparar só preço de aquisição sem custo de manutenção e gestão da casa</td>
+    <td>Mostrar custo anual de manutenção de casa de praia. Perguntar sobre esforço de gestão. Destacar que o Duplex entrega experiência próxima de casa dentro de resort.</td>
+  </tr>
+  <tr>
+    <td>Compara com apartamento comum</td>
+    <td>Studio ou Garden</td>
+    <td>Apartamento em condomínio convencional de praia</td>
+    <td>Comparar só metragem ou preço, ignorando estrutura coletiva</td>
+    <td>Mostrar diferença entre estrutura condominial convencional e resort. Destacar que ambos mobiliam a unidade, mas a estrutura ao redor é completamente diferente.</td>
+  </tr>
+  <tr>
+    <td>Quer área externa</td>
+    <td>Studio Garden ou Garden Premium</td>
+    <td>Casa ou apartamento térreo com jardim</td>
+    <td>Comparar área externa sem incluir custo de manutenção de jardim e piscina privativa</td>
+    <td>Mostrar que a área externa do Studio Garden vem sem o custo e a responsabilidade de manter piscina, jardim e áreas externas de casa isolada.</td>
+  </tr>
+  <tr>
+    <td>Quer maior exclusividade</td>
+    <td>Duplex Premium</td>
+    <td>Casa de alto padrão ou lote em condomínio de luxo</td>
+    <td>Comparar exclusividade sem considerar custo de construção e operação de casa de alto padrão</td>
+    <td>Reposicionar para custo total de uso. Destacar personalização interna durante a obra como diferencial. Mostrar que exclusividade de resort não exige assumir obra de alto padrão.</td>
+  </tr>
+  <tr>
+    <td>Quer locação de temporada</td>
+    <td>Studio, Studio Hub 1 ou Studio Hub 2</td>
+    <td>Apartamento para locação ou casa de praia</td>
+    <td>Prometer rentabilidade; criar expectativa de locação como garantia</td>
+    <td>Oferecer simulação com aviso obrigatório. Destacar estrutura de resort como fator de diferenciação para locação. Nunca prometer ROI ou ocupação.</td>
+  </tr>
+  <tr>
+    <td>Quer uso familiar frequente</td>
+    <td>Garden Premium, Duplex ou Duplex Premium</td>
+    <td>Casa de praia para uso recorrente da família</td>
+    <td>Comparar experiência de uso sem incluir esforço de gestão e manutenção de casa de uso frequente</td>
+    <td>Perguntar com que frequência a família usaria. Mostrar que uso frequente em casa própria gera mais desgaste e custo de manutenção. Resort mantém qualidade de uso sem esforço individual.</td>
+  </tr>
+</table>
+
+<h3>Simulações didáticas por tipologia</h3>
+<p style="font-size:.84rem;color:var(--muted)">Estas simulações são para estudo interno do consultor. Não apresentar como promessa ou garantia ao cliente. Dados financeiros, quando mencionados, devem ser tratados como cenário ilustrativo a validar.</p>
+
+<!-- SIM TIP 1 -->
+<div class="sim">
+  <div class="sim-head">Simulação T1 | Studio ou Studio Hub vs. Apartamento comum de praia</div>
+  <div class="sim-body">
+    <table style="margin-bottom:0" class="th-teal">
+      <tr><th>Elemento</th><th>Análise</th></tr>
+      <tr><td><strong>Cenário do cliente</strong></td><td>Investidor ou casal que está comparando Studio do Sophia com apartamento de 2 quartos em condomínio convencional de praia por preço similar</td></tr>
+      <tr><td><strong>O que ele olha primeiro</strong></td><td>Preço de entrada, metragem e localização</td></tr>
+      <tr><td><strong>O que provavelmente ignora</strong></td><td>Diferença na estrutura ao redor da unidade; ausência de operadora dedicada no apartamento comum; regras condominiais que podem restringir locação; custo de mobiliar e manter estrutura de lazer no apartamento convencional é do próprio condomínio, mas de qualidade inferior</td></tr>
+      <tr><td><strong>Como reposicionar</strong></td><td>"Nos dois casos o senhor mobiliza a unidade. A diferença é o que o senhor encontra quando sai dela. No apartamento comum, uma estrutura condominial convencional. No Sophia, um resort com piscinas, SPA, academia, beach tennis, kite center e mais de 15 espaços entregues mobiliados e equipados conforme memorial descritivo."</td></tr>
+      <tr><td><strong>Argumento sobre personalização</strong></td><td>"No Sophia, o senhor também pode personalizar a unidade durante a obra, dentro de alternativas previamente validadas. Isso diferencia o Sophia de um apartamento comum totalmente engessado."</td></tr>
+      <tr><td><strong>Pergunta de avanço</strong></td><td>"Para o senhor, o que pesa mais: a metragem da unidade ou a experiência que o condomínio entrega ao redor?"</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- SIM TIP 2 -->
+<div class="sim">
+  <div class="sim-head">Simulação T2 | Studio Garden ou Garden vs. Apartamento maior ou casa simples de praia</div>
+  <div class="sim-body">
+    <table style="margin-bottom:0" class="th-teal">
+      <tr><th>Elemento</th><th>Análise</th></tr>
+      <tr><td><strong>Cenário do cliente</strong></td><td>Casal ou família pequena que quer mais espaço e está comparando Studio Garden ou Garden com apartamento de 3 quartos ou casa pequena de praia</td></tr>
+      <tr><td><strong>O que ele olha primeiro</strong></td><td>Metragem total, número de quartos e preço</td></tr>
+      <tr><td><strong>O que provavelmente ignora</strong></td><td>Custo de manutenção de casa pequena (manutenção, segurança, piscina); ausência de estrutura coletiva no apartamento convencional; custo de mobiliar toda a casa incluindo áreas externas; esforço de gestão</td></tr>
+      <tr><td><strong>Como reposicionar</strong></td><td>"O Garden do Sophia oferece mais espaço interno com toda a estrutura de resort ao redor. A casa de praia pode ter metragem maior, mas o senhor assumiria manutenção, segurança, piscina, jardim e gestão. O Studio Garden vai um passo além: tem área externa privativa sem o custo e a responsabilidade de manter piscina e jardim de uma casa isolada."</td></tr>
+      <tr><td><strong>Argumento sobre mobília</strong></td><td>"No Sophia, o senhor mobilia a unidade conforme gosto. A estrutura de resort, as áreas comuns e os espaços de lazer chegam prontos, mobiliados e equipados conforme memorial descritivo. Na casa, o senhor mobilia tudo: unidade, piscina, área gourmet, áreas externas."</td></tr>
+      <tr><td><strong>Pergunta de avanço</strong></td><td>"Quando o senhor imagina a família na praia, o espaço mais importante é dentro da unidade ou nas áreas de lazer ao redor?"</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- SIM TIP 3 -->
+<div class="sim">
+  <div class="sim-head">Simulação T3 | Garden Premium vs. Casa de praia pronta</div>
+  <div class="sim-body">
+    <table style="margin-bottom:0" class="th-teal">
+      <tr><th>Elemento</th><th>Análise</th></tr>
+      <tr><td><strong>Cenário do cliente</strong></td><td>Família que está comparando Garden Premium com casa de praia pronta de padrão similar em Luís Correia ou região</td></tr>
+      <tr><td><strong>O que ele olha primeiro</strong></td><td>Preço de aquisição e metragem total</td></tr>
+      <tr><td><strong>O que provavelmente ignora</strong></td><td>Custo anual de manutenção de casa de praia (estimado R$ 27 a 55 mil/ano); custo de mobiliar toda a casa; esforço de gestão de equipe e manutenção; ausência de estrutura coletiva de resort na casa</td></tr>
+      <tr><td><strong>Como reposicionar</strong></td><td>"A casa de praia pode ter preço de entrada menor, mas o custo total de uso em dez anos tende a ser muito mais alto quando se somam manutenção, segurança, piscina, jardim e equipe. O Garden Premium entrega mais espaço dentro de uma estrutura de resort sem que o senhor assuma essa operação."</td></tr>
+      <tr><td><strong>Argumento sobre personalização</strong></td><td>"O senhor perde um pouco de liberdade frente a uma casa construída do zero, mas ganha personalizações internas durante a obra, dentro de alternativas validadas, com muito menos esforço e risco."</td></tr>
+      <tr><td><strong>Pergunta de avanço</strong></td><td>"O senhor já calculou quanto custaria manter a casa de praia ao longo de dez anos, incluindo manutenção, segurança e gestão?"</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- SIM TIP 4 -->
+<div class="sim">
+  <div class="sim-head">Simulação T4 | Duplex vs. Casa de praia</div>
+  <div class="sim-body">
+    <table style="margin-bottom:0" class="th-teal">
+      <tr><th>Elemento</th><th>Análise</th></tr>
+      <tr><td><strong>Cenário do cliente</strong></td><td>Família que quer experiência de casa de praia mas está aberta a avaliar o Duplex do Sophia como alternativa</td></tr>
+      <tr><td><strong>O que ele olha primeiro</strong></td><td>Dois pavimentos, espaço para família, autonomia de uso</td></tr>
+      <tr><td><strong>O que provavelmente ignora</strong></td><td>Custo de manutenção de casa (estimado R$ 27 a 55 mil/ano); ausência de estrutura resort na casa; esforço de gestão, equipe, piscina, jardim e segurança própria</td></tr>
+      <tr><td><strong>Como reposicionar</strong></td><td>"O Duplex entrega a experiência de dois pavimentos, espaço familiar e mais privacidade, dentro de um resort com toda a estrutura coletiva. A casa de praia entrega autonomia, mas exige que o senhor assuma manutenção, equipe, piscina, jardim e gestão. A pergunta é: o senhor quer experiência de casa ou quer experiência de casa dentro de um resort, com muito menos trabalho?"</td></tr>
+      <tr><td><strong>Argumento sobre personalização</strong></td><td>"O Duplex permite personalização interna durante a obra, dentro de alternativas validadas. Não é o mesmo que construir do zero, mas entrega muito mais do que um apartamento convencional engessado."</td></tr>
+      <tr><td><strong>Pergunta de avanço</strong></td><td>"O que mais atrai o senhor na casa de praia: a autonomia, o espaço para a família ou a privacidade? Posso mostrar como o Duplex responde a cada um desses critérios."</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- SIM TIP 5 -->
+<div class="sim">
+  <div class="sim-head">Simulação T5 | Duplex Premium vs. Casa de alto padrão ou lote para construção maior</div>
+  <div class="sim-body">
+    <table style="margin-bottom:0" class="th-teal">
+      <tr><th>Elemento</th><th>Análise</th></tr>
+      <tr><td><strong>Cenário do cliente</strong></td><td>Cliente de maior poder aquisitivo comparando Duplex Premium com casa de praia de alto padrão pronta ou com lote em condomínio de luxo para construir casa maior</td></tr>
+      <tr><td><strong>O que ele olha primeiro</strong></td><td>Exclusividade, tamanho, padrão de acabamento e personalização</td></tr>
+      <tr><td><strong>O que provavelmente ignora</strong></td><td>Custo total de obra de alto padrão (pode facilmente superar R$ 1,5 mi); custo anual de manutenção de casa de alto padrão; esforço de gestão muito alto; ausência de estrutura resort na casa</td></tr>
+      <tr><td><strong>Como reposicionar</strong></td><td>"Para quem compara com casa de alto padrão ou lote para construção maior, o Duplex Premium oferece: exclusividade dentro do resort, personalização interna durante a obra dentro de alternativas validadas, e toda a estrutura coletiva entregue pronta, sem que o senhor assuma obra, manutenção e gestão de uma casa de alto padrão. O custo total de uso tende a ser muito mais previsível."</td></tr>
+      <tr><td><strong>Argumento sobre personalização</strong></td><td>"O Duplex Premium não entrega personalização total como uma casa construída do zero, mas vai além de um apartamento convencional: permite personalização interna orientada durante a obra, dentro de alternativas previamente validadas, preservando padronização técnica e coerência do empreendimento."</td></tr>
+      <tr><td><strong>Argumento sobre mobília</strong></td><td>"O senhor mobiliar a unidade privativa conforme gosto e estratégia. O resort, as áreas comuns e toda a estrutura coletiva chegam prontos, mobiliados e equipados conforme memorial descritivo. Numa casa de alto padrão, o senhor mobiliaria tudo, inclusive piscina, jardim, área de lazer, gourmet e estrutura de segurança."</td></tr>
+      <tr><td><strong>Pergunta de avanço</strong></td><td>"O senhor está comparando o custo de entrar ou o custo total de manter e usar nos próximos dez anos? Posso mostrar como essa conta muda muito entre os dois modelos."</td></tr>
+    </table>
+  </div>
+</div>
+
+</div>
+<div class="divider"></div>
+
+<!-- ══════════════════════ MÓDULO 9 ══════════════════════ -->
+<div class="mod-band" id="mod9">
+  <div class="mod-num-box"><div class="mn">09</div>MÓDULO</div>
+  <div class="mod-title-box"><h2>Simulações de Atendimento</h2></div>
+</div>
+<div class="wrap">
+<div class="mod-obj"><strong>Objetivo:</strong> praticar respostas corretas antes de situações reais.</div>
+
+<!-- SIM 1 -->
+<div class="sim">
+  <div class="sim-head">Simulação 1 | Cliente comparando com lote barato</div>
+  <div class="sim-body">
+    <p style="font-size:.8rem;color:var(--muted);margin-bottom:10px"><strong>Contexto:</strong> cliente viu lote por R$ 200 mil e acha mais vantajoso que o Sophia.</p>
+    <div class="sim-row">
+      <div class="sim-avatar cliente">CLI<br>ENTE</div>
+      <div class="sim-bubble cliente">"Achei um lote por R$ 200 mil no mesmo litoral. Fica bem mais barato do que o Sophia."</div>
+    </div>
+    <div class="sim-bad-wrap">
+      <span class="tag">Resposta ruim</span>
+      "Mas lote é muito mais trabalhoso. O Sophia já entrega tudo pronto, com estrutura de resort e tudo que sua família precisa."
+    </div>
+    <p class="sim-why">Por que falha: atacou o lote antes de entender o perfil. Usou "pronto", mas o Sophia não está pronto. Criou defesa em vez de curiosidade.</p>
+    <div class="sim-good-wrap">
+      <span class="tag">Resposta recomendada</span>
+      "Faz sentido olhar. Lote pode ser uma alternativa interessante para quem quer construir do próprio jeito. O que vale colocar na conta é o que falta para esse lote virar o que o senhor quer usar: projeto, aprovação, construção, mobília, piscina, paisagismo e manutenção. O que o senhor está buscando: um terreno para desenvolver ou uma solução de lazer já planejada?"
+    </div>
+    <div class="sim-goal">Objetivo: deslocar a comparação de preço de entrada para custo total. Não atacar o lote. Terminar com pergunta.</div>
+  </div>
+</div>
+
+<!-- SIM 2 -->
+<div class="sim">
+  <div class="sim-head">Simulação 2 | Cliente querendo casa de praia</div>
+  <div class="sim-body">
+    <p style="font-size:.8rem;color:var(--muted);margin-bottom:10px"><strong>Contexto:</strong> cliente quer casa com piscina e jardim; valoriza autonomia.</p>
+    <div class="sim-row">
+      <div class="sim-avatar cliente">CLI<br>ENTE</div>
+      <div class="sim-bubble cliente">"Prefiro ter minha casa mesmo. Uma casa de praia me dá muito mais liberdade. O Sophia vai ter regra de condomínio em tudo."</div>
+    </div>
+    <div class="sim-bad-wrap">
+      <span class="tag">Resposta ruim</span>
+      "Casa de praia dá muito trabalho. Vai ter que pagar caseiro, manutenção, segurança. O Sophia é muito melhor."
+    </div>
+    <p class="sim-why">Por que falha: julgamento direto do desejo do cliente. "Muito melhor" é promessa absoluta.</p>
+    <div class="sim-good-wrap">
+      <span class="tag">Resposta recomendada</span>
+      "A casa realmente entrega autonomia. E para alguns perfis, isso é exatamente o que faz sentido. O ponto é que essa autonomia vem junto com responsabilidade operacional: manutenção, segurança, limpeza, piscina, jardim e eventuais locações ficam com o proprietário. Para o senhor, o que pesa mais: liberdade total ou conveniência?"
+    </div>
+    <div class="sim-goal">Objetivo: não atacar a casa. Fazer o cliente refletir sobre o que a autonomia realmente exige.</div>
+  </div>
+</div>
+
+<!-- SIM 3 -->
+<div class="sim">
+  <div class="sim-head">Simulação 3 | Cliente achando o Sophia caro</div>
+  <div class="sim-body">
+    <p style="font-size:.8rem;color:var(--muted);margin-bottom:10px"><strong>Contexto:</strong> cliente vê o preço do Studio e faz cara de surpresa.</p>
+    <div class="sim-row">
+      <div class="sim-avatar cliente">CLI<br>ENTE</div>
+      <div class="sim-bubble cliente">"Nossa, é caro. Vi apartamentos maiores na praia pelo mesmo preço ou menos."</div>
+    </div>
+    <div class="sim-bad-wrap">
+      <span class="tag">Resposta ruim</span>
+      "Mas é um resort! Tem piscina, SPA, toda aquela estrutura. É muito diferente de um apartamento comum."
+    </div>
+    <p class="sim-why">Por que falha: tom defensivo. Disse "é um resort", mas o produto não deve ser tratado como hotel. Não perguntou com o que estava comparando.</p>
+    <div class="sim-good-wrap">
+      <span class="tag">Resposta recomendada</span>
+      "Pode parecer mais alto quando a comparação é só pelo preço de entrada. A pergunta é: o apartamento que o senhor viu entrega a mesma estrutura, a mesma experiência de uso e o mesmo nível de gestão integrada? Se sim, pode ser comparação válida. Se não, a diferença de preço pode estar refletindo uma diferença de entrega. Quer comparar pelo que cada um realmente entrega?"
+    </div>
+    <div class="sim-goal">Objetivo: não defender o preço. Questionar o critério de comparação.</div>
+  </div>
+</div>
+
+<!-- SIM 4 -->
+<div class="sim">
+  <div class="sim-head">Simulação 4 | Cliente querendo usar antes de 2028</div>
+  <div class="sim-body">
+    <p style="font-size:.8rem;color:var(--muted);margin-bottom:10px"><strong>Contexto:</strong> cliente quer imóvel para a próxima temporada.</p>
+    <div class="sim-row">
+      <div class="sim-avatar cliente">CLI<br>ENTE</div>
+      <div class="sim-bubble cliente">"Eu quero usar ainda esse ano. Meus filhos estão crescendo e quero ir com eles na próxima temporada."</div>
+    </div>
+    <div class="sim-bad-wrap">
+      <span class="tag">Resposta ruim</span>
+      "Ah, mas 2028 passa rápido! É ainda vai ter a emoção de acompanhar a obra."
+    </div>
+    <p class="sim-why">Por que falha: minimizou uma restrição real. "Passa rápido" é argumento fraco e desrespeitoso com a necessidade do cliente.</p>
+    <div class="sim-good-wrap">
+      <span class="tag">Resposta recomendada</span>
+      "Preciso ser objetivo: o Sophia está em obras e a entrega está prevista para o primeiro semestre de 2028. Não vai conseguir usar antes disso. Se uso imediato é prioridade absoluta para a família esse ano, uma casa ou apartamento pronto pode fazer mais sentido agora. O uso imediato é inegociável para o senhor?"
+    </div>
+    <div class="sim-goal">Objetivo: ser honesto sobre o prazo. Descobrir se o critério é inegociável ou se há abertura.</div>
+  </div>
+</div>
+
+<!-- SIM 5 -->
+<div class="sim">
+  <div class="sim-head">Simulação 5 | Cliente investidor querendo rentabilidade</div>
+  <div class="sim-body">
+    <p style="font-size:.8rem;color:var(--muted);margin-bottom:10px"><strong>Contexto:</strong> cliente investidor quer que a locação cubra os custos.</p>
+    <div class="sim-row">
+      <div class="sim-avatar cliente">CLI<br>ENTE</div>
+      <div class="sim-bubble cliente">"Eu quero que esse imóvel me pague. A ideia é que a locação cubra pelo menos o condomínio e ainda sobre um pouco."</div>
+    </div>
+    <div class="sim-bad-wrap">
+      <span class="tag">Resposta ruim</span>
+      "Claro que paga! Com a estrutura do resort, o Studio facilmente ocupa 60% do tempo e com uma diária boa."
+    </div>
+    <p class="sim-why">Por que falha: promessa de ocupação e diária. Uso de "facilmente". Nenhuma ressalva. Alto risco jurídico.</p>
+    <div class="sim-good-wrap">
+      <span class="tag">Resposta recomendada</span>
+      "Essa lógica faz sentido como estratégia. Posso apresentar uma simulação ilustrativa com premissas declaradas: diária de referência, faixa de ocupação por cenário, custos de gestão e operação. Preciso deixar claro que os números são cenários, não garantia. Resultado depende de ocupação, sazonalidade, demanda, conservação e gestão. Quer que eu monte essa simulação?"
+    </div>
+    <div class="sim-goal">Objetivo: acolher o critério, oferecer simulação, fazer o aviso antes dos números. Não prometer retorno.</div>
+  </div>
+</div>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ══════════════════════ MÓDULO 10 ══════════════════════ -->
+<div class="mod-band" id="mod10">
+  <div class="mod-num-box"><div class="mn">10</div>MÓDULO</div>
+  <div class="mod-title-box"><h2>Checklist de Domínio do Consultor</h2></div>
+</div>
+<div class="wrap">
+<div class="mod-obj"><strong>Objetivo:</strong> verificar se você está pronto para atender clientes que comparam o Sophia com outras opções.</div>
+<p style="font-size:.84rem;margin-bottom:1em">Marque apenas o que realmente domina. Use os itens em branco como guia de estudo.</p>
+
+<ul class="checklist">
+  <li>Sei explicar a diferença entre lote e condomínio resort residencial</li>
+  <li>Sei o que falta em um lote para virar um imóvel de uso</li>
+  <li>Sei por que preço inicial não é igual a custo total de uso</li>
+  <li>Sei usar a fórmula de custo total em conversa</li>
+  <li>Sei falar de locação sem prometer rentabilidade</li>
+  <li>Sei ler o aviso antes de qualquer simulação</li>
+  <li>Sei responder objeção de lote sem atacar o lote</li>
+  <li>Sei responder objeção de casa sem desqualificar a casa</li>
+  <li>Sei responder objeção de preço sem defender abstratamente</li>
+  <li>Sei ser objetivo quando cliente precisa usar antes de 2028</li>
+  <li>Conheço as 8 tipologias comerciais do Sophia</li>
+  <li>Sei que o Sophia tem 126 unidades e mais de 19 mil m²</li>
+  <li>Informo sempre: entrega prevista primeiro semestre de 2028</li>
+  <li>Sei a estrutura prevista em projeto do Sophia</li>
+  <li>Sei que o Sophia NÃO é hotel, apart-hotel nem multipropriedade</li>
+  <li>Conheço todas as frases proibidas e tenho alternativa para cada uma</li>
+  <li>Sei fazer perguntas de uso, família, prazo e esforço antes de apresentar</li>
+  <li>Conduzo a conversa pelos 7 passos do Módulo 4</li>
+  <li>Sei que dados financeiros precisam de validação antes de uso com clientes</li>
+  <li>Posiciono o Sophia como "condomínio resort residencial" em todas as situações</li>
+  <li>Sei que não existe unidade de 27 m² no Sophia; metragens são validadas na tabela vigente</li>
+  <li>Sei que o Sophia permite personalização interna durante a obra, dentro de alternativas previamente validadas</li>
+  <li>Sei que a unidade privativa é mobiliada pelo próprio cliente</li>
+  <li>Sei que o resort e as áreas comuns são entregues mobiliados e equipados conforme memorial descritivo</li>
+  <li>Sei comparar cada tipologia do Sophia com a alternativa de mercado mais adequada ao perfil do cliente</li>
+  <li>Não confundo personalização orientada com personalização total: ela é interna, limitada a alternativas validadas</li>
+</ul>
+</div>
+
+<div class="divider"></div>
+
+
+<!-- ══════════════════════ EXERCÍCIOS ══════════════════════ -->
+<div class="mod-band" id="exercicios">
+  <div class="mod-num-box" style="background:var(--teal)"><div class="mn" style="font-size:1rem;line-height:1.2">EXE<br>RC.</div>FIXAÇÃO</div>
+  <div class="mod-title-box"><h2>Exercícios de Fixação</h2></div>
+</div>
+<div class="wrap">
+
+<h3>Parte A: Múltipla escolha</h3>
+
+<div class="ex-block">
+  <div class="ex-num">Questão 01</div>
+  <div class="ex-q">Quando um cliente diz "vi um lote mais barato", a resposta mais adequada é:</div>
+  <div class="ex-opt">A) "Mas lote dá muito trabalho. O Sophia é melhor."</div>
+  <div class="ex-opt">B) "Faz sentido olhar. Vale colocar na conta o que ainda falta para o lote virar um imóvel de uso."</div>
+  <div class="ex-opt">C) "Não é justo comparar lote com condomínio resort."</div>
+  <div class="ex-opt">D) "Quanto está esse lote? Vou mostrar que o Sophia tem mais valor."</div>
+  <div class="ex-ans"><strong>Gabarito: B.</strong> Valida a comparação do cliente e introduz o custo total de uso sem atacar o lote.</div>
+</div>
+
+<div class="ex-block">
+  <div class="ex-num">Questão 02</div>
+  <div class="ex-q">O Sophia Riviera deve ser apresentado como:</div>
+  <div class="ex-opt">A) Hotel residencial de alto padrão</div>
+  <div class="ex-opt">B) Multipropriedade premium</div>
+  <div class="ex-opt">C) Condomínio resort residencial</div>
+  <div class="ex-opt">D) Home Resort exclusivo</div>
+  <div class="ex-ans"><strong>Gabarito: C.</strong> "Condomínio resort residencial" é a nomenclatura comercial correta e segura.</div>
+</div>
+
+<div class="ex-block">
+  <div class="ex-num">Questão 03</div>
+  <div class="ex-q">Qual é a entrega prevista do Sophia Riviera?</div>
+  <div class="ex-opt">A) Segundo semestre de 2027</div>
+  <div class="ex-opt">B) Primeiro semestre de 2028</div>
+  <div class="ex-opt">C) Segundo semestre de 2028</div>
+  <div class="ex-opt">D) Primeiro trimestre de 2027</div>
+  <div class="ex-ans"><strong>Gabarito: B.</strong> Primeiro semestre de 2028. Use sempre essa formulação.</div>
+</div>
+
+<div class="ex-block">
+  <div class="ex-num">Questão 04</div>
+  <div class="ex-q">Antes de apresentar uma simulação de locação, o consultor deve:</div>
+  <div class="ex-opt">A) Apresentar diretamente os números para não perder o interesse</div>
+  <div class="ex-opt">B) Ler o aviso de que os números são ilustrativos e dependem de premissas</div>
+  <div class="ex-opt">C) Garantir que o resultado é realista para não criar frustração</div>
+  <div class="ex-opt">D) Perguntar quanto o cliente quer ganhar e adaptar os números</div>
+  <div class="ex-ans"><strong>Gabarito: B.</strong> O aviso obrigatório deve ser lido antes de qualquer número de simulação.</div>
+</div>
+
+<div class="ex-block">
+  <div class="ex-num">Questão 05</div>
+  <div class="ex-q">Quantas unidades tem o Sophia Riviera conforme orientação comercial atual?</div>
+  <div class="ex-opt">A) 124 unidades</div>
+  <div class="ex-opt">B) 120 unidades</div>
+  <div class="ex-opt">C) 126 unidades</div>
+  <div class="ex-opt">D) 130 unidades</div>
+  <div class="ex-ans"><strong>Gabarito: C.</strong> 126 unidades, em mais de 19 mil m².</div>
+</div>
+
+<div class="ex-block">
+  <div class="ex-num">Questão 06</div>
+  <div class="ex-q">Qual das seguintes frases é segura para falar sobre locação de temporada?</div>
+  <div class="ex-opt">A) "A locação paga o investimento em poucos anos."</div>
+  <div class="ex-opt">B) "Locação pode ser simulada como possibilidade, sem garantia de resultado."</div>
+  <div class="ex-opt">C) "Com a estrutura do resort, a ocupação vai ser alta."</div>
+  <div class="ex-opt">D) "O Studio gera em média R$ X por ano."</div>
+  <div class="ex-ans"><strong>Gabarito: B.</strong> Única opção que usa linguagem de possibilidade sem promessa.</div>
+</div>
+
+<div class="ex-block">
+  <div class="ex-num">Questão 07</div>
+  <div class="ex-q">Qual pergunta é mais adequada quando o cliente cita casa de praia?</div>
+  <div class="ex-opt">A) "O senhor sabe quanto custa manter uma casa de praia?"</div>
+  <div class="ex-opt">B) "O senhor prefere liberdade total ou conveniência e menor responsabilidade operacional?"</div>
+  <div class="ex-opt">C) "Uma casa de praia exige muito trabalho. Tem certeza?"</div>
+  <div class="ex-opt">D) "Casa de praia não tem estrutura de resort. Isso não incomoda?"</div>
+  <div class="ex-ans"><strong>Gabarito: B.</strong> Faz o cliente refletir sem atacar a opção dele.</div>
+</div>
+
+<div class="ex-block">
+  <div class="ex-num">Questão 08</div>
+  <div class="ex-q">O passo correto antes de mostrar preço e simulação é:</div>
+  <div class="ex-opt">A) Apresentar a tabela de tipologias assim que o cliente demonstrar interesse</div>
+  <div class="ex-opt">B) Confirmar que o cliente aceita o prazo de entrega previsto para o primeiro semestre de 2028</div>
+  <div class="ex-opt">C) Perguntar qual concorrente o cliente está considerando</div>
+  <div class="ex-opt">D) Oferecer desconto para agilizar a decisão</div>
+  <div class="ex-ans"><strong>Gabarito: B.</strong> O prazo é um critério de compatibilidade fundamental antes de avançar.</div>
+</div>
+
+<div class="ex-block">
+  <div class="ex-num">Questão 09</div>
+  <div class="ex-q">A fórmula de custo total de uso inclui:</div>
+  <div class="ex-opt">A) Apenas o preço de compra e o condomínio mensal</div>
+  <div class="ex-opt">B) Preço de compra, custos adicionais, tempo, esforço de gestão, riscos e qualidade da experiência</div>
+  <div class="ex-opt">C) Preço de compra e ROI esperado</div>
+  <div class="ex-opt">D) Preço de compra e IPTU ou SPU</div>
+  <div class="ex-ans"><strong>Gabarito: B.</strong> A fórmula completa engloba todos os componentes que o preço inicial não mostra.</div>
+</div>
+
+<div class="ex-block">
+  <div class="ex-num">Questão 10</div>
+  <div class="ex-q">Quando o cliente diz "não quero ter trabalho", o argumento central deve ser:</div>
+  <div class="ex-opt">A) "O Sophia é automático, você não precisa fazer nada."</div>
+  <div class="ex-opt">B) "Lote e casa exigem muito mais gestão. O Sophia tende a ser mais estruturado para quem quer menos envolvimento individual."</div>
+  <div class="ex-opt">C) "Condomínio tem regras e você vai ter trabalho também."</div>
+  <div class="ex-opt">D) "O trabalho vale a pena pelo retorno."</div>
+  <div class="ex-ans"><strong>Gabarito: B.</strong> Posiciona o critério de esforço operacional de forma comparativa e honesta.</div>
+</div>
+
+<h3>Parte B: Perguntas abertas</h3>
+<table class="th-teal">
+  <tr><th>#</th><th>Pergunta para reflexão</th></tr>
+  <tr><td>11</td><td>Explique com suas próprias palavras o que é custo total de uso e por que é mais importante do que o preço de entrada.</td></tr>
+  <tr><td>12</td><td>Por que o Sophia não deve ser chamado de hotel? O que muda na percepção do cliente e no risco jurídico?</td></tr>
+  <tr><td>13</td><td>Liste pelo menos cinco custos que um lote exige além do preço de compra para se tornar um imóvel de uso.</td></tr>
+  <tr><td>14</td><td>Descreva a diferença entre um cliente para quem o Sophia faz sentido e um para quem pode não ser a melhor opção agora.</td></tr>
+  <tr><td>15</td><td>Escreva como responderia a um cliente investidor que pergunta "quanto isso vai render".</td></tr>
+  <tr><td>16</td><td>Qual é a diferença entre "locação como possibilidade" e "locação como garantia"? Por que isso importa?</td></tr>
+  <tr><td>17</td><td>Por que fazer perguntas sobre uso, família, prazo e esforço antes de apresentar o preço?</td></tr>
+  <tr><td>18</td><td>Em qual situação você deve ser absolutamente direto e dizer que o Sophia não é a melhor opção no momento?</td></tr>
+</table>
+
+<h3>Parte C: Situações práticas</h3>
+
+<div class="ex-block">
+  <div class="ex-num">Situação 1</div>
+  <div class="ex-q">"Meu primo comprou um lote por R$ 150 mil e vai construir por R$ 400 mil. Total de R$ 550 mil, bem abaixo do Sophia. Por que eu pagaria mais?"</div>
+  <p style="font-size:.82rem;color:var(--muted);margin-top:.5em">Escreva sua resposta completa, incluindo a pergunta de avanço.</p>
+</div>
+
+<div class="ex-block">
+  <div class="ex-num">Situação 2</div>
+  <div class="ex-q">"Minha vizinha tem uma casa de praia em Jericoacoara. Ela aluga por temporada e diz que paga sozinha. O Sophia faz a mesma coisa?"</div>
+  <p style="font-size:.82rem;color:var(--muted);margin-top:.5em">Escreva sua resposta completa, incluindo o aviso de simulação se necessário.</p>
+</div>
+
+<div class="ex-block">
+  <div class="ex-num">Situação 3</div>
+  <div class="ex-q">Cliente, após ver o preço do Studio: "É caro. Vejo apartamento maior na praia pelo mesmo preço ou menos."</div>
+  <p style="font-size:.82rem;color:var(--muted);margin-top:.5em">Escreva sua resposta completa. Não defenda o preço diretamente. Inclua o argumento de mobília e estrutura coletiva.</p>
+</div>
+
+<h3>Parte D: Autoavaliação</h3>
+<p style="font-size:.84rem;margin-bottom:1em">Escala de 1 a 5: 1 = preciso estudar mais; 5 = tenho confiança para usar em atendimento.</p>
+<div class="scale-grid">
+  <div class="scale-item"><span class="scale-label">Comparação por custo total de uso</span><span class="scale-dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></span></div>
+  <div class="scale-item"><span class="scale-label">Resposta à objeção de lote</span><span class="scale-dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></span></div>
+  <div class="scale-item"><span class="scale-label">Resposta à objeção de casa de praia</span><span class="scale-dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></span></div>
+  <div class="scale-item"><span class="scale-label">Resposta à objeção de preço</span><span class="scale-dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></span></div>
+  <div class="scale-item"><span class="scale-label">Falar de locação sem promessa</span><span class="scale-dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></span></div>
+  <div class="scale-item"><span class="scale-label">Explicar o prazo com objetividade</span><span class="scale-dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></span></div>
+  <div class="scale-item"><span class="scale-label">Perguntas consultivas antes do produto</span><span class="scale-dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></span></div>
+  <div class="scale-item"><span class="scale-label">Segurança jurídica da fala</span><span class="scale-dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></span></div>
+  <div class="scale-item"><span class="scale-label">7 passos do Módulo 4</span><span class="scale-dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></span></div>
+  <div class="scale-item"><span class="scale-label">Dados e tipologias corretas do Sophia</span><span class="scale-dots"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></span></div>
+</div>
+</div>
+
+
+<!-- ══════════════════════ RESUMO DE BOLSO ══════════════════════ -->
+<div class="pocket" id="bolso">
+  <h2>Resumo Final de Bolso</h2>
+  <p style="color:rgba(255,255,255,.55);font-size:.83rem">Revise antes de cada atendimento.</p>
+
+  <div class="pocket-grid">
+    <div class="pocket-col">
+      <h3>5 frases para memorizar</h3>
+      <ul>
+        <li>"O consultor não vence a comparação no grito. Conduz o cliente a comparar corretamente."</li>
+        <li>"Preço mede entrada. Custo total de uso mede a decisão."</li>
+        <li>"Lote entrega potencial. Sophia entrega uma proposta planejada."</li>
+        <li>"Locação pode entrar na análise, sempre como cenário ilustrativo, nunca como garantia."</li>
+        <li>"São modelos diferentes, com entregas e responsabilidades diferentes."</li>
+        <li>"A unidade privativa é mobiliada pelo cliente. O resort e as áreas comuns chegam prontos."</li>
+        <li>"Personalizar, sim. Mas dentro das alternativas validadas durante a obra: é orientado, não ilimitado."</li>
+      </ul>
+
+      <h3>Quando o Sophia tende a fazer mais sentido</h3>
+      <ul>
+        <li>Cliente busca lazer familiar com estrutura planejada</li>
+        <li>Cliente quer menor esforço operacional</li>
+        <li>Cliente aceita esperar o primeiro semestre de 2028</li>
+        <li>Cliente quer patrimônio em destino em crescimento</li>
+        <li>Locação é possibilidade, não dependência</li>
+      </ul>
+    </div>
+    <div class="pocket-col">
+      <h3>5 perguntas indispensáveis</h3>
+      <ul>
+        <li>"O senhor está comparando o preço de compra ou o custo total até o imóvel ficar pronto?"</li>
+        <li>"O que o senhor busca: um terreno para desenvolver ou uma solução já planejada?"</li>
+        <li>"O senhor aceita esperar pelo primeiro semestre de 2028?"</li>
+        <li>"O que pesa mais: liberdade total ou conveniência?"</li>
+        <li>"A locação seria essencial ou apenas uma possibilidade adicional?"</li>
+      </ul>
+
+      <h3>Quando o Sophia pode não ser a opção</h3>
+      <ul>
+        <li>Cliente precisa usar antes de 2028</li>
+        <li>Quer personalização máxima como em casa própria</li>
+        <li>Ticket menor é inegociável acima de tudo</li>
+        <li>Não aceita regras condominiais</li>
+      </ul>
+
+      <h3>Personalização e mobília: pontos-chave</h3>
+      <ul>
+        <li>Personalização: interna, durante a obra, dentro de alternativas previamente validadas</li>
+        <li>Não é personalização total nem estrutural: é orientada e limitada</li>
+        <li>Mobília da unidade privativa: responsabilidade do cliente</li>
+        <li>Resort, áreas comuns e equipamentos: entregues conforme memorial descritivo</li>
+        <li>Consulte a seção de tipologias para ajustar o argumento ao perfil certo</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>5 erros que não pode cometer</h3>
+  <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:.5em 0">
+    <div style="background:rgba(255,255,255,.08);padding:12px;font-size:.78rem;color:rgba(255,255,255,.8);text-align:center;line-height:1.4">Atacar lote, casa ou apartamento diretamente</div>
+    <div style="background:rgba(255,255,255,.08);padding:12px;font-size:.78rem;color:rgba(255,255,255,.8);text-align:center;line-height:1.4">Dizer "é igual hotel", "praia privativa" ou "já está pronto"</div>
+    <div style="background:rgba(255,255,255,.08);padding:12px;font-size:.78rem;color:rgba(255,255,255,.8);text-align:center;line-height:1.4">Prometer ROI, payback, ocupação ou diária</div>
+    <div style="background:rgba(255,255,255,.08);padding:12px;font-size:.78rem;color:rgba(255,255,255,.8);text-align:center;line-height:1.4">Apresentar preço antes de entender perfil, uso e prazo</div>
+    <div style="background:rgba(255,255,255,.08);padding:12px;font-size:.78rem;color:rgba(255,255,255,.8);text-align:center;line-height:1.4">Minimizar o prazo de entrega para quem precisa usar antes de 2028</div>
+  </div>
+
+  <div class="pocket-final">
+    "A função do consultor é conduzir o cliente para a pergunta correta: qual modelo combina com seu perfil de uso, prazo, apetite de gestão e expectativa de experiência?"
+  </div>
+</div>
+
+
+<!-- RODAPÉ -->
+<div class="footer">
+  <span>Sophia Riviera · Condomínio Resort Residencial · Praia das Tartarugas, Luís Correia, Piauí</span>
+  <span>Material interno · Equipe Comercial · Versão 1.0 · maio/2026</span>
+  <span>Não é material de cliente · Entrega prevista 1S/2028</span>
+</div>
+
+</body>
+</html>
