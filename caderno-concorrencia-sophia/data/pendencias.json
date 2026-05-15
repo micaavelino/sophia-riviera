@@ -1,0 +1,202 @@
+[
+  {
+    "empreendimento": "Costa do Sardin",
+    "campo": "Status atual da obra",
+    "informacao_necessaria": "Confirmar se a obra está em andamento, paralisada ou retomada. Site da Vanguarda mostra 39% geral. Fonte comercial indica interrupção. Divergência precisa de resolução antes de qualquer uso comercial.",
+    "prioridade": "URGENTE",
+    "fonte_recomendada": "Contato direto com a Vanguarda Engenharia (site: vanguardaengenharia.com / tel: (86) 99935-9028)",
+    "responsavel": "Micaella ou Guilherme",
+    "status": "Resolvido — confirmado pela equipe",
+    "observacao": "NÃO usar argumentos sobre status da obra do Costa do Sardin em treinamento ou material comercial até validação."
+  },
+  {
+    "empreendimento": "Brisas de Barra Grande",
+    "campo": "Preço inicial",
+    "informacao_necessaria": "Verificar valor de unidade disponível",
+    "prioridade": "Alta",
+    "fonte_recomendada": "Contato comercial direto com o empreendimento ou imobiliária responsável",
+    "responsavel": "Guilherme",
+    "status": "Pendente",
+    "observacao": "Não localizado em nenhuma fonte pública."
+  },
+  {
+    "empreendimento": "Brisas de Barra Grande",
+    "campo": "Disponibilidade de unidades",
+    "informacao_necessaria": "Quantas unidades estão disponíveis?",
+    "prioridade": "Alta",
+    "fonte_recomendada": "Contato comercial direto",
+    "responsavel": "Guilherme",
+    "status": "Pendente",
+    "observacao": "Condomínio entregue. Verificar se há estoque."
+  },
+  {
+    "empreendimento": "Brisas de Barra Grande",
+    "campo": "Condição de pagamento",
+    "informacao_necessaria": "Parcelamento, entrada e saldo disponíveis?",
+    "prioridade": "Alta",
+    "fonte_recomendada": "Contato comercial direto",
+    "responsavel": "Guilherme",
+    "status": "Pendente",
+    "observacao": "Pendente de validação."
+  },
+  {
+    "empreendimento": "Brisas de Barra Grande",
+    "campo": "Incorporadora responsável",
+    "informacao_necessaria": "Qual empresa é a incorporadora ou gestora do condomínio?",
+    "prioridade": "Alta",
+    "fonte_recomendada": "Site oficial ou registro em cartório",
+    "responsavel": "Guilherme",
+    "status": "Pendente",
+    "observacao": "Não localizado em fonte pública."
+  },
+  {
+    "empreendimento": "Costa do Sardin",
+    "campo": "Previsão de entrega",
+    "informacao_necessaria": "Qual a previsão real de entrega conforme a incorporadora?",
+    "prioridade": "Alta",
+    "fonte_recomendada": "Contato direto com Vanguarda Engenharia",
+    "responsavel": "Micaella ou Guilherme",
+    "status": "Resolvido — confirmado pela equipe",
+    "observacao": "Dependente da resolução do status da obra."
+  },
+  {
+    "empreendimento": "Ilha dos Guarás",
+    "campo": "Preço atual",
+    "informacao_necessaria": "Planilha registra R$ 151.000,00. Fonte externa (2024) indica R$ 192.460,80. Verificar preço vigente.",
+    "prioridade": "Alta",
+    "fonte_recomendada": "Site R3R, contato com corretor parceiro ou site oficial",
+    "responsavel": "Guilherme",
+    "status": "Pendente",
+    "observacao": "Divergência entre fontes. Não usar preço da planilha sem validar."
+  },
+  {
+    "empreendimento": "Ilha dos Guarás",
+    "campo": "Status atual da obra",
+    "informacao_necessaria": "Confirmar se as obras estão em andamento após retomada pela Casa Certa.",
+    "prioridade": "Alta",
+    "fonte_recomendada": "Contato com imobiliária R3R ou site oficial",
+    "responsavel": "Guilherme",
+    "status": "Pendente",
+    "observacao": "Informação de retomada via corretor parceiro. Validar com fonte oficial."
+  },
+  {
+    "empreendimento": "Zaya BG",
+    "campo": "Modelo jurídico",
+    "informacao_necessaria": "Confirmar o modelo jurídico de aquisição (compra e venda, SCP, outro).",
+    "prioridade": "Média",
+    "fonte_recomendada": "Contato com imobiliária R3R",
+    "responsavel": "Guilherme",
+    "status": "Pendente",
+    "observacao": "Disponível apenas mediante contato com corretor R3R."
+  },
+  {
+    "empreendimento": "Zaya BG",
+    "campo": "Taxa de condomínio",
+    "informacao_necessaria": "Valor estimado de condomínio ou taxa de manutenção.",
+    "prioridade": "Média",
+    "fonte_recomendada": "Contato com imobiliária R3R",
+    "responsavel": "Guilherme",
+    "status": "Pendente",
+    "observacao": "Não localizado em fonte pública."
+  },
+  {
+    "empreendimento": "Zaya BG",
+    "campo": "Política de locação",
+    "informacao_necessaria": "Permite locação de temporada? Como funciona?",
+    "prioridade": "Média",
+    "fonte_recomendada": "Contato com imobiliária R3R",
+    "responsavel": "Guilherme",
+    "status": "Pendente",
+    "observacao": "Não localizado em fonte pública."
+  },
+  {
+    "empreendimento": "Brisas de Barra Grande",
+    "campo": "Modelo jurídico",
+    "informacao_necessaria": "Confirmar o modelo jurídico de aquisição.",
+    "prioridade": "Média",
+    "fonte_recomendada": "Contato comercial direto ou cartório",
+    "responsavel": "Guilherme",
+    "status": "Pendente",
+    "observacao": "Não localizado em fonte pública."
+  },
+  {
+    "empreendimento": "Costa Mare",
+    "campo": "Taxa de condomínio",
+    "informacao_necessaria": "Valor estimado de condomínio ou taxa de manutenção.",
+    "prioridade": "Média",
+    "fonte_recomendada": "Site oficial Conviver ou contato comercial",
+    "responsavel": "Guilherme",
+    "status": "Pendente",
+    "observacao": "Não localizado em fonte pública."
+  },
+  {
+    "empreendimento": "Vista Mar Coqueiro",
+    "campo": "Quantidade total de unidades",
+    "informacao_necessaria": "Confirmar total: 118 (108 aptos + 10 casas) segundo fontes imobiliárias. Validar.",
+    "prioridade": "Média",
+    "fonte_recomendada": "Site imobiliária Rosangela Castro ou contato com incorporadora",
+    "responsavel": "Guilherme",
+    "status": "Pendente",
+    "observacao": "Dado de fonte imobiliária, não confirmado pela incorporadora."
+  },
+  {
+    "empreendimento": "Vista Mar Coqueiro",
+    "campo": "Taxa de condomínio",
+    "informacao_necessaria": "Valor atual de condomínio após entrega.",
+    "prioridade": "Média",
+    "fonte_recomendada": "Contato com síndico, administradora ou imobiliária",
+    "responsavel": "Guilherme",
+    "status": "Pendente",
+    "observacao": "Não localizado em fonte pública."
+  },
+  {
+    "empreendimento": "Vista Mar Coqueiro",
+    "campo": "Preço atual",
+    "informacao_necessaria": "Confirmar se R$ 425.000,00 ainda é o preço vigente.",
+    "prioridade": "Média",
+    "fonte_recomendada": "Contato com imobiliária responsável",
+    "responsavel": "Guilherme",
+    "status": "Pendente",
+    "observacao": "Valor pode ter sido atualizado desde a última consulta."
+  },
+  {
+    "empreendimento": "Costa do Sardin",
+    "campo": "Memorial descritivo",
+    "informacao_necessaria": "Obter memorial descritivo oficial para validar itens de lazer e acabamentos.",
+    "prioridade": "Baixa",
+    "fonte_recomendada": "Vanguarda Engenharia (portal do corretor)",
+    "responsavel": "Guilherme",
+    "status": "Resolvido — confirmado pela equipe",
+    "observacao": "Dependente da resolução do status da obra."
+  },
+  {
+    "empreendimento": "Brisas de Barra Grande",
+    "campo": "Memorial descritivo",
+    "informacao_necessaria": "Obter memorial para confirmar itens de lazer e padrão de entrega.",
+    "prioridade": "Baixa",
+    "fonte_recomendada": "Contato comercial direto",
+    "responsavel": "Guilherme",
+    "status": "Pendente",
+    "observacao": "Não localizado em fonte pública."
+  },
+  {
+    "empreendimento": "Ilha dos Guarás",
+    "campo": "Política de locação",
+    "informacao_necessaria": "Permite locação de temporada? Como funciona?",
+    "prioridade": "Baixa",
+    "fonte_recomendada": "Contato com R3R ou Casa Certa",
+    "responsavel": "Guilherme",
+    "status": "Pendente",
+    "observacao": "Não localizado em fonte pública."
+  },
+  {
+    "empreendimento": "Brisas de Barra Grande",
+    "campo": "",
+    "informacao_necessaria": "",
+    "prioridade": "",
+    "fonte_recomendada": "",
+    "responsavel": "",
+    "status": "Encerrado — sem dados públicos disponíveis",
+    "observacao": ""
+  }
+]

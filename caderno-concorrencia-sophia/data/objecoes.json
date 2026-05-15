@@ -1,0 +1,92 @@
+[
+  {
+    "objecao": "Esse é mais barato.",
+    "empreendimento": "Zaya BG / Ilha dos Guarás / Costa Mare",
+    "leitura_real": "O cliente está comparando preço de lote com preço de unidade em resort residencial. São produtos de natureza diferente. Preço de lote não inclui custo de construção.",
+    "risco_consultor": "Aceitar a comparação direta sem contextualizar pode levar o cliente a uma decisão baseada em premissa incorreta.",
+    "resposta_estrategica": "A comparação correta precisa considerar o custo total. Um lote exige projeto, construção, acabamento e operação individual. O Sophia entrega uma unidade dentro de um resort residencial estruturado. O custo de construção de uma casa em lote de 200 m² pode facilmente superar o investimento no Sophia, sem a estrutura coletiva.",
+    "pergunta_avanco": "Você já levantou o custo de construção por metro quadrado em Barra Grande ou Luís Correia para comparar com o valor total do Sophia?",
+    "cuidado_comercial": "Não atacar o produto concorrente. Não dizer que o lote é pior. Contextualizar sem ironizar.",
+    "status": "Validado para uso comercial"
+  },
+  {
+    "objecao": "Esse já está pronto.",
+    "empreendimento": "Brisas de Barra Grande / Vista Mar Coqueiro",
+    "leitura_real": "O cliente valoriza uso imediato. Pode estar avaliando para fins de lazer de curto prazo ou locação já ativa.",
+    "risco_consultor": "Se o consultor não tiver resposta para o valor da espera, o cliente pode priorizar o produto entregue.",
+    "resposta_estrategica": "Produto pronto resolve uso imediato. O Sophia deve ser avaliado por quem enxerga valor em uma entrega planejada, com estrutura de resort residencial maior, o Clube Sophia como experiência de antecipação e potencial de valorização no longo prazo, conforme análise de cada cliente.",
+    "pergunta_avanco": "O que você pretende fazer com o imóvel no curto prazo — uso próprio, locação ou investimento?",
+    "cuidado_comercial": "Não prometer rentabilidade. Não garantir valorização. Apresentar o Clube Sophia com as regras vigentes do programa.",
+    "status": "Validado para uso comercial"
+  },
+  {
+    "objecao": "Esse fica em Barra Grande.",
+    "empreendimento": "Zaya BG / Brisas de Barra Grande",
+    "leitura_real": "O cliente pode perceber Barra Grande como destino superior por ser mais consolidado turisticamente.",
+    "risco_consultor": "Se o consultor não tiver argumento sólido sobre Luís Correia e a Praia das Tartarugas, pode perder a narrativa de localização.",
+    "resposta_estrategica": "Barra Grande é um destino já estabelecido, o que tem valor. A Praia das Tartarugas, em Luís Correia, oferece uma proposta diferente: orla menos saturada, maior privacidade, e um resort residencial projetado para essa escala de experiência. São propostas de litoral distintas. Depende do que o cliente valoriza.",
+    "pergunta_avanco": "O que é mais importante para você no destino do litoral — estrutura turística já consolidada ou privacidade e exclusividade?",
+    "cuidado_comercial": "Não depreciar Barra Grande. Não afirmar que Luís Correia é melhor destino. Apresentar como proposta diferente.",
+    "status": "Validado para uso comercial"
+  },
+  {
+    "objecao": "Esse é lote e eu posso construir do meu jeito.",
+    "empreendimento": "Zaya BG / Costa Mare / Ilha dos Guarás",
+    "leitura_real": "O cliente valoriza autonomia e personalização. Pode ter perfil de construtor ou investidor ativo.",
+    "risco_consultor": "Se o consultor não oferecer uma alternativa clara de personalização dentro do Sophia, o argumento de autonomia pode prevalecer.",
+    "resposta_estrategica": "Lote oferece liberdade de construção. O Sophia oferece personalização interna durante a obra dentro das alternativas validadas, com a estrutura de resort já garantida no memorial descritivo. Para quem quer litoral sem gerir um projeto de construção, o Sophia tende a fazer mais sentido.",
+    "pergunta_avanco": "Você já gerenciou uma obra em região litorânea antes? Tem clareza do custo e do tempo envolvidos nesse processo?",
+    "cuidado_comercial": "Não dizer que construção em lote é ruim. Apresentar o esforço de gestão de obra como ponto real de reflexão, não como argumento negativo.",
+    "status": "Validado para uso comercial"
+  },
+  {
+    "objecao": "Esse tem mais metragem.",
+    "empreendimento": "Vista Mar Coqueiro / Brisas de Barra Grande",
+    "leitura_real": "O cliente está comparando metragem privativa sem considerar áreas comuns, estrutura de resort e proposta de uso.",
+    "risco_consultor": "Comparação de metro quadrado sem contexto pode tornar o Sophia percebido como mais caro por metro.",
+    "resposta_estrategica": "Metragem privativa é um dado. A comparação completa considera o que está incluído: no Sophia, o cliente adquire uma unidade dentro de um resort residencial com áreas comuns projetadas e equipadas conforme memorial, o que amplia a experiência além da metragem da unidade privativa.",
+    "pergunta_avanco": "Além da metragem da unidade, o que mais você está avaliando nessa comparação — estrutura coletiva, localização, proposta de uso?",
+    "cuidado_comercial": "Não dizer que metragem menor é vantagem. Contextualizar o que está incluído no valor do resort.",
+    "status": "Validado para uso comercial"
+  },
+  {
+    "objecao": "Esse tem entrega mais próxima.",
+    "empreendimento": "Costa do Sardin",
+    "leitura_real": "O cliente prioriza prazo de entrega. Pode estar avaliando para uso pessoal ou locação em curto prazo.",
+    "risco_consultor": "ATENÇÃO: O status da obra do Costa do Sardin é objeto de divergência de informação. Não usar como argumento comparativo sem validação do status atual com a Vanguarda Engenharia.",
+    "resposta_estrategica": "Produto com entrega próxima pode fazer sentido para quem prioriza prazo. A comparação correta precisa considerar o estágio atual da obra do concorrente, que precisa ser validado. O Sophia tem entrega prevista para o primeiro semestre de 2028, com o Clube Sophia como experiência de antecipação conforme regras vigentes do programa.",
+    "pergunta_avanco": "Qual é o seu horizonte de uso — você precisa do imóvel em quanto tempo?",
+    "cuidado_comercial": "NÃO usar argumentos sobre a situação da obra do Costa do Sardin sem validação oficial prévia. Status de obra parada não confirmado.",
+    "status": "PENDENTE — Validar status da obra do Costa do Sardin com a Vanguarda antes de usar em treinamento."
+  },
+  {
+    "objecao": "Esse promete locação.",
+    "empreendimento": "Costa do Sardin / Brisas de Barra Grande",
+    "leitura_real": "O cliente está sendo atraído por promessa de retorno financeiro via locação por outro empreendimento.",
+    "risco_consultor": "Se o consultor não souber diferenciar promessa de retorno e potencial de locação, pode perder o argumento ou criar expectativa incorreta sobre o Sophia.",
+    "resposta_estrategica": "Promessa de locação e resultado de locação são conceitos diferentes. O Sophia oferece a possibilidade de locação de temporada como uma camada adicional de análise, sem promessa de resultado. Qualquer projeção deve ser feita com base em dados reais de mercado, não em promessa comercial.",
+    "pergunta_avanco": "Você já verificou como funciona o programa de locação desse empreendimento — taxa de administração, obrigatoriedade de participação, histórico de resultado?",
+    "cuidado_comercial": "Não prometer retorno de locação no Sophia. Não dizer que o concorrente não entrega o que promete sem evidência. Apresentar a possibilidade de locação do Sophia com linguagem de potencial, não de garantia.",
+    "status": "Validado para uso comercial"
+  },
+  {
+    "objecao": "Esse parece mais seguro.",
+    "empreendimento": "Vista Mar Coqueiro / Brisas de Barra Grande",
+    "leitura_real": "O cliente associa produto entregue a menor risco. Pode ter insegurança com compra na planta.",
+    "risco_consultor": "Se o consultor não souber responder sobre a segurança jurídica e reputação do Grupo Arrey, o cliente pode escolher o produto entregue por percepção de segurança.",
+    "resposta_estrategica": "Produto entregue elimina o risco de obra. O Sophia pode ser avaliado por quem considera a incorporadora, o histórico do Grupo Arrey, o memorial descritivo e as garantias contratuais como base de segurança para uma compra na planta.",
+    "pergunta_avanco": "O que te daria mais segurança para avaliar uma compra na planta — histórico da incorporadora, estrutura contratual, avanço da obra?",
+    "cuidado_comercial": "Não minimizar a preocupação com segurança. Apresentar o Grupo Arrey e o contrato de forma objetiva, sem exagerar garantias.",
+    "status": "Validado para uso comercial"
+  },
+  {
+    "objecao": "Esse é mais fácil de entender.",
+    "empreendimento": "Zaya BG / Costa Mare / Ilha dos Guarás",
+    "leitura_real": "O cliente acha o modelo de lote mais simples de compreender. Pode ter dificuldade com o conceito de resort residencial.",
+    "risco_consultor": "Se o consultor não simplificar a proposta do Sophia, o cliente pode preferir o produto que entende melhor.",
+    "resposta_estrategica": "Lote é um modelo direto e familiar. O Sophia parte de uma proposta diferente: você adquire uma unidade privativa dentro de um resort residencial estruturado, com áreas comuns projetadas e equipadas. A experiência é coletiva e o esforço de implantação individual é menor. É um modelo diferente, não mais complexo.",
+    "pergunta_avanco": "O que está gerando dúvida para você sobre o modelo do Sophia — é sobre o que você recebe, como funciona o uso, ou algo específico do contrato?",
+    "cuidado_comercial": "Não chamar o cliente de desinformado. Usar a dúvida como oportunidade de educação sobre o produto.",
+    "status": "Validado para uso comercial"
+  }
+]

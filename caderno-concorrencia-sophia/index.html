@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caderno de Concorrência — Sophia Riviera</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <span class="topbar-logo">Sophia Riviera</span>
+  <span class="topbar-badge">Uso interno</span>
+</div>
+
+<!-- HERO / CAPA -->
+<section class="hero">
+  <h1>Caderno de Concorrência</h1>
+  <div class="subtitulo">Ferramenta interna de leitura estratégica para equipe comercial</div>
+  <div class="aviso-interno">
+    Uso interno. Este material não deve ser enviado ao cliente. Informações sensíveis devem ser validadas antes de uso em abordagem comercial.
+  </div>
+  <div class="stats-grid" id="stats-dinamicos">
+    <!-- preenchido pelo JS -->
+    <div class="stat-card"><span class="stat-numero">6</span><span class="stat-label">Concorrentes</span></div>
+    <div class="stat-card"><span class="stat-numero">9</span><span class="stat-label">Objeções mapeadas</span></div>
+    <div class="stat-card"><span class="stat-numero">20</span><span class="stat-label">Pendências</span></div>
+    <div class="stat-card"><span class="stat-numero">14</span><span class="stat-label">Frases de bolso</span></div>
+    <div class="stat-card"><span class="stat-numero">14</span><span class="stat-label">Frases proibidas</span></div>
+  </div>
+</section>
+
+<!-- NAVEGAÇÃO -->
+<nav class="nav-container">
+  <ul class="nav">
+    <li><a href="#" data-secao="visao-geral" class="ativo">Visão geral</a></li>
+    <li><a href="#" data-secao="concorrentes">Concorrentes</a></li>
+    <li><a href="#" data-secao="matriz">Matriz comparativa</a></li>
+    <li><a href="#" data-secao="ranking">Ranking de risco</a></li>
+    <li><a href="#" data-secao="objecoes">Objeções</a></li>
+    <li><a href="#" data-secao="pendencias">Pendências</a></li>
+    <li><a href="#" data-secao="nunca-dizer">O que nunca dizer</a></li>
+    <li><a href="#" data-secao="frases">Frases de bolso</a></li>
+    <li><a href="#" data-secao="guia">Guia de uso</a></li>
+    <li><a href="#" onclick="window.print();return false;" style="color:var(--cinza-suave)">Imprimir</a></li>
+  </ul>
+</nav>
+
+<!-- LOADING -->
+<div class="container" id="loading" style="padding:3rem 2rem;text-align:center;color:var(--cinza-suave)">
+  Carregando dados...
+</div>
+
+<!-- CONTEÚDO PRINCIPAL -->
+<div id="app-content" style="display:none">
+
+  <!-- ══ VISÃO GERAL ══ -->
+  <section class="secao ativa" id="visao-geral">
+    <div class="container">
+      <div class="secao-titulo">
+        <h2>Visão geral do mercado</h2>
+        <span class="secao-subtitulo">Agrupamentos por categoria</span>
+      </div>
+      <div id="visao-geral-content"></div>
+    </div>
+  </section>
+
+  <!-- ══ CONCORRENTES ══ -->
+  <section class="secao" id="concorrentes">
+    <div class="container">
+      <div class="secao-titulo">
+        <h2>Concorrentes</h2>
+        <span class="secao-subtitulo">Todos os empreendimentos monitorados</span>
+      </div>
+
+      <div class="toolbar">
+        <div class="search-box">
+          <span class="search-icon">&#128269;</span>
+          <input type="text" id="busca-concorrentes" placeholder="Buscar por nome ou cidade...">
+        </div>
+        <select class="filtro" id="filtro-tipo">
+          <option value="">Todos os tipos</option>
+        </select>
+        <select class="filtro" id="filtro-cidade">
+          <option value="">Todas as cidades</option>
+        </select>
+        <select class="filtro" id="filtro-risco">
+          <option value="">Todos os riscos</option>
+          <option value="1">Risco crítico</option>
+          <option value="2">Risco médio</option>
+          <option value="3">Risco baixo</option>
+        </select>
+        <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:var(--cinza-suave);white-space:nowrap">
+          <input type="checkbox" id="toggle-nivel1"> Apenas risco crítico
+        </label>
+      </div>
+
+      <div class="cards-grid" id="cards-concorrentes"></div>
+    </div>
+  </section>
+
+  <!-- ══ MATRIZ ══ -->
+  <section class="secao" id="matriz">
+    <div class="container">
+      <div class="secao-titulo">
+        <h2>Matriz comparativa</h2>
+        <span class="secao-subtitulo">Visão lado a lado com filtros</span>
+      </div>
+
+      <div class="toolbar">
+        <div class="search-box">
+          <span class="search-icon">&#128269;</span>
+          <input type="text" id="busca-matriz" placeholder="Buscar concorrente...">
+        </div>
+        <select class="filtro" id="mfiltro-tipo">
+          <option value="">Todos os tipos</option>
+        </select>
+        <select class="filtro" id="mfiltro-risco">
+          <option value="">Todos os riscos</option>
+          <option value="1">Risco crítico</option>
+          <option value="2">Risco médio</option>
+          <option value="3">Risco baixo</option>
+        </select>
+        <select class="filtro" id="mfiltro-status">
+          <option value="">Todos os status</option>
+          <option value="obra">Em obras</option>
+          <option value="entregue">Entregue</option>
+          <option value="informação">Sem informação</option>
+        </select>
+      </div>
+
+      <div id="tabela-comparativa"></div>
+    </div>
+  </section>
+
+  <!-- ══ RANKING ══ -->
+  <section class="secao" id="ranking">
+    <div class="container">
+      <div class="secao-titulo">
+        <h2>Ranking de risco comercial</h2>
+        <span class="secao-subtitulo">Classificação por nível de impacto no atendimento</span>
+      </div>
+      <div class="alerta alerta-info" style="margin-bottom:1.5rem">
+        <span class="alerta-icone">i</span>
+        O nível de risco indica a probabilidade de o concorrente gerar objeção ativa durante o atendimento. Clicar em cada card abre a análise completa.
+      </div>
+      <div id="ranking-content"></div>
+    </div>
+  </section>
+
+  <!-- ══ OBJEÇÕES ══ -->
+  <section class="secao" id="objecoes">
+    <div class="container">
+      <div class="secao-titulo">
+        <h2>Objeções mapeadas</h2>
+        <span class="secao-subtitulo">Respostas consultivas por objeção</span>
+      </div>
+
+      <div class="alerta alerta-atencao" style="margin-bottom:1.5rem">
+        <span class="alerta-icone">!</span>
+        Use as respostas como referência consultiva. Adapte o tom ao contexto do cliente. Nunca use linguagem de ataque a concorrentes.
+      </div>
+
+      <div class="toolbar">
+        <div class="search-box">
+          <span class="search-icon">&#128269;</span>
+          <input type="text" id="busca-objecoes" placeholder="Buscar objeção...">
+        </div>
+      </div>
+
+      <div id="objecoes-lista"></div>
+
+      <div class="divider"></div>
+      <div class="alerta alerta-info">
+        <span class="alerta-icone">i</span>
+        Objeções adicionais identificadas em campo, mas ainda sem resposta estruturada: "Esse fica mais perto da praia.", "Esse tem mais quartos.", "Esse tem preço menor por metro quadrado.", "Esse parece ter menos risco.", "Esse tem uma região mais conhecida.", "Esse é financiamento tradicional." Incluir na próxima revisão da planilha.
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PENDÊNCIAS ══ -->
+  <section class="secao" id="pendencias">
+    <div class="container">
+      <div class="secao-titulo">
+        <h2>Pendências de validação</h2>
+        <span class="secao-subtitulo">Dados que ainda precisam de confirmação</span>
+      </div>
+
+      <div class="alerta alerta-critico" style="margin-bottom:1.5rem">
+        <span class="alerta-icone">!</span>
+        Não utilize informações pendentes em atendimento comercial sem validação prévia. Dado sem fonte é percepção, não fato.
+      </div>
+
+      <div class="toolbar">
+        <div class="search-box">
+          <span class="search-icon">&#128269;</span>
+          <input type="text" id="busca-pend" placeholder="Buscar por empreendimento ou campo...">
+        </div>
+        <select class="filtro" id="filtro-prio">
+          <option value="">Todas as prioridades</option>
+          <option value="Alta">Alta</option>
+          <option value="Média">Média</option>
+          <option value="Baixa">Baixa</option>
+        </select>
+        <select class="filtro" id="filtro-pend-status">
+          <option value="">Todos os status</option>
+          <option value="aberta">Em aberto</option>
+          <option value="encerrada">Encerrada</option>
+        </select>
+      </div>
+
+      <div style="overflow-x:auto">
+        <table class="pendencia-tabela">
+          <thead>
+            <tr>
+              <th>Empreendimento</th>
+              <th>Campo pendente</th>
+              <th>Informação necessária</th>
+              <th>Prioridade</th>
+              <th>Fonte recomendada</th>
+              <th>Responsável</th>
+              <th>Status</th>
+              <th>Observação</th>
+            </tr>
+          </thead>
+          <tbody id="pendencias-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ NUNCA DIZER ══ -->
+  <section class="secao" id="nunca-dizer">
+    <div class="container">
+      <div class="secao-titulo">
+        <h2>O que nunca dizer</h2>
+        <span class="secao-subtitulo">Frases proibidas e substituições consultivas</span>
+      </div>
+
+      <div class="alerta alerta-critico" style="margin-bottom:1.5rem">
+        <span class="alerta-icone">!</span>
+        As frases abaixo destroem a postura consultiva e podem expor o consultor ou o Sophia Riviera a riscos comerciais e jurídicos. Estude o que dizer no lugar.
+      </div>
+
+      <div id="nunca-dizer-lista"></div>
+    </div>
+  </section>
+
+  <!-- ══ FRASES DE BOLSO ══ -->
+  <section class="secao" id="frases">
+    <div class="container">
+      <div class="secao-titulo">
+        <h2>Frases de bolso</h2>
+        <span class="secao-subtitulo">Para consulta rápida no atendimento</span>
+      </div>
+
+      <div class="alerta alerta-info" style="margin-bottom:1.5rem">
+        <span class="alerta-icone">i</span>
+        Use como referência de linguagem consultiva. Adapte ao contexto de cada cliente. Clique em "Copiar frase" para usar no WhatsApp ou e-mail.
+      </div>
+
+      <div id="frases-lista"></div>
+    </div>
+  </section>
+
+  <!-- ══ GUIA DE USO ══ -->
+  <section class="secao" id="guia">
+    <div class="container">
+      <div class="secao-titulo">
+        <h2>Guia de uso</h2>
+        <span class="secao-subtitulo">Como manter e consultar o caderno</span>
+      </div>
+
+      <div class="guia-grid">
+
+        <div class="guia-card">
+          <div class="guia-numero">01</div>
+          <h3>Como consultar</h3>
+          <p>Use o menu superior para navegar entre as seções. Em "Concorrentes", filtre por tipo, cidade ou risco. Clique em "Ver análise" para abrir o detalhamento completo de cada empreendimento.</p>
+        </div>
+
+        <div class="guia-card">
+          <div class="guia-numero">02</div>
+          <h3>Como atualizar os dados</h3>
+          <p>Abra a planilha "Cadastrode Resumo Concorrentes Sophia" no Google Drive. Edite a aba correspondente. Em seguida, execute o script de exportação para gerar os arquivos JSON atualizados na pasta <code>data/</code>.</p>
+        </div>
+
+        <div class="guia-card">
+          <div class="guia-numero">03</div>
+          <h3>Como adicionar concorrente</h3>
+          <p>Inclua uma nova linha na aba "Cadastro_Resumo" da planilha, preenchendo todos os campos obrigatórios. Reexporte os JSONs. O caderno carregará o novo concorrente automaticamente.</p>
+        </div>
+
+        <div class="guia-card">
+          <div class="guia-numero">04</div>
+          <h3>Como exportar para PDF</h3>
+          <p>Clique em "Imprimir" no menu ou use <strong>Ctrl+P</strong> (Windows) ou <strong>Cmd+P</strong> (Mac). No diálogo de impressão, selecione "Salvar como PDF". O layout é otimizado para impressão.</p>
+        </div>
+
+        <div class="guia-card">
+          <div class="guia-numero">05</div>
+          <h3>Como publicar nova versão</h3>
+          <p>Substitua os arquivos JSON na pasta <code>data/</code> pelos novos exportados. Se hospedado em GitHub Pages ou Netlify, faça o commit ou arraste os arquivos novos. O site atualiza automaticamente.</p>
+        </div>
+
+        <div class="guia-card">
+          <div class="guia-numero">06</div>
+          <h3>Como rodar localmente</h3>
+          <p>Abra o terminal na pasta do projeto e execute <code>npx serve .</code> ou <code>python -m http.server 8080</code>. Acesse <code>http://localhost:8080</code> no navegador. Não abra o index.html diretamente pelo clique duplo.</p>
+        </div>
+
+        <div class="guia-card">
+          <div class="guia-numero">07</div>
+          <h3>O que validar antes do atendimento</h3>
+          <p>Verifique o campo "Prioridade de validação" de cada concorrente. Dados marcados como "A validar" ou "Pendente" não devem ser usados em conversa com cliente sem confirmação de fonte direta.</p>
+        </div>
+
+        <div class="guia-card">
+          <div class="guia-numero">08</div>
+          <h3>Como atualizar objeções</h3>
+          <p>Edite a aba "Objeções_CRM" na planilha. Inclua a objeção, a leitura real, o risco, a resposta estratégica e a pergunta de avanço. Reexporte o arquivo <code>data/objecoes.json</code>.</p>
+        </div>
+
+      </div>
+
+      <div class="divider"></div>
+
+      <div style="background:var(--branco);border:1px solid var(--areia-clara);border-radius:var(--raio);padding:1.5rem;margin-top:1rem">
+        <h3 style="margin-bottom:1rem">Sobre o Sophia Riviera</h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.75rem;font-size:.85rem">
+          <div><span style="color:var(--cinza-suave);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;display:block;margin-bottom:.15rem">Produto</span>Condomínio resort residencial</div>
+          <div><span style="color:var(--cinza-suave);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;display:block;margin-bottom:.15rem">Localização</span>Praia das Tartarugas, Luís Correia, PI</div>
+          <div><span style="color:var(--cinza-suave);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;display:block;margin-bottom:.15rem">Entrega prevista</span>Primeiro semestre de 2028</div>
+          <div><span style="color:var(--cinza-suave);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;display:block;margin-bottom:.15rem">Total de unidades</span>126 unidades</div>
+          <div><span style="color:var(--cinza-suave);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;display:block;margin-bottom:.15rem">Grupo</span>Grupo Arrey</div>
+          <div><span style="color:var(--cinza-suave);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;display:block;margin-bottom:.15rem">Tipologias</span>Studio, Studio Hub 1 e 2, Studio Garden, Garden, Garden Premium, Duplex, Duplex Premium</div>
+          <div><span style="color:var(--cinza-suave);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;display:block;margin-bottom:.15rem">Mobília</span>Unidade privativa mobiliada pelo cliente. Áreas comuns entregues mobiliadas.</div>
+          <div><span style="color:var(--cinza-suave);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;display:block;margin-bottom:.15rem">Locação</span>Possibilidade de locação de temporada como camada adicional, nunca como promessa.</div>
+          <div><span style="color:var(--cinza-suave);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;display:block;margin-bottom:.15rem">Clube Sophia</span>Benefícios nos hotéis do grupo durante o período de obras, conforme regras vigentes.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</div><!-- fim #app-content -->
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal" id="modal-conteudo"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

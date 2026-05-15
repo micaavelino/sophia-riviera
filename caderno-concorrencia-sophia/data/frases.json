@@ -1,0 +1,96 @@
+{
+  "frases_bolso": [
+    { "texto": "Antes de comparar preço, precisamos comparar proposta.", "contexto": "Quando o cliente compara valores sem considerar o que cada produto entrega." },
+    { "texto": "Lote é começo de projeto. Sophia é uma estrutura planejada, pronta para viver ou locar.", "contexto": "Quando o cliente compara com loteamentos." },
+    { "texto": "Produto pronto resolve uma necessidade imediata. Produto em obra pode construir outra oportunidade.", "contexto": "Quando o cliente prioriza entrega rápida." },
+    { "texto": "A comparação correta não é só metragem. É entrega total: estrutura, gestão, localização e experiência.", "contexto": "Quando o cliente compara metragens isoladamente." },
+    { "texto": "O Sophia tende a fazer sentido para quem valoriza estrutura de resort residencial com menor esforço individual.", "contexto": "Para posicionar o perfil ideal de comprador." },
+    { "texto": "Locação entra como camada adicional de análise, nunca como promessa de retorno.", "contexto": "Quando o cliente pergunta sobre renda com locação." },
+    { "texto": "Preço sem contexto gera comparação rasa. O contexto aqui é proposta, localização e estrutura.", "contexto": "Quando o cliente foca apenas no valor de entrada." },
+    { "texto": "Barra Grande e Praia das Tartarugas têm perfis diferentes de público e de experiência. Vale entender qual faz mais sentido para o seu momento.", "contexto": "Quando o cliente compara regiões." },
+    { "texto": "Resort residencial não é apartamento de praia convencional. A proposta é outra.", "contexto": "Para reposicionar quando o cliente compara com apartamentos comuns." },
+    { "texto": "A entrega do Sophia em 2028 permite acompanhar a construção e fazer escolhas de personalização durante o processo.", "contexto": "Quando o cliente questiona o prazo de entrega." },
+    { "texto": "Condomínio de lote entrega liberdade de projeto. Condomínio resort entrega estrutura já pensada e gerida.", "contexto": "Para comparar lotes com o Sophia sem atacar." },
+    { "texto": "O que o cliente compra hoje é o projeto. O que ele vai usufruir é a estrutura completa em 2028.", "contexto": "Para ancoragem no valor futuro da estrutura." },
+    { "texto": "Financiamento bancário tradicional tem vantagens de prazo, mas exige aprovação, renda comprovada e encargos de juros. Vale colocar tudo na ponta do lápis.", "contexto": "Quando o cliente menciona financiamento como vantagem de concorrente." },
+    { "texto": "A pergunta não é qual produto é melhor. É qual produto é mais adequado para o seu perfil e objetivo.", "contexto": "Para conduzir a conversa sem atacar concorrentes." },
+    { "texto": "126 unidades em resort fechado gera uma experiência diferente de condomínios maiores.", "contexto": "Para destacar a escala exclusiva do Sophia." },
+    { "texto": "O Clube Sophia permite aproximar o comprador da experiência do litoral ainda durante a obra.", "contexto": "Para destacar benefícios do programa Clube Sophia." },
+    { "texto": "Personalização interna é possível dentro das alternativas validadas. Isso garante qualidade e coerência com o projeto.", "contexto": "Quando o cliente pergunta sobre customização da unidade." },
+    { "texto": "Não existe produto sem risco. O que existe é gestão de risco com mais ou menos estrutura por trás.", "contexto": "Quando o cliente afirma que outro produto é mais seguro." },
+    { "texto": "Produto em obra em região com crescimento de demanda tende a ser diferente de produto pronto em mercado saturado. Mas isso é contexto, não garantia.", "contexto": "Para comparar com produtos prontos sem prometer valorização." },
+    { "texto": "A informação que não está validada não entra na conversa. Quando estiver confirmada, eu trago para você.", "contexto": "Quando o consultor não tem dado confirmado para responder." }
+  ],
+  "nunca_dizer": [
+    {
+      "frase": "O Sophia é melhor.",
+      "por_que": "Afirmação absoluta sem fundamento técnico. Coloca o consultor em posição indefensável se o cliente questionar.",
+      "substituir_por": "O Sophia tende a fazer sentido para quem valoriza estrutura de resort residencial com menor esforço individual. Depende do perfil e do objetivo do comprador."
+    },
+    {
+      "frase": "Esse concorrente não presta.",
+      "por_que": "Ataque direto a terceiro sem base técnica. Gera desconfiança no cliente e expõe o consultor juridicamente.",
+      "substituir_por": "Esse produto tem uma proposta diferente. Vale entender se ela se alinha com o que você está buscando."
+    },
+    {
+      "frase": "Essa obra está parada.",
+      "por_que": "Afirmação que pode não ser verdadeira ou estar desatualizada. Se o cliente verificar e a obra estiver andando, o consultor perde credibilidade.",
+      "substituir_por": "Tenho como ponto de atenção o status atual dessa obra. Recomendo verificar diretamente com a incorporadora antes de qualquer decisão."
+    },
+    {
+      "frase": "Eles estão com problema.",
+      "por_que": "Boato ou percepção transformada em afirmação. Pode gerar processo e destrói a postura consultiva.",
+      "substituir_por": "Há informações que ainda precisam de validação sobre esse empreendimento. Antes de considerar, vale buscar fontes diretas."
+    },
+    {
+      "frase": "Lá não vale a pena.",
+      "por_que": "Julgamento de valor sem critério técnico. O cliente pode discordar e se sentir desrespeitado.",
+      "substituir_por": "Esse produto pode atender outro perfil de comprador. Vamos entender o que faz mais sentido para o seu objetivo."
+    },
+    {
+      "frase": "Aqui vai valorizar mais.",
+      "por_que": "Promessa de valorização sem respaldo técnico ou legal. Pode gerar responsabilidade por expectativa criada.",
+      "substituir_por": "A valorização depende de muitos fatores que não são controláveis. O que posso apresentar são os dados de mercado da região e o potencial do produto."
+    },
+    {
+      "frase": "A locação paga.",
+      "por_que": "Promessa de retorno financeiro sem garantia. Cria expectativa que pode não se concretizar e gerar reclamação futura.",
+      "substituir_por": "A locação de temporada é uma possibilidade que pode ser analisada como camada adicional. Não é uma promessa de retorno."
+    },
+    {
+      "frase": "É garantido.",
+      "por_que": "Palavra proibida em vendas imobiliárias sem contrato de garantia formal. Cria responsabilidade sem respaldo.",
+      "substituir_por": "O que temos documentado é... [dado específico com fonte]. O restante depende de variáveis de mercado."
+    },
+    {
+      "frase": "É igual hotel.",
+      "por_que": "Comparação incorreta. Hotel tem gestão operacional de hospedagem. Resort residencial é outro modelo jurídico e operacional.",
+      "substituir_por": "O Sophia tem estrutura de resort, mas é um condomínio residencial. A experiência se aproxima da hotelaria de alto padrão sem ser hotel."
+    },
+    {
+      "frase": "Você não terá custo.",
+      "por_que": "Afirmação falsa. Todo imóvel tem custos de manutenção, condomínio e imposto.",
+      "substituir_por": "Os custos estimados de condomínio e manutenção precisam ser considerados na análise financeira."
+    },
+    {
+      "frase": "É só colocar para alugar.",
+      "por_que": "Simplifica demais uma decisão que envolve gestão, temporada, demanda e operação. Cria expectativa equivocada.",
+      "substituir_por": "A possibilidade de locação existe e pode ser analisada. Envolve gestão, demanda sazonal e outros fatores que vale considerar com calma."
+    },
+    {
+      "frase": "Compre porque vai ficar mais caro.",
+      "por_que": "Argumento de pressão sem base técnica. Não é aceitável como argumento de venda consultiva.",
+      "substituir_por": "O preço atual reflete o estágio da obra. Cada fase tem sua lógica. O mais importante é entender se o produto faz sentido para você agora."
+    },
+    {
+      "frase": "Esse concorrente é inferior.",
+      "por_que": "Julgamento absoluto que destrói postura consultiva e pode gerar retaliação comercial.",
+      "substituir_por": "Esse produto tem uma proposta diferente. A comparação adequada considera o que cada um entrega dentro do seu contexto."
+    },
+    {
+      "frase": "O Sophia não tem risco.",
+      "por_que": "Nenhum produto imobiliário é isento de risco. Afirmar isso é mentira e pode gerar responsabilidade legal.",
+      "substituir_por": "Todo produto em obra tem riscos inerentes. O Sophia tem estrutura de grupo consolidado, obra em andamento e cronograma definido. A análise de risco deve ser feita com dados reais."
+    }
+  ]
+}
